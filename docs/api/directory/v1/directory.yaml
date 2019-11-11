@@ -1,0 +1,505 @@
+openapi: 3.0.0
+info:
+  title: Directory API
+  description: 'This is the documentation of the Connect Print Directory API Endpoints.'
+  version: 1.0.0
+servers:
+  - url: https://directory.heidelberg.cloud/api/v1/
+
+tags:
+  - name: Person
+  - name: JWT Public Keys
+  - name: Machines
+  - name: Sites
+    description: Information about Organization sites
+
+paths:
+  /person:
+    get:
+      tags:
+        - Person
+      summary: Get authenticated person
+      operationId: getPerson
+      description: Returns the currently authenticated person.
+      parameters: []
+      security:
+        - directoryAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+
+  /person/organization_memberships:
+    get:
+      tags:
+        - Person
+      summary: Get organization memberships of authenticated person
+      operationId: getPersonOrganizationMemberships
+      parameters: []
+      security:
+        - directoryAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: 'array'
+                items:
+                  $ref: '#/components/schemas/OrganizationMembership'
+
+  /machines:
+    post:
+      tags:
+        - Machines
+      description: Creates a new machine
+      parameters:
+        - in: query
+          name: machine[name]
+          required: true
+          schema:
+            type: string
+            example: Speedmaster 2020
+        - in: query
+          name: machine[manufacturer]
+          required: true
+          schema:
+            type: string
+            example: Heidelberger Druckmaschinen AG
+        - in: query
+          name: machine[serial_number]
+          required: true
+          description: Unique by manufacturer
+          schema:
+            type: string
+            example: HDB1337
+        - in: query
+          name: machine[kind]
+          schema:
+            type: string
+            enum:
+              - offset_press
+              - digital_press
+              - folder
+        - in: query
+          name: machine[site_id]
+          description: Existing site of the current organization
+          schema:
+            type: string
+            format: uuid
+            example: d6308910-f5ae-58c0-aba7-d099947845c6
+      security:
+        - directoryAuth: []
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+        '422':
+          description: Validation error during creation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrors'
+        '403':
+          description: Forbidden (can happen if the bearer is not an organization)
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+
+  /machines/{machineId}:
+    get:
+      tags:
+        - Machines
+      security:
+        - directoryAuth: []
+      parameters:
+        - in: path
+          name: machineId
+          required: true
+          schema:
+            type: string
+            format: uuid
+            example: 4187f98a-585c-4db7-baa5-52170fb5011d
+      responses:
+        '200':
+          description: Returns machine that matches given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Machine'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+
+  /machines/{machineId}/machine_ownership:
+    post:
+      tags:
+        - Machines
+      description: Creates ownership for the currently authenticated organization. It is required that the machine has no other active ownership.
+      security:
+        - directoryAuth: []
+      parameters:
+        - in: path
+          name: machineId
+          required: true
+          schema:
+            type: string
+            format: uuid
+            example: 4187f98a-585c-4db7-baa5-52170fb5011d
+      responses:
+        '201':
+          description: Created Machine Ownership
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineOwnership'
+        '422':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrors'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+        '403':
+          description: Forbidden (can happen if the bearer is not an organization)
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+
+    get:
+      tags:
+        - Machines
+      security:
+        - directoryAuth: []
+      parameters:
+        - in: path
+          name: machineId
+          required: true
+          schema:
+            type: string
+            format: uuid
+            example: 4187f98a-585c-4db7-baa5-52170fb5011d
+      responses:
+        '200':
+          description: Returns machine ownership for the given machine id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MachineOwnership'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+        '403':
+          description: Forbidden (can happen if the bearer is not an organization)
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+
+  /jwt_public_keys:
+    get:
+      tags:
+        - JWT Public Keys
+      summary: Get json public key
+      description: Retrieve a json public key that can be turned into an rsa key again
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keys:
+                    type: array
+                    items:
+                      type: string
+              example:
+                keys:
+                  -
+                    kty: RSA
+                    n: vm7t9YKaF_EUYcnGESLL_AKpXCFu5o8D7OvRqZCkIdw_jpC5MVn_-OgKGU34LFucdt512hV6gePztDyIURDwx9mWtr2KZxvtE3OWLSm5IZxRvHjFAaNFAk6Jac7OCbWQWYGJXbEiZsqDsw3F55AE_9mW5RZjk4jnJodW2Rq23WrpdnAmdsjOYXZkLoesQqtVoPyKoexwuqkTjDhXN24XUtmW4YWNqMCbyU6qTSd-Aguc9V1R6xNGnbgLLxOrQgbXt8k5VafiQjC38-YiEwtuAyRc--7wAiHaiSqlQNhIiL5_Bchl_AIdR_hpRNkSDSq_lqxbVvbhS2w0Y2dUB7asQQ
+                    e: AQAB
+                    kid: 22d308350f0cb5b7ad2da90dddcaa942c229bf8792eef10e47eeffa8790a0658
+
+  /sites:
+    get:
+      tags:
+        - Sites
+      summary: Get Sites
+      operationId: getSites
+      description: Returns a list of sites.
+      parameters: []
+      security:
+        - directoryAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Site'
+              examples:
+                siteExample:
+                  $ref: '#/components/examples/Sites'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/PlainError'
+components:
+  schemas:
+    uuid:
+      type: string
+      format: uuid
+    OrganizationMembership:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+        roles:
+          type: array
+          example:
+            - owner
+          items:
+            type: string
+            enum:
+              - owner
+              - admin
+              - member
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        organization:
+          $ref: '#/components/schemas/Organization'
+    Person:
+      type: object
+      required:
+        - id
+        - first_name
+        - name
+        - full_name
+        - email
+        - locale
+        - time_zone
+        - created_at
+        - updated_at
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: '29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7'
+        first_name:
+          type: string
+          example: Jane
+        name:
+          type: string
+          example: Doe
+        full_name:
+          type: string
+          example: Jane Doe
+        email:
+          type: string
+          format: email
+          example: jane.doe@gmail.com
+        pronoun:
+          type: string
+          example: She/Her
+          enum:
+            - She/Her
+            - He/Him
+        locale:
+          type: string
+          example: de
+          enum:
+            - en
+            - de
+        time_zone:
+          type: string
+          example: UTC
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        organization_memberships:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+
+    Organization:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: 'b1475f65-236c-58b8-96e1-e1778b43beb7'
+        name:
+          type: string
+          format: string
+          example: 'Bounty Soap Inc.'
+    Machine:
+      required:
+        - id
+        - name
+        - serial_number
+        - manufacturer
+        - created_at
+        - updated_at
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: '4187f98a-585c-4db7-baa5-52170fb5011d'
+        name:
+          type: string
+          example: Speedmaster 2020
+        manufacturer:
+          type: string
+          example: Heidelberger Druckmaschinen AG
+        serial_number:
+          type: string
+          description: Needs to be unique by manufacturer
+          example: HDB1337
+        kind:
+          type: string
+          enum:
+            - offset_press
+            - digital_press
+            - folder
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    MachineOwnership:
+      required:
+        - id
+        - machine_id
+        - organization_id
+        - created_at
+        - updated_at
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: '62abcc92-e17e-4db0-b78e-13369251474b'
+        machine_id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: '4187f98a-585c-4db7-baa5-52170fb5011d'
+        organization_id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: 'b1475f65-236c-58b8-96e1-e1778b43beb7'
+        terminated_at:
+          type: string
+          format: date-time
+          example: null
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Site:
+      required:
+        - name
+        - organization
+      type: object
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: 'd6308910-f5ae-58c0-aba7-d099947845c6'
+        name:
+          type: string
+        organization:
+          $ref: '#/components/schemas/Organization'
+
+    ValidationErrors:
+      required:
+        - errors
+      type: object
+      properties:
+        errors:
+          type: object
+          example:
+            name:
+              - can't be blank
+          additionalProperties:
+            type: array
+            items:
+              type: string
+
+    PlainError:
+      type: string
+
+  examples:
+    Organization:
+      value:
+        id: 'b1475f65-236c-58b8-96e1-e1778b43beb7'
+        name: 'Bounty Soap Inc.'
+    Sites:
+      value:
+        -
+          id: 'd6308910-f5ae-58c0-aba7-d099947845c6'
+          name: 'Black Mesa Research Facility'
+          organization:
+            id: 'b1475f65-236c-58b8-96e1-e1778b43beb7'
+            name: 'Bounty Soap Inc.'
+  securitySchemes:
+    directoryAuth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://directory.heidelberg.cloud/oauth/authorize
+          tokenUrl: https://directory.heidelberg.cloud/oauth/access_token
+          refreshUrl: https://directory.heidelberg.cloud/oauth/access_token
+          scopes: {}
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
