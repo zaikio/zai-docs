@@ -24,8 +24,13 @@
         const ui = SwaggerUI({
           spec,
           domNode,
-          oauth2RedirectUrl: urlParts.join('/') + '/oauth2-redirect.html'
+          oauth2RedirectUrl: urlParts.join('/') + '/oauth2-redirect.html',
+          withCredentials: true
         });
+
+        ui.initOAuth({
+          usePkceWithAuthorizationCodeGrant: true
+        })
       });
     }
   }
