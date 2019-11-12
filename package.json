@@ -22,6 +22,8 @@
   "homepage": "https://github.com/crispymtn/hc-docs#readme",
   "devDependencies": {
     "@vuepress/shared-utils": "^1.2.0",
+    "js-yaml-loader": "^1.2.2",
+    "swagger-ui": "^3.24.2",
     "vuepress": "^1.2.0",
     "vuepress-plugin-element-tabs": "^0.1.8"
   }
