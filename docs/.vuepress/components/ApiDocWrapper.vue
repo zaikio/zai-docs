@@ -17,10 +17,14 @@
       this.$nextTick(function () {
         const domNode = document.getElementById('api-doc-wrapper');
         const spec = require('@source/' + domNode.dataset.src);
+        const urlParts = window.location.href.split('/')
+        urlParts.pop()
+
         // config: https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
-        SwaggerUI({
+        const ui = SwaggerUI({
           spec,
-          domNode
+          domNode,
+          oauth2RedirectUrl: urlParts.join('/') + '/oauth2-redirect.html'
         });
       });
     }
