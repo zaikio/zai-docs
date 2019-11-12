@@ -23,7 +23,7 @@ module.exports = {
         items: [
           {
             text: 'Single Sign On & OAuth',
-            link: '/guide/oauth'
+            link: '/guide/oauth/'
           }
         ]
       },
@@ -36,8 +36,18 @@ module.exports = {
           }
         ]
       }
-    ]
+    ],
+    sidebar: {
+      '/guide/oauth/': [
+        'redirect-flow',
+        'device-flow',
+        'access-token-refresh'
+      ]
+    }
   },
+  plugins: [
+    'vuepress-plugin-element-tabs'
+  ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {
       // mutate the config for client
