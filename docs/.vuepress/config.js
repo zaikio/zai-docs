@@ -57,6 +57,9 @@ module.exports = {
   plugins: [
     'vuepress-plugin-element-tabs'
   ],
+  globalUIComponents: [
+    'Intercom'
+  ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {
       // mutate the config for client
