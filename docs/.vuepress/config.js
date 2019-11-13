@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 module.exports = {
   title: 'Developer Hub',
@@ -57,8 +58,8 @@ module.exports = {
   plugins: [
     'vuepress-plugin-element-tabs'
   ],
-  globalUIComponents: [
-    'Intercom'
+  head: [
+    ['script', {}, fs.readFileSync(path.join(__dirname, './intercom-snippet.js'), 'utf8')]
   ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {
