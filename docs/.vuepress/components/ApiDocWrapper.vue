@@ -25,7 +25,8 @@
           spec,
           domNode,
           oauth2RedirectUrl: urlParts.join('/') + '/oauth2-redirect.html',
-          withCredentials: true
+          withCredentials: true,
+          docExpansion: 'full'
         });
 
         ui.initOAuth({
