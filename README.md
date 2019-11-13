@@ -1,5 +1,7 @@
 # hc-docs
 
+Developer Hub based on [Vuepress](https://vuepress.vuejs.org/) and [swagger-ui](https://swagger.io/tools/swagger-ui/).
+
 ## Getting started
 
 ```
@@ -14,3 +16,30 @@ Open [http://localhost:8080](http://localhost:8080)
 ```
 $ npm run build
 ```
+
+## Contributing
+
+### Guides
+
+All guides are written in Markdown. In addition some of [Vuepress' Markdown Extensions](https://vuepress.vuejs.org/guide/markdown.html) and
+the [Tabs Markdown Extension](https://github.com/superbiger/vuepress-plugin-tabs) can be used. Checkout our existing docs in `docs/guide` to get some inspiration.
+
+### API Reference
+
+For API References we use [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and [swagger-ui](https://swagger.io/tools/swagger-ui/). If you want to
+modify or add a new reference have a look at `docs/api`.
+
+### Navigation Links
+
+If you want to change the navigation links, please modify `docs/.vuepress/config.js` in `themeConfig.nav`. In addition to that you can also
+setup a sidebar for you guide by either adding it to `docs/.vuepress/config.js` or via `sidebar: 'auto'` (see [Vuepress frontmatter](https://vuepress.vuejs.org/guide/frontmatter.html#predefined-variables)).
+
+### Advanced
+
+There are many features coming with Vuepress. If the markdown options is not enough, you can also add custom Vue Components.
+Please have a look to the [Vuepress Documentation](https://vuepress.vuejs.org/) for more details.
+
+
+## Deployment
+
+The deployment is automatically triggered in heroku with every push to `master`.
