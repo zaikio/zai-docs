@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  title: 'Connect Print | Developer Hub',
+  title: 'Developer Hub',
   dest: 'dist',
   extraWatchFiles: [
     '.vuepress/public/api_specs/*.yaml'
@@ -13,6 +13,7 @@ module.exports = {
     you get stuck. Let's jump right in!
   `,
   themeConfig: {
+    logo: '/connect_print_logo.png',
     nav: [
       {
         text: 'Home',
@@ -39,6 +40,10 @@ module.exports = {
             link: '/api/oauth/'
           }
         ]
+      },
+      {
+        text: 'Directory',
+        link: 'https://directory.heidelberg.cloud/'
       }
     ],
     sidebar: {
