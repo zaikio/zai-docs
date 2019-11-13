@@ -8,10 +8,17 @@ servers:
 
 tags:
   - name: Person
+    description: >
+      **Needs person scope**
   - name: JWT Public Keys
+    description: >
+      **Needs person scope**
   - name: Machines
+    description: >
+      **Needs organization scope**
   - name: Sites
-    description: Information about Organization sites
+    description: >
+      **Needs organization scope**
 
 paths:
   /person:
@@ -55,7 +62,9 @@ paths:
     post:
       tags:
         - Machines
-      description: Creates a new machine
+      description: >
+        Creates a new machine with the given arguments. It is recommended to also specify a `machine[site_id]`
+        if the organization has multiple sites.
       parameters:
         - in: query
           name: machine[name]
@@ -101,23 +110,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Machine'
         '422':
-          description: Validation error during creation
+          description: Unprocessable Entity (Validation error during creation)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationErrors'
         '403':
           description: Forbidden (can happen if the bearer is not an organization)
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
         '404':
           description: Not Found
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
 
   /machines/{machineId}:
     get:
@@ -142,10 +143,6 @@ paths:
                 $ref: '#/components/schemas/Machine'
         '404':
           description: Not Found
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
 
   /machines/{machineId}/machine_ownership:
     post:
@@ -170,23 +167,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/MachineOwnership'
         '422':
-          description: Forbidden
+          description: Unprocessable Entity (Validation error during creation)
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationErrors'
         '404':
           description: Not Found
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
         '403':
           description: Forbidden (can happen if the bearer is not an organization)
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
 
     get:
       tags:
@@ -210,16 +199,8 @@ paths:
                 $ref: '#/components/schemas/MachineOwnership'
         '404':
           description: Not Found
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
         '403':
           description: Forbidden (can happen if the bearer is not an organization)
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
 
   /jwt_public_keys:
     get:
@@ -252,9 +233,10 @@ paths:
     get:
       tags:
         - Sites
-      summary: Get Sites
       operationId: getSites
-      description: Returns a list of sites.
+      description: >
+        Some organizations might have multile sites because they have several locations.
+        This returns a list of the current organization's sites.
       parameters: []
       security:
         - directoryAuth: []
@@ -272,10 +254,6 @@ paths:
                   $ref: '#/components/examples/Sites'
         '404':
           description: Not Found
-          content:
-            text/plain:
-              schema:
-                $ref: '#/components/schemas/PlainError'
 components:
   schemas:
     uuid:
@@ -473,9 +451,6 @@ components:
             type: array
             items:
               type: string
-
-    PlainError:
-      type: string
 
   examples:
     Organization:
