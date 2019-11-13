@@ -33,6 +33,10 @@ module.exports = {
           {
             text: 'Directory API',
             link: '/api/directory/v1/'
+          },
+          {
+            text: 'OAuth API',
+            link: '/api/oauth/'
           }
         ]
       }
