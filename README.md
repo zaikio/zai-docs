@@ -1,5 +1,7 @@
 # hc-docs
 
+Visit the docs here: [docs.zaiku.cloud](https://docs.zaiku.cloud/)
+
 Developer Hub based on [Vuepress](https://vuepress.vuejs.org/) and [swagger-ui](https://swagger.io/tools/swagger-ui/).
 
 ## Getting started
