@@ -44,9 +44,10 @@ Depending on the HTTP `Accept` header send with your request, the response will 
 
 ```json
 {
-  "access_token": "749ceefd1f7909a1773501e0bc57d5b2",
-  "token_type": "bearer",
-  "scope": "one,or,many,scopes"
+   "access_token":"749ceefd1f7909a1773501e0bc57d5b2",
+   "refresh_token":"be4ae927cf49466293049c993ad911b2",
+   "token_type":"bearer",
+   "scope":"directory.person.read"
 }
 ```
 
@@ -57,8 +58,9 @@ Depending on the HTTP `Accept` header send with your request, the response will 
 <?xml version="1.0" encoding="UTF-8"?>
 <OAuth>
    <access_token>749ceefd1f7909a1773501e0bc57d5b2</access_token>
+   <refresh_token>be4ae927cf49466293049c993ad911b2</refresh_token>
    <token_type>bearer</token_type>
-   <scope>one,or,many,scopes</scope>
+   <scope>directory.person.read</scope>
 </OAuth>
 ```
 

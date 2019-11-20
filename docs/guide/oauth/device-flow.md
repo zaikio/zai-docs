@@ -66,8 +66,9 @@ The `authorization_pending` and `slow_down` error codes define particularly uniq
 ```json
 {
    "access_token":"749ceefd1f7909a1773501e0bc57d5b2",
+   "refresh_token":"be4ae927cf49466293049c993ad911b2",
    "token_type":"bearer",
-   "scope":"one,or,many,scopes"
+   "scope":"directory.person.read"
 }
 ```
 
