@@ -473,9 +473,11 @@ components:
       flows:
         authorizationCode:
           authorizationUrl: https://directory.heidelberg.cloud/oauth/authorize
-          tokenUrl: https://directory.heidelberg.cloud/oauth/access_token
-          refreshUrl: https://directory.heidelberg.cloud/oauth/access_token
-          scopes: {}
+          tokenUrl: https://directory.heidelberg.cloud/oauth/access_token.json
+          refreshUrl: https://directory.heidelberg.cloud/oauth/access_token.json
+          scopes:
+            "directory.person.r": Read person data
+            "Org.directory.machines.rw": Read and write machines and sites
     bearerAuth:
       type: http
       scheme: bearer
