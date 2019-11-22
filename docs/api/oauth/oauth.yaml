@@ -54,8 +54,11 @@ paths:
               - 'false'
         - name: scope
           in: query
+          description: >
+            Comma separed list of requested scopes. More information in the [scope guides](/guide/oauth/scopes.html).
           schema:
             type: string
+            example: Org.warehouse.items.r,Org.directory.machines.rw
         - name: code_challenge_method
           in: query
           required: false
@@ -229,7 +232,27 @@ components:
           example: bearer
         scope:
           type: string
-          example: directory.person.read
+          example: warehouse.items.r,directory.machines.rw
+        audiences:
+          type: array
+          example:
+            - warehouse
+            - directory
+          items:
+            type: string
+        bearer:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: b1475f65-236c-58b8-96e1-e1778b43beb7
+            type:
+              type: string
+              example: Organization
+              enum:
+                - Person
+                - Organization
     DeviceAuthorization:
       type: object
       xml:
