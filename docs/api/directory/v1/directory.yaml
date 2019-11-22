@@ -331,6 +331,8 @@ components:
         time_zone:
           type: string
           example: UTC
+          description: >
+            IANA Timezone: [List of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
         created_at:
           type: string
           format: date-time
