@@ -22,6 +22,7 @@ To start the web application OAuth flow, you need to redirect users that don't h
 | `state`                  | You should set this parameter to a secure random string only known to your App, as a means of protection [against forgery attacks](https://security.stackexchange.com/questions/20187/oauth2-cross-site-request-forgery-and-state-parameter). This parameter can also contain any other arbitrary data. It will be reflected back to your App with the redirect after authorisation is obtained. |
 | `login`                  | If provided, this email address will be suggested as the users login.                                                                                                                                                                                                                                                                                                                            |
 | `signup`                 | If omitted or set to `true`, the Directory will allow the user to create a new account during the authorisation process. If set to `false`, a signup is not possible.                                                                                                                                                                                                                            |
+| `scope`                  | A comma-seperated list of the scopes you want authorisation for. Please read the [scope guides](/guide/oauth/scopes.html).                                                                                                                                                                                                                                                                       |
 
 ## Users are redirected back to your App by the Directory
 
@@ -44,10 +45,15 @@ Depending on the HTTP `Accept` header send with your request, the response will 
 
 ```json
 {
-   "access_token":"749ceefd1f7909a1773501e0bc57d5b2",
-   "refresh_token":"be4ae927cf49466293049c993ad911b2",
-   "token_type":"bearer",
-   "scope":"directory.person.read"
+  "access_token": "749ceefd1f7909a1773501e0bc57d5b2",
+  "refresh_token": "be4ae927cf49466293049c993ad911b2",
+  "token_type": "bearer",
+  "scope": "directory.person.read",
+  "audiences": ["directory"],
+  "bearer": {
+    "id": "29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7",
+    "type": "Person"
+  }
 }
 ```
 
@@ -61,6 +67,11 @@ Depending on the HTTP `Accept` header send with your request, the response will 
    <refresh_token>be4ae927cf49466293049c993ad911b2</refresh_token>
    <token_type>bearer</token_type>
    <scope>directory.person.read</scope>
+   <audiences>directory</audiences>
+   <bearer>
+     <id>29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7</id>
+     <type>Person</type>
+   </bearer>
 </OAuth>
 ```
 
@@ -113,10 +124,11 @@ See [RFC7636 4.1](https://tools.ietf.org/html/rfc7636#section-4.1) for details.
 
 ```js
 function base64URLEncode(str) {
-    return str.toString('base64')
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=/g, '');
+  return str
+    .toString("base64")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "");
 }
 const verifier = base64URLEncode(crypto.randomBytes(32));
 ```
@@ -136,7 +148,10 @@ b) With `code_challenge_method` "S256" the `code_challenge` is the SHA256 Hash v
 
 ```js
 function sha256(buffer) {
-    return crypto.createHash('sha256').update(buffer).digest();
+  return crypto
+    .createHash("sha256")
+    .update(buffer)
+    .digest();
 }
 
 const challenge = base64URLEncode(sha256(verifier));
