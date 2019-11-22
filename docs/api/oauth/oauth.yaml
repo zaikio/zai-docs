@@ -187,8 +187,11 @@ paths:
             type: string
         - name: scope
           in: query
+          description: >
+            Comma separed list of requested scopes. More information in the [scope guides](/guide/oauth/scopes.html).
           schema:
             type: string
+            example: Org.warehouse.items.r,Org.directory.machines.rw
       responses:
         '200':
           description: OK
