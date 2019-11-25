@@ -10,6 +10,9 @@ tags:
   - name: Person
     description: >
       **Needs person scope**
+  - name: Organisation
+    description: >
+      **Needs organisation scope**
   - name: JWT Public Keys
     description: >
       **Needs person scope**
@@ -57,6 +60,22 @@ paths:
                 type: 'array'
                 items:
                   $ref: '#/components/schemas/OrganizationMembership'
+
+  /organization:
+    get:
+      tags:
+        - Organisation
+      parameters: []
+      security:
+        - directoryAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+
 
   /machines:
     post:
@@ -357,6 +376,12 @@ components:
           type: string
           format: string
           example: 'Bounty Soap Inc.'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
     Machine:
       required:
         - id
