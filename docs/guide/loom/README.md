@@ -1,5 +1,9 @@
 # Event Handling with Loom
 
+::: warning
+**This document is for informational purposes only. The Loom event system is not published yet. If you have specific questions, please contact us.**
+:::
+
 Loom is a system to handle events between applications on the platform.
 
 When a developer registers an application in the Directory two list of events can be configured

@@ -41,7 +41,7 @@ module.exports = {
             link: '/api/directory/v1/'
           },
           {
-            text: 'Loom API',
+            text: 'Loom API [under construction]',
             link: '/api/loom/v1/'
           },
           {
