@@ -4,6 +4,6 @@ The Connect Print platform allows for a simple single sign-on flow across all ap
 
 Currently the following OAuth flows are supported:
 
-- [The Redirect Flow](./redirect-flow)
-- [The Device Flow](./device-flow)
-- [Access Token Refresh](./access-token-refresh)
+- [The Redirect Flow](./redirect-flow.html)
+- [The Device Flow](./device-flow.html)
+- [Access Token Refresh](./access-token-refresh.html)

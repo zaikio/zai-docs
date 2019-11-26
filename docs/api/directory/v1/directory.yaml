@@ -10,6 +10,9 @@ tags:
   - name: Person
     description: >
       **Needs person scope**
+  - name: Organisation
+    description: >
+      **Needs organisation scope**
   - name: JWT Public Keys
     description: >
       **Needs person scope**
@@ -57,6 +60,22 @@ paths:
                 type: 'array'
                 items:
                   $ref: '#/components/schemas/OrganizationMembership'
+
+  /organization:
+    get:
+      tags:
+        - Organisation
+      parameters: []
+      security:
+        - directoryAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+
 
   /machines:
     post:
@@ -331,6 +350,8 @@ components:
         time_zone:
           type: string
           example: UTC
+          description: >
+            IANA Timezone: [List of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
         created_at:
           type: string
           format: date-time
@@ -355,6 +376,12 @@ components:
           type: string
           format: string
           example: 'Bounty Soap Inc.'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
     Machine:
       required:
         - id
@@ -471,9 +498,11 @@ components:
       flows:
         authorizationCode:
           authorizationUrl: https://directory.heidelberg.cloud/oauth/authorize
-          tokenUrl: https://directory.heidelberg.cloud/oauth/access_token
-          refreshUrl: https://directory.heidelberg.cloud/oauth/access_token
-          scopes: {}
+          tokenUrl: https://directory.heidelberg.cloud/oauth/access_token.json
+          refreshUrl: https://directory.heidelberg.cloud/oauth/access_token.json
+          scopes:
+            "directory.person.r": Read person data
+            "Org.directory.machines.rw": Read and write machines and sites
     bearerAuth:
       type: http
       scheme: bearer

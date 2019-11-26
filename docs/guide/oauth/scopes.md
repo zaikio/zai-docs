@@ -1,0 +1,65 @@
+# Scopes
+
+::: warning
+**This documentation is experimental and works only partially. If you have specific questions, please contact us.**
+:::
+
+Scopes are used to determine which permissions each client has for a defined subject. An authenticated person must grant these permissions either to an organisation or to themselves.
+We therefore distinguish between two types of bearers in a Authorization token: `Organization` and `Person`. Scopes are used to identify the subject type for which the token is to be created.
+
+Scopes can also be added to various audiences.
+
+## Requested Scope Structure
+
+This is the basic structure of a requested scope `BEARER_TYPE`.`AUDIENCE_NAME`.`SCOPE_NAME`.`PERMISSION`
+
+### `BEARER_TYPE`
+
+Can be omitted or be `Org` or `Per`.
+
+### `AUDIENCE_NAME`
+
+Defines for which app the permission should be granted. For example: `warehouse`.
+
+### `SCOPE_NAME`
+
+The scope name is provided by each app and is given by each app.
+
+### `PERMISSION`
+
+The type of permission that is requested. `r` stands for _read_ and `rw` for _read_write_.
+
+### Regex
+
+```regex
+/((Org|Per)\.)?[a-z]{1}[a-z0-9_]{2,}\.[a-z]{1}[a-z_]{2,}\.(rw|r)/
+```
+
+### Valid requested scopes examples
+
+| Requested Scope             | Description                                                                         |
+| --------------------------- | ----------------------------------------------------------------------------------- |
+| `directory.person.r`        | By default, if no `BEARER_TYPE` is provided, the scope is read as a `Person` scope. |
+| `Per.directory.person.r`    | Same as above.                                                                      |
+| `Org.directory.machines.rw` | The person can choose which organisation will be the bearer.                        |
+| `Org.warehouse.items.r`     | This uses a scope, that needs to be provided by `warehouse`                         |
+
+::: tip IMPORTANT
+When scopes are returned in `POST oauth/access_tokens`, the `BEARER_TYPE` will be always omitted. Instead a specific `bearer` will be provided that has an `id` and a `type`.
+:::
+
+## Possible Errors
+
+Scopes are validated and following errors can occur:
+
+| Error identifier                    | Description                                                                                                           |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `different_bearer_types`            | Multiple scopes were specified for different bearer types.                                                            |
+| `invalid_audience`                  | The audience that was specified does not exist.                                                                       |
+| `invalid_scope_name`                | The given scope name does not exist for the provided audience.                                                        |
+| `invalid_scope_structure`           | The scope your provided does not match the regex as outlined above.                                                   |
+| `unavailable_scope_for_bearer_type` | Some scopes are only available for `Person` or `Organization`. Usually this should be documented by the app provider. |
+
+## Provided OAuth Scopes Guidelines
+
+UNDER CONSTRUCTION

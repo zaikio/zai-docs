@@ -26,7 +26,13 @@
           domNode,
           oauth2RedirectUrl: urlParts.join('/') + '/oauth2-redirect.html',
           withCredentials: true,
-          docExpansion: 'full'
+          docExpansion: 'full',
+          requestInterceptor: (request) => {
+            // Otherwise we run into CORS errors
+            // https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials
+            request.credentials = 'omit';
+            return request;
+          }
         });
 
         ui.initOAuth({
