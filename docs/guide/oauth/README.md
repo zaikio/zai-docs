@@ -6,4 +6,5 @@ Currently the following OAuth flows are supported:
 
 - [The Redirect Flow](./redirect-flow.html)
 - [The Device Flow](./device-flow.html)
+- [Client Credentials Flow](./client-credentials.html)
 - [Access Token Refresh](./access-token-refresh.html)
