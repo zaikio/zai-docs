@@ -1,0 +1,207 @@
+openapi: 3.0.0
+info:
+  title: Directory API
+  description: 'This is the documentation of the Connect Print Loom API Endpoints.'
+  version: 1.0.0
+servers:
+  - url: https://loom.heidelberg.cloud/api/v1/
+
+tags:
+  - name: Events
+
+paths:
+  /events:
+    post:
+      tags:
+        - Events
+      description: >
+        Fires a new event with the given arguments.
+      parameters:
+        - in: query
+          name: event[id]
+          required: true
+          description: Must be an unique UUID for each fired event
+          schema:
+            type: string
+            format: uuid
+            example: d6308910-f5ae-58c0-aba7-d099947845c6
+        - in: query
+          name: event[timestamp]
+          required: true
+          description: ISO8601 timestamp of the event
+          schema:
+            type: date-time
+            example: 2019-11-18T14:06:40Z
+        - in: query
+          name: event[name]
+          required: true
+          description: With <app_name>.<event_name> from the Directory
+          schema:
+            type: string
+            example: accounting.invoice_paid
+        - in: query
+          name: event[version]
+          required: true
+          description: Version of the payload structure and format
+          schema:
+            type: integer
+            example: 1
+        - in: query
+          name: event[payload]
+          required: true
+          description: The payload must be a hash, see Guide for further requirements
+          schema:
+            type: object
+            additionalProperties: {}
+            example: { "invoice_number": 1234 }
+      security:
+        components:
+          - basicAuth: []
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity (Validation error during creation)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrors'
+        '429':
+          description: Too Many Requests, API rate limit exceeded
+
+    get:
+      tags:
+        - Events
+      description: >
+        Returns all subscribed events matching the filter
+      parameters:
+        - in: path
+          name: filter[name]
+          description: Filter events by name
+          schema:
+            type: string
+            example: accounting.invoice_paid
+        - in: path
+          name: filter[from]
+          description: Filter events by timestamp
+          schema:
+            type: date-time
+            example: 2019-11-01T00:00:00Z
+        - in: path
+          name: filter[to]
+          description: Filter events by timestamp
+          schema:
+            type: date-time
+            example: 2019-11-01T23:59:59.999Z
+        - in: path
+          name: page
+          description: Events are paginated to 25 events per default
+          schema:
+            type: integer
+            example: 1
+
+      security:
+        components:
+          - basicAuth: []
+      responses:
+        '200':
+          description: Returns events that matches the query
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+          headers:
+            X-Total-Count:
+              description: Number of events matching the filter
+              schema:
+                type: integer
+            Link:
+              description: RFC5988 pagination and navigation link
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity (Invalid fiter)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilterErrors'
+        '429':
+          description: Too Many Requests, API rate limit exceeded
+
+components:
+  schemas:
+    uuid:
+      type: string
+      format: uuid
+    Event:
+      required:
+        - id
+        - timestamp
+        - name
+        - version
+        - payload
+        - received_at
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: '62abcc92-e17e-4db0-b78e-13369251474b'
+        name:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        version:
+          type: string
+        payload:
+          type: object
+          description: A hashmap with keys in lowercase snake_case. Format and structure is defined by the app that fires an event
+          additionalProperties: {}
+        received_at:
+          type: string
+          format: date-time
+
+    FilterErrors:
+      required:
+        - errors
+      type: object
+      properties:
+        errors:
+          type: object
+          example:
+            from:
+              - invalid date-time
+          additionalProperties:
+            type: array
+            items:
+              type: string
+
+    ValidationErrors:
+      required:
+        - errors
+      type: object
+      properties:
+        errors:
+          type: object
+          example:
+            name:
+              - can't be blank
+          additionalProperties:
+            type: array
+            items:
+              type: string
+
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
