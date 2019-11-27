@@ -26,6 +26,10 @@ module.exports = {
           {
             text: 'Single Sign On & OAuth',
             link: '/guide/oauth/'
+          },
+          {
+            text: 'Event Handling with Loom',
+            link: '/guide/loom/'
           }
         ]
       },
@@ -35,6 +39,10 @@ module.exports = {
           {
             text: 'Directory API',
             link: '/api/directory/v1/'
+          },
+          {
+            text: 'Loom API [under construction]',
+            link: '/api/loom/v1/'
           },
           {
             text: 'OAuth API',
@@ -54,6 +62,10 @@ module.exports = {
         'client-credentials',
         'access-token-refresh',
         'scopes'
+      ],
+      '/guide/loom/': [
+        'posting-events',
+        'receiving-events'
       ]
     }
   },
