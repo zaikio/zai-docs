@@ -11,11 +11,11 @@ Scopes can also be added to various audiences.
 
 ## Requested Scope Structure
 
-This is the basic structure of a requested scope `BEARER_TYPE`.`AUDIENCE_NAME`.`SCOPE_NAME`.`PERMISSION`
+This is the basic structure of a requested scope `BEARER_TYPE_AND_ID`.`AUDIENCE_NAME`.`SCOPE_NAME`.`PERMISSION`
 
-### `BEARER_TYPE`
+### `BEARER_TYPE_AND_ID`
 
-Can be omitted or be `Org` or `Per`.
+Can be omitted or be `Org` or `Per`. For the [client credentials flow](/guide/oauth/client-credentials.html) it is also required to provide the UUID of the Organisation or Person (e.g. `Org/b1475f65-236c-58b8-96e1-e1778b43beb7`).
 
 ### `AUDIENCE_NAME`
 
@@ -32,17 +32,18 @@ The type of permission that is requested. `r` stands for _read_ and `rw` for _re
 ### Regex
 
 ```regex
-/((Org|Per)\.)?[a-z]{1}[a-z0-9_]{2,}\.[a-z]{1}[a-z_]{2,}\.(rw|r)/
+/^(((Org|Per)(\/[a-z0-9-]+)?)\.)?[a-z]{1}[a-z0-9_]{2,}\.[a-z]{1}[a-z_]{2,}\.(rw|r)/
 ```
 
 ### Valid requested scopes examples
 
-| Requested Scope             | Description                                                                         |
-| --------------------------- | ----------------------------------------------------------------------------------- |
-| `directory.person.r`        | By default, if no `BEARER_TYPE` is provided, the scope is read as a `Person` scope. |
-| `Per.directory.person.r`    | Same as above.                                                                      |
-| `Org.directory.machines.rw` | The person can choose which organisation will be the bearer.                        |
-| `Org.warehouse.items.r`     | This uses a scope, that needs to be provided by `warehouse`                         |
+| Requested Scope                                              | Description                                                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `directory.person.r`                                         | By default, if no `BEARER_TYPE` is provided, the scope is read as a `Person` scope.              |
+| `Per.directory.person.r`                                     | Same as above.                                                                                   |
+| `Org.directory.machines.rw`                                  | The person can choose which organisation will be the bearer.                                     |
+| `Org.warehouse.items.r`                                      | This uses a scope, that needs to be provided by `warehouse`                                      |
+| `Org/b1475f65-236c-58b8-96e1-e1778b43beb7.warehouse.items.r` | This format is required for the [client credentials flow](/guide/oauth/client-credentials.html). |
 
 ::: tip IMPORTANT
 When scopes are returned in `POST oauth/access_tokens`, the `BEARER_TYPE` will be always omitted. Instead a specific `bearer` will be provided that has an `id` and a `type`.

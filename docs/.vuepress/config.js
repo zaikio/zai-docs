@@ -59,6 +59,7 @@ module.exports = {
       '/guide/oauth/': [
         'redirect-flow',
         'device-flow',
+        'client-credentials',
         'access-token-refresh',
         'scopes'
       ],
