@@ -24,6 +24,6 @@ Loom follows an **at least once** approach. Once an event was received Loom will
 
 An **order** of message **is not guaranteed** when pushing to webhooks. Subscribers should not rely on a specific order and need to handle situations in which events arrive out of the band.
 
-The system is **scoped by applications**. It transfers messages between systems, not between tenants on those systems nor between specific organizations or users.
+The system is **scoped by applications**. It transfers messages between systems, not between tenants on those systems nor between specific `Organizations` or `Persons`.
 
 Loom was **designed to handle and delegate events between different applications**. Each application can subscribe to any event fired by another application. That means the system should only be used to handle events that might be interesting to other applications. Internal events between different parts of one application (i.e. messages exchanged between internal micro-services) should not be handled with Loom.
