@@ -31,7 +31,7 @@ paths:
           description: ISO8601 timestamp of the event
           schema:
             type: date-time
-            example: 2019-11-18T14:06:40Z
+            example: 2019-11-18T14:06:40.421Z
         - in: query
           name: event[name]
           required: true
@@ -99,7 +99,7 @@ paths:
           description: Filter events by timestamp
           schema:
             type: date-time
-            example: 2019-11-01T00:00:00Z
+            example: 2019-11-01T00:00:00.000Z
         - in: path
           name: filter[to]
           description: Filter events by timestamp
