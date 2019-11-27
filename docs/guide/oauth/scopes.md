@@ -46,7 +46,7 @@ The type of permission that is requested. `r` stands for _read_ and `rw` for _re
 | `Org/b1475f65-236c-58b8-96e1-e1778b43beb7.warehouse.items.r` | This format is required for the [client credentials flow](/guide/oauth/client-credentials.html). |
 
 ::: tip IMPORTANT
-When scopes are returned in `POST oauth/access_tokens`, the `BEARER_TYPE` will be always omitted. Instead a specific `bearer` will be provided that has an `id` and a `type`.
+When scopes are returned in `POST oauth/access_tokens`, the `BEARER_TYPE` will be always omitted. Instead a specific `bearer` will be provided that has an `id` and a `type`. It can also happen that not all scopes that were requested are returned if the Bearer is not connected to the apps from the requested scopes.
 :::
 
 ## Possible Errors
