@@ -53,7 +53,7 @@ curl --request GET \
      --header 'Content-Type: application/json'
 ```
 
-Results from this endpoint are paginated to 25 events per page. Find the total number of events matching the filter in a custom `X-Total-Count` response header. Furthermore the response will contain `Link` headers following [RFC5988](https://tools.ietf.org/html/rfc5988). Example response from Loom to the above query:
+Results from this endpoint are paginated to 100 events per page. Find the total number of events matching the filter in a custom `X-Total-Count` response header. Furthermore the response will contain `Link` headers following [RFC5988](https://tools.ietf.org/html/rfc5988). Example response from Loom to the above query:
 
 **Body:**
 
@@ -78,6 +78,6 @@ Results from this endpoint are paginated to 25 events per page. Find the total n
 **Header:**
 
 ```
-X-Total-Count: 829
+X-Total-Count: 3316
 Link: <https://loom.heidelberg.cloud/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=15>; rel="next",<https://loom.heidelberg.cloud/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=34>; rel="last",<https://loom.heidelberg.cloud/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=1>; rel="first",<https://loom.heidelberg.cloud/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=13>; rel="prev"
 ```
