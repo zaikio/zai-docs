@@ -2,7 +2,7 @@
 
 The preferred and easiest way to receive events is via webhook. A webhook URL must be provided when an application subscribes to an event in the Directory.
 
-Loom will distribute incoming events to the subscriber by `HTTP POST` of a JSON document to the provided URL. To increase security these `POST` **requests are signed** with a shared secret that is only known to Loom and the application. This lets the receiver to verify that the message was forwarded by Loom and that it wasn't altered.
+Loom will distribute incoming events to the subscriber by `HTTP POST` of a JSON document to the provided URL. To increase security these `POST` **requests are signed** by Loom with a shared secret that is only known to Loom and the receiving application. This lets the receiver to verify that the message was forwarded by Loom and that it wasn't altered.
 
 Loom **retries delivery multiple times** for several hours when webhooks don't respond in time with an HTTP status code in the 2xx range. _In time_ means within 1 second, after that the request will time out.
 

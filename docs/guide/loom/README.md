@@ -26,4 +26,4 @@ An **order** of message **is not guaranteed** when pushing to webhooks. Subscrib
 
 The system is **scoped by applications**. It transfers messages between systems, not between tenants on those systems nor between specific organizations or users.
 
-Loom was **designed to handle and delegate events between different applications**. Each application can subscribe to any event fired by another application. That means the system should only be used to handle events that might be interesting to other applications. Internal events between different parts of one application should not be handled with Loom.
+Loom was **designed to handle and delegate events between different applications**. Each application can subscribe to any event fired by another application. That means the system should only be used to handle events that might be interesting to other applications. Internal events between different parts of one application (i.e. messages exchanged between internal micro-services) should not be handled with Loom.
