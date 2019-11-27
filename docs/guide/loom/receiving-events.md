@@ -36,6 +36,10 @@ OpenSSL::HMAC.hexdigest("SHA256", shared_secret, message) == signature
 
 ## Pulling events
 
+::: warning Important
+**Event delivery via webhook is preferred! Avoid pulling events and only use it to replay or debug events that you already got pushed via webhook.**
+:::
+
 While getting events pushed via webhook is the default there still might be the need to replay events that have already been received and processed in the past. This shouldn't be the norm but might be helpful when debugging or after restoring a database.
 
 Loom allows reloading events for several weeks via `HTTP GET`. The application must authenticate via `HTTP Basic Auth` with its name and event password which can be found in the Directory.
