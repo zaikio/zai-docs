@@ -8,3 +8,4 @@ Currently the following OAuth flows are supported:
 - [The Device Flow](./device-flow.html)
 - [Client Credentials Flow](./client-credentials.html)
 - [Access Token Refresh](./access-token-refresh.html)
+- [Delegating Access to Subsystems](./delegate-access.html)
