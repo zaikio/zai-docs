@@ -16,7 +16,7 @@ The application needs to authenticate with its name and password via HTTP Basic 
 
 ## Payload Requirements
 
-The `payload` on an event needs to fulfill a few requirements to ensure efficient message delivery and a consistent interface for the receiving applications:
+The event's `payload` needs to fulfill a few requirements to ensure efficient message delivery and a consistent interface for the receiving applications:
 
   - the payload must be **a hash**
   - keys must be strings formatted in **lowercase snake_case**

@@ -22,7 +22,7 @@ To allow event delivery in a high frequency webhooks must accept events fast and
 
 Keep in mind that the **order of messages is not guaranteed**. The subscriber must be able to handle messages that are delivered out of band or multiple times. It is recommended to check if a record has already newer changes before applying updates from an event or to implement idempotency. A simple approach might be to always pull a full copy of the latest state of an object when there was an event and not relying on partial updates.
 
-The receiver may want to **verify the signature** to increase security. Loom generates a `SHA256 HMAC` signature using the `shared_secret` of the subscriber application and the request body. Find the shared secret in the Directory and the signature in a custom `X-Loom-Signature` request header.
+The receiver must **verify the signature** to increase security. Loom generates a `SHA256 HMAC` signature using the `shared_secret` of the subscriber application and the request body. Find the shared secret in the Directory and the signature in a custom `X-Loom-Signature` request header.
 
 **Example** how to verify the signature
 
@@ -31,7 +31,10 @@ shared_secret = "nq9oZo7haPgNVdNRccWhK551"
 message       = "{\"id\":\"62abcc92-e17e-4db0-b78e-13369251474b\",\"name\":\"accounting.invoice_paid\",\"timestamp\":\"2019-11-26T10:58:09.664Z\",\"version\":\"1.0\",\"payload\":{\"invoice_number\":\"b1a2eaa9-11ba-4cab-8580-40f091e37742\"},\"link\":\"https://accounting.heidelberg.cloud/api/v1/payments/1234\",\"received_at\":\"2019-11-26T10:58:09.664Z\"}"
 signature     = "08ff3052788d1e7f8cfc24694318c07b7229d8a9241256f8a3c2cd0b36fe368a"
 
-OpenSSL::HMAC.hexdigest("SHA256", shared_secret, message) == signature
+ActiveSupport::SecurityUtils.secure_compare(
+  OpenSSL::HMAC.hexdigest("SHA256", shared_secret, message),
+  signature
+)
 ```
 
 ## Pulling events

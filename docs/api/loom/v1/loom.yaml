@@ -118,7 +118,7 @@ paths:
           - basicAuth: []
       responses:
         '200':
-          description: Returns events that matches the query
+          description: Returns all events that matches the query
           content:
             application/json:
               schema:
