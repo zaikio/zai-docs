@@ -76,6 +76,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/Organization'
 
+  /organization/memberships:
+    get:
+      tags:
+        - Organisation
+      description: Shows all memberships of the authenticated organisation.
+      parameters: []
+      security:
+        - directoryAuth: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Membership'
 
   /machines:
     post:
@@ -305,7 +322,8 @@ components:
           format: date-time
         organization:
           $ref: '#/components/schemas/Organization'
-    Person:
+
+    PersonData:
       type: object
       required:
         - id
@@ -358,6 +376,11 @@ components:
         updated_at:
           type: string
           format: date-time
+
+    Person:
+      allOf:
+        - $ref: '#/components/schemas/PersonData'
+      properties:
         organization_memberships:
           type: array
           items:
@@ -382,6 +405,35 @@ components:
         updated_at:
           type: string
           format: date-time
+
+    Membership:
+      required:
+        - id
+        - created_at
+        - updated_at
+        - roles
+        - person
+      type: object
+      properties:
+        id:
+          allOf:
+            - $ref: '#/components/schemas/uuid'
+            - example: '3fa85f64-5717-4562-b3fc-2c963f66afa6'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        roles:
+          type: array
+          items:
+            type: string
+          example:
+            - member
+        person:
+          $ref: '#/components/schemas/PersonData'
+
     Machine:
       required:
         - id
