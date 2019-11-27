@@ -54,6 +54,13 @@ paths:
             type: object
             additionalProperties: {}
             example: { "invoice_number": 1234 }
+        - in: query
+          name: event[link]
+          description: An URL providing further information about this event
+          schema:
+            type: string
+            format: uri
+            example: https://accounting.heidelberg.cloud/api/v1/payments/1234
       security:
         components:
           - basicAuth: []
@@ -150,6 +157,7 @@ components:
         - name
         - version
         - payload
+        - link
         - received_at
       properties:
         id:
@@ -167,6 +175,11 @@ components:
           type: object
           description: A hashmap with keys in lowercase snake_case. Format and structure is defined by the app that fires an event
           additionalProperties: {}
+        link:
+          type: string
+          nullable: true
+          format: uri
+          example: https://accounting.heidelberg.cloud/api/v1/payments/1234
         received_at:
           type: string
           format: date-time

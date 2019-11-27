@@ -12,8 +12,8 @@ Loom **retries delivery multiple times** for several hours when webhooks don't r
 curl --request POST \
      --url https://api.app.example.tld/webhooks/abc \
      --header 'Content-Type: application/json'
-     --header 'X-Loom-Signature: sha256=91e84e7acba6bad9160ee952691d71e4acf64c576bb52d7a0c4f9adc0f1923a3'
-     --data '{"id":"62abcc92-e17e-4db0-b78e-13369251474b","name":"accounting.invoice_paid","timestamp":"2019-11-26T10:58:09.664Z","version":"1.0","payload":{"invoice_number":"b1a2eaa9-11ba-4cab-8580-40f091e37742"},"received_at":"2019-11-26T10:58:09.664Z"}'
+     --header 'X-Loom-Signature: sha256=08ff3052788d1e7f8cfc24694318c07b7229d8a9241256f8a3c2cd0b36fe368a'
+     --data '{"id":"62abcc92-e17e-4db0-b78e-13369251474b","name":"accounting.invoice_paid","timestamp":"2019-11-26T10:58:09.664Z","version":"1.0","payload":{"invoice_number":"b1a2eaa9-11ba-4cab-8580-40f091e37742"},"link":"https://accounting.heidelberg.cloud/api/v1/payments/1234","received_at":"2019-11-26T10:58:09.664Z"}'
 ```
 
 ## Best Practices
@@ -28,8 +28,8 @@ The receiver may want to **verify the signature** to increase security. Loom gen
 
 ```ruby
 shared_secret = "nq9oZo7haPgNVdNRccWhK551"
-message       = "{\"id\":\"62abcc92-e17e-4db0-b78e-13369251474b\",\"name\":\"accounting.invoice_paid\",\"timestamp\":\"2019-11-26T10:58:09.664Z\",\"version\":\"1.0\",\"payload\":{\"invoice_number\":\"b1a2eaa9-11ba-4cab-8580-40f091e37742\"},\"received_at\":\"2019-11-26T10:58:09.664Z\"}"
-signature     = "91e84e7acba6bad9160ee952691d71e4acf64c576bb52d7a0c4f9adc0f1923a3"
+message       = "{\"id\":\"62abcc92-e17e-4db0-b78e-13369251474b\",\"name\":\"accounting.invoice_paid\",\"timestamp\":\"2019-11-26T10:58:09.664Z\",\"version\":\"1.0\",\"payload\":{\"invoice_number\":\"b1a2eaa9-11ba-4cab-8580-40f091e37742\"},\"link\":\"https://accounting.heidelberg.cloud/api/v1/payments/1234\",\"received_at\":\"2019-11-26T10:58:09.664Z\"}"
+signature     = "08ff3052788d1e7f8cfc24694318c07b7229d8a9241256f8a3c2cd0b36fe368a"
 
 OpenSSL::HMAC.hexdigest("SHA256", shared_secret, message) == signature
 ```
@@ -63,6 +63,7 @@ Results from this endpoint are paginated to 25 events per page. Find the total n
     "payload": {
       "invoice_number":"b1a2eaa9-11ba-4cab-8580-40f091e37742"
     },
+    "link": "https://accounting.heidelberg.cloud/api/v1/payments/1234",
     "received_at": "2019-11-26T10:58:09.664Z"
   },
   { ... },
