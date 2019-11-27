@@ -42,9 +42,9 @@ Sometimes it might makes sense to have more details in the payload to help subsr
 
 ```json
 {
-  "name": "app_name.membership_created",
+  "name": "app_name.role_added",
   "payload": {
-    "roles": ["administrator", "owner"],
+    "new_role": "administrator",
     "user_id": "9c31b099-e28a-42c8-86b4-d4fddd3512c6",
     "organization_id": "76705b00-cee0-4e50-bab6-93e684825ea5"
   }
