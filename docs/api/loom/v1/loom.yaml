@@ -175,6 +175,8 @@ components:
           type: object
           description: "A hashmap with keys in lowercase snake_case. Format and structure is defined by the app that fires an event. example: { invoice_number: 1234 }"
           additionalProperties: {}
+          example:
+            invoice_number: 1234
         link:
           type: string
           nullable: true
