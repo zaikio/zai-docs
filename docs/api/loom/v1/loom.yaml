@@ -62,8 +62,7 @@ paths:
             format: uri
             example: https://accounting.heidelberg.cloud/api/v1/payments/1234
       security:
-        components:
-          - basicAuth: []
+        - basicAuth: []
       responses:
         '201':
           description: Created
@@ -112,10 +111,8 @@ paths:
           schema:
             type: integer
             example: 1
-
       security:
-        components:
-          - basicAuth: []
+        - basicAuth: []
       responses:
         '200':
           description: Returns all events that matches the query
@@ -166,14 +163,17 @@ components:
             - example: '62abcc92-e17e-4db0-b78e-13369251474b'
         name:
           type: string
+          example: accounting.invoice_paid
         timestamp:
           type: string
           format: date-time
+          example: 2019-11-28T09:31:45.764Z
         version:
           type: string
+          example: '1.2'
         payload:
           type: object
-          description: A hashmap with keys in lowercase snake_case. Format and structure is defined by the app that fires an event
+          description: "A hashmap with keys in lowercase snake_case. Format and structure is defined by the app that fires an event. example: { invoice_number: 1234 }"
           additionalProperties: {}
         link:
           type: string
@@ -183,6 +183,7 @@ components:
         received_at:
           type: string
           format: date-time
+          example: 2019-11-28T09:31:45.764Z
 
     FilterErrors:
       required:
