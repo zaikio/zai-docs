@@ -63,6 +63,7 @@ Scopes are validated and following errors can occur:
 | `unavailable_scope_for_bearer_type`       | Some scopes are only available for `Person` or `Organization`. Usually this should be documented by the app provider.                            |
 | `different_bearer_ids`                    | The bearer types are correct, but the IDs are different (Only happens in [Client Credentials Flow](./client-credentials.html)).                  |
 | `bearer_does_not_exist`                   | The bearer was not found or the client was not authorized by the bearer. (Only happens in [Client Credentials Flow](./client-credentials.html)). |
+| `unpermitted_bearer_id`                   | Bearer IDs are not allowed to be passed, the only exception is the [Client Credentials Flow](./client-credentials.html).                         |
 | `scope_was_not_granted_in_parent`         | When a scope was not granted in the parent access token. See [Delegating Access to Subsystems](./delegate-access.md).                            |
 | `delegation_access_token_cannot_delegate` | A `directory.delegations.rw` scope cannot be granted for a delegated access token. See [Delegating Access to Subsystems](./delegate-access.md).  |
 
