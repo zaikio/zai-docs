@@ -59,7 +59,7 @@ Scopes are validated and following errors can occur:
 | `different_bearer_types`                  | Multiple scopes were specified for different bearer types.                                                                                       |
 | `invalid_audience`                        | The audience that was specified does not exist.                                                                                                  |
 | `invalid_scope_name`                      | The given scope name does not exist for the provided audience.                                                                                   |
-| `invalid_scope_structure`                 | The scope your provided does not match the regex as outlined above.                                                                              |
+| `malformed_scope`                         | The scope your provided does not match the regex as outlined above.                                                                              |
 | `unavailable_scope_for_bearer_type`       | Some scopes are only available for `Person` or `Organization`. Usually this should be documented by the app provider.                            |
 | `different_bearer_ids`                    | The bearer types are correct, but the IDs are different (Only happens in [Client Credentials Flow](./client-credentials.html)).                  |
 | `bearer_does_not_exist`                   | The bearer was not found or the client was not authorized by the bearer. (Only happens in [Client Credentials Flow](./client-credentials.html)). |
