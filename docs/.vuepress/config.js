@@ -61,6 +61,7 @@ module.exports = {
         'device-flow',
         'client-credentials',
         'access-token-refresh',
+        'delegate-access',
         'scopes'
       ],
       '/guide/loom/': [
