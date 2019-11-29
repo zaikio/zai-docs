@@ -1,7 +1,17 @@
 openapi: 3.0.0
 info:
   title: Directory API
-  description: 'This is the documentation of the Connect Print Directory API Endpoints.'
+  description: >
+    This is the documentation of the Connect Print Directory API Endpoints.
+
+    ## Provided OAuth Scopes
+
+    - `directory.person.r` [`Person`]: Read basic information of the person (`GET /person/*`)
+
+    - `directory.machines.r` [`Organization`, `Person`]: Basic organization information, sites and machines (GET /*)
+
+    - `directory.machines.rw` [`Organization`, `Person`]: Basic organization information and managing sites and machines (GET/POST/PUT/DELETE /*)
+
   version: 1.0.0
 servers:
   - url: https://directory.heidelberg.cloud/api/v1/
