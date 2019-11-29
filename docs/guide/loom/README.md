@@ -15,8 +15,8 @@ After an event was fired to Loom, it is verified and then immediately send to al
 
 Read more about:
 
-  - [Posting events](./posting-events)
-  - [Receiving events](./receiving-events)
+  - [Posting events](./posting-events.html)
+  - [Receiving events](./receiving-events.html)
 
 ## Design Goals
 
