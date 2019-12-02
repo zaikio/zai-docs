@@ -346,6 +346,7 @@ components:
         - email
         - locale
         - time_zone
+        - avatar_url
         - created_at
         - updated_at
       properties:
@@ -383,6 +384,9 @@ components:
           example: UTC
           description: >
             IANA Timezone: [List of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+        avatar_url:
+          type: string
+          example: "https://directory.heidelberg.cloud/rails/active_storage/blobs/avatar.jpg"
         created_at:
           type: string
           format: date-time
