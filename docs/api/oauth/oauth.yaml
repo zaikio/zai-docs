@@ -5,6 +5,9 @@ info:
   version: 1.0.0
 servers:
   - url: https://directory.heidelberg.cloud/oauth/
+    description: Production server (uses live data)
+  - url: https://directory.sandbox.zaiku.cloud/oauth/
+    description: Sandbox server (uses test data)
 
 tags:
   - name: OAuth

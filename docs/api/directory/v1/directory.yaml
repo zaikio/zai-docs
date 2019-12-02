@@ -15,6 +15,9 @@ info:
   version: 1.0.0
 servers:
   - url: https://directory.heidelberg.cloud/api/v1/
+    description: Production server (uses live data)
+  - url: https://directory.sandbox.zaiku.cloud/api/v1/
+    description: Sandbox server (uses test data)
 
 tags:
   - name: Person
