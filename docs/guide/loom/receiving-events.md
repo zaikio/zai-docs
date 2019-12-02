@@ -56,6 +56,8 @@ curl --request GET \
      --header 'Content-Type: application/json'
 ```
 
+This endpoint only returns events to which the application subscribed in the Directory. The subscription type must be `pull`.
+
 Results from this endpoint are paginated to 100 events per page. Find the total number of events matching the filter in a custom `X-Total-Count` response header. Furthermore the response will contain `Link` headers following [RFC5988](https://tools.ietf.org/html/rfc5988). Example response from Loom to the above query:
 
 **Body:**
