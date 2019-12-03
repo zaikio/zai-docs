@@ -27,12 +27,12 @@ The scope name is provided by each app and is given by each app.
 
 ### `PERMISSION`
 
-The type of permission that is requested. `r` stands for _read_ and `rw` for _read_write_.
+The type of permission that is requested. `r` stands for _read_, `w` for _write_ and `rw` for _read_write_.
 
 ### Regex
 
 ```regex
-/^(((Org|Per)(\/[a-z0-9-]+)?)\.)?[a-z]{1}[a-z0-9_]{2,}\.[a-z]{1}[a-z_]{2,}\.(rw|r)/
+/^(((Org|Per)(\/[a-z0-9-]+)?)\.)?[a-z]{1}[a-z0-9_]{2,}\.[a-z]{1}[a-z_]{2,}\.(rw|r|w)/
 ```
 
 ### Valid requested scopes examples
@@ -59,6 +59,7 @@ Scopes are validated and following errors can occur:
 | `different_bearer_types`                  | Multiple scopes were specified for different bearer types.                                                                                       |
 | `invalid_audience`                        | The audience that was specified does not exist.                                                                                                  |
 | `invalid_scope_name`                      | The given scope name does not exist for the provided audience.                                                                                   |
+| `invalid_permission`                      | The given permission does not exist for the provided scope.                                                                                      |
 | `malformed_scope`                         | The scope your provided does not match the regex as outlined above.                                                                              |
 | `unavailable_scope_for_bearer_type`       | Some scopes are only available for `Person` or `Organization`. Usually this should be documented by the app provider.                            |
 | `different_bearer_ids`                    | The bearer types are correct, but the IDs are different (Only happens in [Client Credentials Flow](./client-credentials.html)).                  |
