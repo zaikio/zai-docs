@@ -85,7 +85,7 @@ paths:
       tags:
         - Events
       description: >
-        Returns all subscribed events matching the filter
+        Returns all subscribed events matching the filter. Please note that the response is limited to events to which the app is subscribed in the Directory.
       parameters:
         - in: path
           name: filter[name]
