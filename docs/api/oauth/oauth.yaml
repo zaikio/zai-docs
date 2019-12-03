@@ -262,6 +262,9 @@ components:
             - directory
           items:
             type: string
+        expires_in:
+          type: string
+          format: date-time
         bearer:
           type: object
           properties:
