@@ -50,6 +50,7 @@ Depending on the HTTP `Accept` header send with your request, the response will 
   "token_type": "bearer",
   "scope": "directory.person.read",
   "audiences": ["directory"],
+  "expires_in": "2019-12-03T08:57:35.958Z",
   "bearer": {
     "id": "29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7",
     "type": "Person"
@@ -68,6 +69,7 @@ Depending on the HTTP `Accept` header send with your request, the response will 
    <token_type>bearer</token_type>
    <scope>directory.person.read</scope>
    <audiences>directory</audiences>
+   <expires_in>2019-12-03T08:57:35.958Z</expires_in>
    <bearer>
      <id>29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7</id>
      <type>Person</type>
