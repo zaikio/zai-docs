@@ -70,7 +70,7 @@ Scopes are validated and following errors can occur:
 
 ## Provided OAuth Scopes Guidelines
 
-If your app also provides an API on its own, it makes sense to provide authorization for other third parties. You have to create OAuth Scopes for your app in the directory (Provided OAuth Scopes). How you treat these scopes is up to you. The scopes are part of the JSON Web Token (short: `JWT`) and can be processed by you.
+When your app also provides an API on its own, it makes sense to provide authorization for other third parties. You have to create OAuth Scopes for your app in the directory (Provided OAuth Scopes). How you treat these scopes is up to you. The scopes are part of the JSON Web Token (short: `JWT`) and can be processed by you.
 
 In order to ensure consistency for the customer and the API consumer, we have created some guidelines.
 
