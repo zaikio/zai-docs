@@ -67,6 +67,7 @@ Scopes are validated and following errors can occur:
 | `unpermitted_bearer_id`                   | Bearer IDs are not allowed to be passed, the only exception is the [Client Credentials Flow](./client-credentials.html).                         |
 | `scope_was_not_granted_in_parent`         | When a scope was not granted in the parent access token. See [Delegating Access to Subsystems](./delegate-access.md).                            |
 | `delegation_access_token_cannot_delegate` | A `directory.delegations.rw` scope cannot be granted for a delegated access token. See [Delegating Access to Subsystems](./delegate-access.md).  |
+| `parent_has_no_delegation_permission`     | A `directory.delegations.rw` scope has to be present for the parent token. See [Delegating Access to Subsystems](./delegate-access.md).          |
 
 ## Provided OAuth Scopes Guidelines
 
