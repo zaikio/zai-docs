@@ -8,9 +8,11 @@ info:
 
     - `directory.person.r` [`Person`]: Read basic information of the person (`GET /person/*`)
 
-    - `directory.machines.r` [`Organization`, `Person`]: Basic organization information, sites and machines (GET /*)
+    - `directory.organization_members.r` [`Organization`]: Read basic information of the members of an organization (`GET /organization/memberships`)
 
-    - `directory.machines.rw` [`Organization`, `Person`]: Basic organization information and managing sites and machines (GET/POST/PUT/DELETE /*)
+    - `directory.machines.r` [`Organization`, `Person`]: Basic organization information, sites and machines (`GET /*`)
+
+    - `directory.machines.rw` [`Organization`, `Person`]: Basic organization information and managing sites and machines (`GET/POST/PUT/DELETE /*`)
 
   version: 1.0.0
 servers:
@@ -21,20 +23,10 @@ servers:
 
 tags:
   - name: Person
-    description: >
-      **Needs person scope**
   - name: Organisation
-    description: >
-      **Needs organisation scope**
-  - name: JWT Public Keys
-    description: >
-      **Needs person scope**
   - name: Machines
-    description: >
-      **Needs organization scope**
   - name: Sites
-    description: >
-      **Needs organization scope**
+  - name: JWT Public Keys
 
 paths:
   /person:
@@ -43,7 +35,12 @@ paths:
         - Person
       summary: Get authenticated person
       operationId: getPerson
-      description: Returns the currently authenticated person.
+      description: >
+        Returns the currently authenticated person.
+
+        - needed bearer: `Person`
+
+        - needed scopes: `directory.person.r`
       parameters: []
       security:
         - directoryAuth: []
@@ -61,6 +58,12 @@ paths:
         - Person
       summary: Get organization memberships of authenticated person
       operationId: getPersonOrganizationMemberships
+      description: >
+        Returns the organization memberships of the current person.
+
+        - needed bearer: `Person`
+
+        - needed scopes: `directory.person.r`
       parameters: []
       security:
         - directoryAuth: []
@@ -78,6 +81,12 @@ paths:
     get:
       tags:
         - Organisation
+      description: >
+        Returns the current organization.
+
+        - needed bearer: `Organization`
+
+        - needed scopes: -
       parameters: []
       security:
         - directoryAuth: []
@@ -93,7 +102,12 @@ paths:
     get:
       tags:
         - Organisation
-      description: Shows all memberships of the authenticated organisation.
+      description: >
+        Shows all memberships of the authenticated organisation.
+
+        - needed bearer: `Organization`
+
+        - needed scopes: `directory.organization_members.r`
       parameters: []
       security:
         - directoryAuth: []
@@ -114,6 +128,10 @@ paths:
       description: >
         Creates a new machine with the given arguments. It is recommended to also specify a `machine[site_id]`
         if the organization has multiple sites.
+
+        - needed bearer: `Organization` or `Person`
+
+        - needed scopes: `directory.machines.rw`
       parameters:
         - in: query
           name: machine[name]
@@ -171,6 +189,12 @@ paths:
 
   /machines/{machineId}:
     get:
+      description: >
+        Retrieves a machine by id.
+
+        - needed bearer: `Organization` or `Person`
+
+        - needed scopes: `directory.machines.r` or `directory.machines.rw`
       tags:
         - Machines
       security:
@@ -195,9 +219,14 @@ paths:
 
   /machines/{machineId}/machine_ownership:
     post:
+      description: >
+        Creates ownership for the currently authenticated organization. It is required that the machine has no other active ownership.
+
+        - needed bearer: `Organization` or `Person`
+
+        - needed scopes: `directory.machines.rw`
       tags:
         - Machines
-      description: Creates ownership for the currently authenticated organization. It is required that the machine has no other active ownership.
       security:
         - directoryAuth: []
       parameters:
@@ -208,6 +237,13 @@ paths:
             type: string
             format: uuid
             example: 4187f98a-585c-4db7-baa5-52170fb5011d
+        - in: query
+          name: organization_id
+          description: Required if the bearer is a `Person`
+          schema:
+            type: string
+            format: uuid
+            example: b1475f65-236c-58b8-96e1-e1778b43beb7
       responses:
         '201':
           description: Created Machine Ownership
@@ -227,6 +263,10 @@ paths:
           description: Forbidden (can happen if the bearer is not an organization)
 
     get:
+      description: >
+        - needed bearer: `Organization` or `Person`
+
+        - needed scopes: `directory.machines.r` or `directory.machines.rw`
       tags:
         - Machines
       security:
@@ -280,12 +320,16 @@ paths:
 
   /sites:
     get:
-      tags:
-        - Sites
-      operationId: getSites
       description: >
         Some organizations might have multile sites because they have several locations.
         This returns a list of the current organization's sites.
+
+        - needed bearer: `Organization` or `Person`
+
+        - needed scopes: `directory.machines.r` or `directory.machines.rw`
+      tags:
+        - Sites
+      operationId: getSites
       parameters: []
       security:
         - directoryAuth: []
