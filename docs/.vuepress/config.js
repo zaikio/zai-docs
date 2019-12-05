@@ -34,6 +34,10 @@ module.exports = {
         ]
       },
       {
+        text: 'Changelog',
+        link: '/changelog/'
+      },
+      {
         text: 'API Reference',
         items: [
           {
@@ -71,7 +75,16 @@ module.exports = {
     }
   },
   plugins: [
-    'vuepress-plugin-element-tabs'
+    'vuepress-plugin-element-tabs',
+    [
+      'vuepress-plugin-rss',
+			{
+				base_url: '/',
+				site_url: 'https://docs.zaiku.cloud/',
+				filter: frontmatter => frontmatter.date <= new Date(currentDateUTC),
+				count: 20
+			}
+    ]
   ],
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }],
