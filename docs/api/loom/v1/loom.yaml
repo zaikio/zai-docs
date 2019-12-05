@@ -4,7 +4,7 @@ info:
   description: 'This is the documentation of the Connect Print Loom API Endpoints.'
   version: 1.0.0
 servers:
-  - url: https://loom.heidelberg.cloud/api/v1/
+  - url: https://loom.zaikami.cloud/api/v1/
 
 tags:
   - name: Events
@@ -60,7 +60,7 @@ paths:
           schema:
             type: string
             format: uri
-            example: https://accounting.heidelberg.cloud/api/v1/payments/1234
+            example: https://accounting.zaikami.cloud/api/v1/payments/1234
       security:
         - basicAuth: []
       responses:
@@ -183,7 +183,7 @@ components:
           type: string
           nullable: true
           format: uri
-          example: https://accounting.heidelberg.cloud/api/v1/payments/1234
+          example: https://accounting.zaikami.cloud/api/v1/payments/1234
         received_at:
           type: string
           format: date-time
