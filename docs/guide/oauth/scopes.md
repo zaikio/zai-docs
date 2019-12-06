@@ -71,4 +71,28 @@ Scopes are validated and following errors can occur:
 
 ## Provided OAuth Scopes Guidelines
 
-UNDER CONSTRUCTION
+If you want to give third parties access to your APIs, you can offer them scopes to restrict access. You have to create OAuth Scopes for your app in the directory (Provided OAuth Scopes). How you treat these scopes is up to you. The scopes are part of the JSON Web Token (short: `JWT`) and can be processed by you.
+
+In order to ensure consistency for the customer and the API consumer, we have created some guidelines.
+
+### As few scopes as possible
+
+In general, it makes sense not to describe scopes too granularly. On the one hand this has the disadvantage that the customer has to read a lot if they accept the scopes and on the other hand there is a limitation in the browser, which is why the JWT should not be larger than 8KB.
+
+A rule of thumb is that an app should **not request more than 3 scopes of another app** at once. This can be achieved by combining several scopes to one larger scope.
+
+Always remember what the use cases of the other providers could be. It's easy to add more scopes afterwards, so it makes sense to start with a few scopes.
+
+### `write_only` scopes
+
+Most apps do not require `write_only` scopes. It's obvious to add this once you have created a `read` scope, but in most cases a `read_only` and a `read_write` scope will do.
+
+There is only one use case where it can make sense to offer a `write_only` scope and that is when you want to store things like in a drop box. For example, if you provide an API that sends messages but can't see the messages itself. However, if you provide a messaging service where customers send each other messages, you probably want to offer a scope like `messages read_and_write` where you decide which messages the customer is allowed to see based on the bearer.
+
+### Naming scopes
+
+The name of the scope is primarily significant for other third party developers and for the size of the JWT. Customers do not see the technical name of the scope, only its technical description.
+
+The technical description should be short and simple for the customer. The customer sees the scopes with the sentence *YourApp would like...*. For example: *Receive and send messages*.
+
+The technical name should be short and crisp, for example `messages read_and_write`. In most cases, the name depends on the resource or resource group.
