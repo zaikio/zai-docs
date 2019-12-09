@@ -8,6 +8,8 @@ info:
 
     - `directory.person.r` [`Person`]: Read basic information of the person (`GET /person/*`)
 
+    - `directory.organization.r` [`Organization`]: Read basic information about the organization (`GET /organization`)
+
     - `directory.organization_members.r` [`Organization`]: Read basic information of the members of an organization (`GET /organization/memberships`)
 
     - `directory.machines.r` [`Organization`, `Person`]: Basic organization information, sites and machines (`GET /*`)
@@ -86,7 +88,7 @@ paths:
 
         - needed bearer: `Organization`
 
-        - needed scopes: -
+        - needed scopes: `directory.organization.r`
       parameters: []
       security:
         - directoryAuth: []
