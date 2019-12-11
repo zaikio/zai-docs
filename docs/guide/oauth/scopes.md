@@ -1,9 +1,5 @@
 # Scopes
 
-::: warning
-**This documentation is experimental and works only partially. If you have specific questions, please contact us.**
-:::
-
 Scopes are used to determine which permissions each client has for a defined subject. An authenticated person must grant these permissions either to an organisation or to themselves.
 We therefore distinguish between two types of bearers in a Authorization token: `Organization` and `Person`. Scopes are used to identify the subject type for which the token is to be created.
 

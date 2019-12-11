@@ -1,9 +1,5 @@
 # Delegating Access to Subsystems
 
-::: warning
-**This documentation is experimental and works only partially. If you have specific questions, please contact us.**
-:::
-
 If your app has multiple subsystems, it may make sense to allow only a minimal list of scopes needed in the subsystem.
 
 All you need is an already generated access token containing all scopes to be delegated and the `directory.delegations.rw` scope.
