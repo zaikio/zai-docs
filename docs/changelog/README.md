@@ -1,6 +1,11 @@
 ---
-title: Changelog
+title: Developer Changelog
+pageClass: changelog
 ---
+
+# Developer Changelog
+
+[RSS Feed](/feed.xml)
 
 :::: tabs
 ::: tab Recent

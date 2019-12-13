@@ -25,6 +25,7 @@
     "js-yaml-loader": "^1.2.2",
     "swagger-ui": "^3.24.2",
     "vuepress": "^1.2.0",
-    "vuepress-plugin-element-tabs": "^0.1.8"
+    "vuepress-plugin-element-tabs": "^0.1.8",
+    "vuepress-plugin-rss": "^2.0.0"
   }
 }

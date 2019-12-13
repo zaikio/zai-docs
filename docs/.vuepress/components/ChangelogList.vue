@@ -22,7 +22,7 @@ export default {
         return this.pages
           .filter(item => {
             const isChangelog = !!item.frontmatter.changelog;
-            const isCorrectType = item.frontmatter.type === this.type;
+            const isCorrectType = this.type === 'scheduled' ? new Date(item.frontmatter.date) > new Date() : new Date(item.frontmatter.date) <= new Date();
             // check for locales
             let isCurrentLocale = true;
             if (this.$site.locales) {
@@ -52,6 +52,12 @@ export default {
               new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
           );
       }
+    },
+    tags() {
+      return this.filteredList
+        .map(item => item.frontmatter.components)
+        .flat(1)
+        .filter((tag, index, self) => self.indexOf(tag) === index);
     }
   },
 
@@ -80,24 +86,32 @@ export default {
 <template>
   <div>
     <div v-if="selectedTags.length > 0" class="filtered-heading">
-      <h2>Filtered by {{ selectedTags.join(",") }}</h2>
-      <button type="button" @click="resetTags" class="btn clear-filter-btn">
-        Clear filter
-      </button>
+      <h2>
+        Filtered by: {{ selectedTags.join(",") }}
+        <button
+          type="button"
+          @click="resetTags"
+          class="blog-list__clear-filter"
+        >
+          Clear filter
+        </button>
+      </h2>
     </div>
     <ul class="blog-list">
       <li v-for="(item, index) in filteredList" class="blog-list__item">
-        <Changelog
-          v-show="index < 20"
-          :item="item"
-        />
-        <ul v-for="tag in item.frontmatter.components" class="blog-list__tags">
-          <li>
-            <button @click="addTag(tag)">{{ tag }}</button>
-          </li>
-        </ul>
+        <Changelog v-show="index < 20" :item="item" />
+        <hr />
       </li>
     </ul>
+
+    <div class="blog-list__filter-by">
+      Filter by:
+      <span v-for="tag in tags">
+        <button @click="addTag(tag)" class="blog-list__filter-by__button">
+          {{ tag }}
+        </button>
+      </span>
+    </div>
   </div>
 </template>
 
@@ -109,29 +123,7 @@ export default {
 
 .blog-list__item {
   list-style-type: none;
-}
-
-.blog-list__tags {
-  margin-bottom: 15px;
-}
-
-.button--pagination {
-  background-color: #32c8cf;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 0.8rem;
-  padding: 0.5rem 0.75rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  box-shadow: 0 0;
-  transition: background-color 0.2s ease-in, color 0.2s ease-in;
-}
-
-.button--pagination:hover {
-  background-color: #fff;
-  border: 1px solid #32c8cf;
-  border-radius: 4px;
-  color: #32c8cf;
+  margin-bottom: 60px;
 }
 
 .clear-filter-btn {
@@ -140,10 +132,34 @@ export default {
 }
 
 .filtered-heading {
-  display: flex;
+  margin-bottom: 30px;
 }
 
-.pagination {
-  text-align: center;
+.filtered-heading h2 {
+  margin-top: 0px;
+}
+
+.blog-list__filter-by {
+  font-size: 13px;
+  color: #939aa0;
+}
+
+.blog-list__filter-by__button,
+.blog-list__clear-filter {
+  border: 0;
+  background: transparent;
+  padding: 5px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #767f87;
+  outline: none;
+}
+
+.blog-list__filter-by__button:hover,
+.blog-list__clear-filter:hover {
+  text-decoration: underline;
 }
 </style>
