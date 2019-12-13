@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Loom API [under construction]
+  title: Loom API (public beta)
   description: 'This is the documentation of the Connect Print Loom API Endpoints.'
   version: 1.0.0
 servers:
