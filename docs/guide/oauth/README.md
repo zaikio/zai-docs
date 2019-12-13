@@ -9,3 +9,4 @@ Currently the following OAuth flows are supported:
 - [Client Credentials Flow](./client-credentials.html)
 - [Access Token Refresh](./access-token-refresh.html)
 - [Delegating Access to Subsystems](./delegate-access.html)
+- [Exchanging JSON Web Tokens](./jwt.html)
