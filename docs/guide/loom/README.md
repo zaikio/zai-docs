@@ -1,7 +1,9 @@
 # Event Handling with Loom
 
 ::: warning
-**This document is for informational purposes only. The Loom event system is not published yet. If you have specific questions, please contact us.**
+**The Loom event system is currently in public beta, this means that things might change without warning, documentation may be incorrect and need updating, and things might unexpectedly break. We do not recommend building production-level services on Loom until this feature is out of beta.**
+
+**If you have specific questions, please contact us.**
 :::
 
 Loom is a system to handle events between applications on the platform.
