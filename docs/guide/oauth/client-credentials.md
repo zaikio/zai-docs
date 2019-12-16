@@ -28,7 +28,7 @@ When using the client credentials flow authentication needs to happen by using t
 
 In addition, the Client Credentials Flow provides the option of issuing a token for an organization, which also references a person and specifies their roles in the context of this organization in the JWT (JSON Web Token).
 
-It is important that both the person and the organization have already been connected to the app and that the organization has already requested the required permissions in the form of scopes. Requested scopes must then receive the person and the organization in this format: 
+It is important that both the person and the organization have already been connected to the app and that the organization has already requested the required permissions in the form of scopes. Requested scopes must then receive the person and the organization in this format:
 
 ```
 scope: Per/29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7>Org/b1475f65-236c-58b8-96e1-e1778b43beb7.directory.machines.rw
@@ -42,7 +42,7 @@ If such a token was successfully requested, the following JWT payload and respon
 ```json
 {
   "iss": "CP",
-  "sub": "Per/29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7>Organization/b1475f65-236c-58b8-96e1-e1778b43beb7",
+  "sub": "Person/29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7>Organization/b1475f65-236c-58b8-96e1-e1778b43beb7",
   "aud": [],
   "jti": "b1475f65-236c-58b8-96e1-e1778b43beb7",
   "nbf": 1576225131,
@@ -84,7 +84,7 @@ If such a token was successfully requested, the following JWT payload and respon
 :::
 ::::
 
-The role attribute is represented as integer to save space, as many servers limit the header size. Since we offer a very granular role model, this is very helpful. 
+The role attribute is represented as integer to save space, as many servers limit the header size. Since we offer a very granular role model, this is very helpful.
 
 This is a so-called bitfield ([Wikipedia: Bitfield](https://en.wikipedia.org/wiki/Bit_field)).
 
@@ -112,31 +112,31 @@ class RoleBitField
   	@bitfield = bitfield || 0
     @roles = roles || []
   end
-  
+
   def role?(role_name)
     return !(bitfield & bit_for_role(role_name)).zero?
   end
-  
+
   def add_role(role_name)
     return if role?(role_name)
-    
+
     @bitfield += bit_for_role(role_name)
   end
-  
+
   def remove_role(role_name)
     return unless role?(role_name)
-    
+
     @bitfield -= bit_for_role(role_name)
   end
-  
+
   def active_roles
     roles.select { |r| role?(r) }
   end
-  
+
   private
-  
+
   attr_reader :roles
-  
+
   def bit_for_role(role_name)
     2 ** roles.index(role_name)
   end
@@ -162,32 +162,32 @@ class RoleBitField {
   	this.bitfield = bitfield || 0;
     this.roles = roles || [];
   }
-  
+
   hasRole(roleName) {
     return ((this.bitfield & this.bitForRole(roleName)) !== 0);
   }
- 
+
   addRole(roleName) {
     if (!this.hasRole(roleName)) {
       this.bitfield += this.bitForRole(roleName);
     }
   }
- 
+
   removeRole(roleName) {
     if (this.hasRole(roleName)) {
       this.bitfield -= this.bitForRole(roleName);
     }
   }
- 
+
   bitForRole(roleName) {
     const pos = this.roles.indexOf(roleName);
     return Math.pow(2, pos);
   }
- 
+
   get activeRoles() {
     return this.roles.filter(r => this.hasRole(r));
   }
- 
+
   get bitField() {
     return this.bitfield;
   }
