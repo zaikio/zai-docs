@@ -63,7 +63,8 @@ module.exports = {
         "client-credentials",
         "access-token-refresh",
         "delegate-access",
-        "scopes"
+        "scopes",
+        "jwt"
       ],
       "/guide/loom/": ["posting-events", "receiving-events"]
     }
