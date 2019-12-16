@@ -1,12 +1,9 @@
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const fs = require("fs");
 
 module.exports = {
-  title: 'Developer Hub',
-  dest: 'dist',
-  extraWatchFiles: [
-    '.vuepress/public/api_specs/*.yaml'
-  ],
+  title: "Developer Hub",
+  dest: "dist",
   description: `
     Welcome to the Connect Print Directory developer hub. You'll find
     comprehensive guides and documentation to help you start working with
@@ -14,79 +11,101 @@ module.exports = {
     you get stuck. Let's jump right in!
   `,
   themeConfig: {
-    logo: '/connect_print_logo.png',
+    logo: "/connect_print_logo.png",
     nav: [
       {
-        text: 'Home',
-        link: '/'
+        text: "Home",
+        link: "/"
       },
       {
-        text: 'Guides',
+        text: "Guides",
         items: [
           {
-            text: 'Single Sign On & OAuth',
-            link: '/guide/oauth/'
+            text: "Single Sign On & OAuth",
+            link: "/guide/oauth/"
           },
           {
-            text: 'Event Handling with Loom',
-            link: '/guide/loom/'
+            text: "Event Handling with Loom",
+            link: "/guide/loom/"
           }
         ]
       },
       {
-        text: 'API Reference',
+        text: "Changelog",
+        link: "/changelog/"
+      },
+      {
+        text: "API Reference",
         items: [
           {
-            text: 'Directory API',
-            link: '/api/directory/v1/'
+            text: "Directory API",
+            link: "/api/directory/v1/"
           },
           {
-            text: 'Loom API',
-            link: '/api/loom/v1/'
+            text: "Loom API",
+            link: "/api/loom/v1/"
           },
           {
-            text: 'OAuth API',
-            link: '/api/oauth/'
+            text: "OAuth API",
+            link: "/api/oauth/"
           }
         ]
       },
       {
-        text: 'Directory',
-        link: 'https://directory.heidelberg.cloud/'
+        text: "Directory",
+        link: "https://directory.heidelberg.cloud/"
       }
     ],
     sidebar: {
-      '/guide/oauth/': [
-        'redirect-flow',
-        'device-flow',
-        'client-credentials',
-        'access-token-refresh',
-        'delegate-access',
-        'scopes',
-        'jwt'
+      "/guide/oauth/": [
+        "redirect-flow",
+        "device-flow",
+        "client-credentials",
+        "access-token-refresh",
+        "delegate-access",
+        "scopes",
+        "jwt"
       ],
-      '/guide/loom/': [
-        'posting-events',
-        'receiving-events'
-      ]
+      "/guide/loom/": ["posting-events", "receiving-events"]
     }
   },
   plugins: [
-    'vuepress-plugin-element-tabs'
+    "vuepress-plugin-element-tabs",
+    [
+      "feed",
+      {
+        canonical_base: "https://docs.zaiku.cloud",
+        feed_options: {
+          title: "Connect Print Changelog",
+          description: "Developer changelog and scheduled changes of Connect Print",
+          copyright: "Crispy Mountain GmbH",
+          language: "en"
+        },
+        sort: entries =>
+          entries.sort(
+            (a, b) =>
+              new Date(a.frontmatter.date) - new Date(b.frontmatter.date)
+          )
+      }
+    ]
   ],
   head: [
-    ['link', { rel: 'icon', href: '/favicon.png' }],
-    ['script', {}, fs.readFileSync(path.join(__dirname, './intercom-snippet.js'), 'utf8')]
+    ["link", { rel: "icon", href: "/favicon.png" }],
+    [
+      "script",
+      {},
+      fs.readFileSync(path.join(__dirname, "./intercom-snippet.js"), "utf8")
+    ]
   ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {
       // mutate the config for client
-      config.node.global = true
-      config.node.process = 'mock'
+      config.node.global = true;
+      config.node.process = "mock";
       config.module.rules.push({
         test: /\.ya?ml$/,
-        loader: 'js-yaml-loader'
-      })
+        loader: "js-yaml-loader"
+      });
     }
   }
-}
+};
