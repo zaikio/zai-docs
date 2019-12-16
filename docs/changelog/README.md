@@ -5,7 +5,7 @@ pageClass: changelog
 
 # Developer Changelog
 
-[RSS Feed](/feed.xml)
+[RSS Feed](/rss.xml), [Atom Feed](/feed.atom), [JSON Feed](/feed.json)
 
 :::: tabs
 ::: tab Recent

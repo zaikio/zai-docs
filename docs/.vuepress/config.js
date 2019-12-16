@@ -71,12 +71,20 @@ module.exports = {
   plugins: [
     "vuepress-plugin-element-tabs",
     [
-      "vuepress-plugin-rss",
+      "feed",
       {
-        base_url: "/",
-        site_url: "https://docs.zaiku.cloud",
-        copyright: "Crispy Mountain GmbH",
-        count: 20
+        canonical_base: "https://docs.zaiku.cloud",
+        feed_options: {
+          title: "Connect Print Changelog",
+          description: "Developer changelog and scheduled changes of Connect Print",
+          copyright: "Crispy Mountain GmbH",
+          language: "en"
+        },
+        sort: entries =>
+          entries.sort(
+            (a, b) =>
+              new Date(a.frontmatter.date) - new Date(b.frontmatter.date)
+          )
       }
     ]
   ],

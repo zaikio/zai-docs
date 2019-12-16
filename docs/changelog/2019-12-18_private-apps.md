@@ -8,7 +8,7 @@ components:
 change_types:
     - Action required
     - Update
-summary: >
+description: >
   If your app is specified as `Private` then only the organisation that created the App or its members can from now on access it through the OAuth flow.
 
   If you don't want that please switch to an `External` app by editing the app detail's.

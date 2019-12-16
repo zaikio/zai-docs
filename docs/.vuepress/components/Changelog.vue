@@ -23,7 +23,7 @@ export default {
     },
 
     htmlContent() {
-      return md.render(this.item.frontmatter.summary);
+      return md.render(this.item.frontmatter.description);
     }
   }
 };
@@ -46,7 +46,7 @@ export default {
           {{ type }}
         </span>
       </div>
-      <div v-if="item.frontmatter.summary" v-html="htmlContent"></div>
+      <div v-if="item.frontmatter.description" v-html="htmlContent"></div>
     </div>
   </section>
 </template>
