@@ -29,6 +29,7 @@ tags:
   - name: Machines
   - name: Sites
   - name: JWT Public Keys
+  - name: Roles
 
 paths:
   /person:
@@ -319,6 +320,45 @@ paths:
                     n: vm7t9YKaF_EUYcnGESLL_AKpXCFu5o8D7OvRqZCkIdw_jpC5MVn_-OgKGU34LFucdt512hV6gePztDyIURDwx9mWtr2KZxvtE3OWLSm5IZxRvHjFAaNFAk6Jac7OCbWQWYGJXbEiZsqDsw3F55AE_9mW5RZjk4jnJodW2Rq23WrpdnAmdsjOYXZkLoesQqtVoPyKoexwuqkTjDhXN24XUtmW4YWNqMCbyU6qTSd-Aguc9V1R6xNGnbgLLxOrQgbXt8k5VafiQjC38-YiEwtuAyRc--7wAiHaiSqlQNhIiL5_Bchl_AIdR_hpRNkSDSq_lqxbVvbhS2w0Y2dUB7asQQ
                     e: AQAB
                     kid: 22d308350f0cb5b7ad2da90dddcaa942c229bf8792eef10e47eeffa8790a0658
+  /roles:
+    get:
+      tags:
+        - Roles
+      description: Retrieve list of available roles with their translation
+      parameters:
+        - in: query
+          name: lang
+          description: Optional language parameter
+          schema:
+            type: string
+            example: de
+            enum:
+              - en
+              - de
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: owner
+                    name:
+                      description: Translated Name
+                      type: string
+                      example: Owner
+              example:
+                - id: owner
+                  name: Owner
+                - id: admin
+                  name: Administrator
+                - id: member
+                  name: Member
 
   /sites:
     get:
