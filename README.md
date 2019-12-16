@@ -36,6 +36,14 @@ modify or add a new reference have a look at `docs/api`.
 If you want to change the navigation links, please modify `docs/.vuepress/config.js` in `themeConfig.nav`. In addition to that you can also
 setup a sidebar for you guide by either adding it to `docs/.vuepress/config.js` or via `sidebar: 'auto'` (see [Vuepress frontmatter](https://vuepress.vuejs.org/guide/frontmatter.html#predefined-variables)).
 
+### Changelog and scheduled changes
+
+In the `docs/changelog` folder you will find recent changes and schedules ones. You can copy one of the existing changelogs to see it in action.
+Each changelog can have a list of `components` (usually the APIs they refer to) and `change_types` (like `New`, `Action Required`, `Updated`, `Deprecation`).
+We automatically resolve changelogs from the future into the scheduled changes.
+
+It is recommended to add a changelog item if you want to promote a feature or if you want to introduce breaking changes.
+
 ### Advanced
 
 There are many features coming with Vuepress. If the markdown options is not enough, you can also add custom Vue Components.
