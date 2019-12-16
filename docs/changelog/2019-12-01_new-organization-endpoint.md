@@ -8,7 +8,7 @@ components:
 change_types:
     - New
 description: >
-  You can now access `GET /organization` to view the organization's name and other meta data.
+  You can now access `GET /organization` to view an organization's name and other meta data.
 
   Please check the [Directory API Reference](/api/directory/v1/) for more details.
 ---

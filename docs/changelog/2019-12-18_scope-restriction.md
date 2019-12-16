@@ -9,5 +9,5 @@ change_types:
     - Action required
     - Update
 description: >
-  Scopes will now take effect. If you don't send the right scopes yet, please check the [Directory API Reference](/api/directory/v1/). You find a list of scopes and bearers that are needed by an endpoint.
+  Scopes for all Directory API endpoints will now take effect. If you don't send the right scopes yet, please check the [Directory API Reference](/api/directory/v1/). You find a list of scopes and bearers that are required for each endpoint.
 ---

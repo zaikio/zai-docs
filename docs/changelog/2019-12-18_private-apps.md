@@ -9,7 +9,7 @@ change_types:
     - Action required
     - Update
 description: >
-  If your app is specified as `Private` then from now on only the organisation that created the App or its members can access it through the OAuth flow.
+  From now `Private` apps can only be accessed by the organisation that created the app, or any of it's members.
 
-  If you don't want that please switch to an `External` app by editing the app detail's.
+  If you want everybody to be able to access your app please switch to `External` in the app's details pane.
 ---
