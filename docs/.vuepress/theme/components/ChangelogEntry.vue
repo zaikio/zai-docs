@@ -5,7 +5,7 @@
     </div>
 
     <div class="footer">
-      <router-link to="/changelog/">< Back to Changelog</router-link>
+      <router-link to="/changelog/">&lt; Back to Changelog</router-link>
     </div>
   </main>
 </template>
