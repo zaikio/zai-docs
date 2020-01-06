@@ -6,6 +6,8 @@ All you need is an already generated access token containing all scopes to be de
 
 Create an access token with the `directory.delegations.rw` scope and other required scopes (e.g. with the [Redirect Flow](./redirect-flow.html)).
 
+It is important to be aware that this **only works for `OAuth confidential` apps**.
+
 ## Request access token for subsystem
 
 Send a `POST` request to `https://directory.heidelberg.cloud/oauth/delegate` with the generated access token provided in the `Authorization` header. The following parameters must accompany the request:
@@ -66,4 +68,4 @@ access_token=749ceefd1f7909a1773501e0bc57d5b2&token_type=bearer
 
 ## Authentication
 
-When using the delegate flow authentication needs to happen by using the `Authorization: Bearer <your API token>` header authentication method.
+When using the delegate flow authentication needs to happen by using the `Authorization: Bearer <your API token>` header authentication method. **It is required that this access token was created with confidential credentials.**
