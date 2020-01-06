@@ -58,6 +58,7 @@ Scopes are validated and following errors can occur:
 | `invalid_permission`                      | The given permission does not exist for the provided scope.                                                                                      |
 | `malformed_scope`                         | The scope your provided does not match the regex as outlined above.                                                                              |
 | `unavailable_scope_for_bearer_type`       | Some scopes are only available for `Person` or `Organization`. Usually this should be documented by the app provider.                            |
+| `scope_is_not_included_in_desired_scopes` | The required scopes were not created as desired scopes.                                                                                          |
 | `different_bearer_ids`                    | The bearer types are correct, but the IDs are different (Only happens in [Client Credentials Flow](./client-credentials.html)).                  |
 | `bearer_does_not_exist`                   | The bearer was not found or the client was not authorized by the bearer. (Only happens in [Client Credentials Flow](./client-credentials.html)). |
 | `unpermitted_bearer_id`                   | Bearer IDs are not allowed to be passed, the only exception is the [Client Credentials Flow](./client-credentials.html).                         |
@@ -89,6 +90,6 @@ There is only one use case where it can make sense to offer a `write_only` scope
 
 The name of the scope is primarily significant for other third party developers and for the size of the JWT. Customers do not see the technical name of the scope, only its technical description.
 
-The technical description should be short and simple for the customer. The customer sees the scopes with the sentence *YourApp would like...*. For example: *Receive and send messages*.
+The technical description should be short and simple for the customer. The customer sees the scopes with the sentence _YourApp would like..._. For example: _Receive and send messages_.
 
 The technical name should be short and crisp, for example `messages read_and_write`. In most cases, the name depends on the resource or resource group.
