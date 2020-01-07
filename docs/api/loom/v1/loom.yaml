@@ -40,6 +40,14 @@ paths:
             type: string
             example: accounting.invoice_paid
         - in: query
+          name: event[bearer]
+          required: true
+          description: Type and id of the bearer that triggered the event
+          schema:
+            type: string
+            example: 'Org/2b271d51-e447-4a16-810f-5abdc596700a'
+            pattern: '/(Org|Per)\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}/'
+        - in: query
           name: event[version]
           required: true
           description: Version of the payload structure and format
@@ -48,8 +56,7 @@ paths:
             example: 1
         - in: query
           name: event[payload]
-          required: true
-          description: The payload must be a hash and may not exceed 256 bytes, see Guide for further requirements
+          description: The payload must be a hash and may not exceed 256 bytes, see [Guide](/guide/loom/posting-events.html#payload-requirements) for further requirements
           schema:
             type: object
             additionalProperties: {}
@@ -149,6 +156,7 @@ components:
     uuid:
       type: string
       format: uuid
+
     Event:
       required:
         - id
@@ -170,6 +178,9 @@ components:
           type: string
           format: date-time
           example: 2019-11-28T09:31:45.764Z
+        bearer:
+          type: string
+          example: 'Org/2b271d51-e447-4a16-810f-5abdc596700a'
         version:
           type: string
           example: '1.2'
