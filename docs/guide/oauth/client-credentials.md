@@ -22,10 +22,6 @@ When using the client credentials flow authentication needs to happen by using t
 
 ## On behalf of Person
 
-::: warning
-**This document is for informational purposes only. The On behalf of Person is not published yet. If you have specific questions, please contact us.**
-:::
-
 In addition, the Client Credentials Flow provides the option of issuing a token for an organization, which also references a person and specifies their roles in the context of this organization in the JWT (JSON Web Token).
 
 It is important that both the person and the organization have already been connected to the app and that the organization has already requested the required permissions in the form of scopes. Requested scopes must then receive the person and the organization in this format:
