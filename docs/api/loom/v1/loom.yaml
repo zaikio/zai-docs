@@ -40,9 +40,9 @@ paths:
             type: string
             example: accounting.invoice_paid
         - in: query
-          name: event[bearer]
+          name: event[subject]
           required: true
-          description: Type and id of the bearer that triggered the event
+          description: Type and id of the subject that triggered the event, see [Guide](/guide/loom/posting-events.html) for further requirements
           schema:
             type: string
             example: 'Org/2b271d51-e447-4a16-810f-5abdc596700a'
@@ -178,7 +178,7 @@ components:
           type: string
           format: date-time
           example: 2019-11-28T09:31:45.764Z
-        bearer:
+        subject:
           type: string
           example: 'Org/2b271d51-e447-4a16-810f-5abdc596700a'
         version:

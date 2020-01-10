@@ -13,7 +13,7 @@ curl --request POST \
      --url https://api.app.example.tld/webhooks/abc \
      --header 'Content-Type: application/json'
      --header 'X-Loom-Signature: sha256=0d2744941cc989ce12a43339727768c5e9f1948a6bb764507e09e0f8ea7299b4'
-     --data '{"id":"62abcc92-e17e-4db0-b78e-13369251474b","name":"accounting.invoice_paid","bearer":"Org/2b271d51-e447-4a16-810f-5abdc596700a","timestamp":"2019-11-26T10:58:09.664Z","version":"1.0","payload":{"invoice_number":"b1a2eaa9-11ba-4cab-8580-40f091e37742"},"link":"https://accounting.zaikami.cloud/api/v1/payments/1234","received_at":"2019-11-26T10:58:09.664Z"}'
+     --data '{"id":"62abcc92-e17e-4db0-b78e-13369251474b","name":"accounting.invoice_paid","subject":"Org/2b271d51-e447-4a16-810f-5abdc596700a","timestamp":"2019-11-26T10:58:09.664Z","version":"1.0","payload":{"invoice_number":"b1a2eaa9-11ba-4cab-8580-40f091e37742"},"link":"https://accounting.zaikami.cloud/api/v1/payments/1234","received_at":"2019-11-26T10:58:09.664Z"}'
 ```
 
 ## Best Practices
@@ -28,8 +28,8 @@ The receiver must **verify the signature** to increase security. Loom generates 
 
 ```ruby
 shared_secret = "nq9oZo7haPgNVdNRccWhK551"
-message       = "{\"id\":\"62abcc92-e17e-4db0-b78e-13369251474b\",\"name\":\"accounting.invoice_paid\",\"bearer\":\"Org/2b271d51-e447-4a16-810f-5abdc596700a\",\"timestamp\":\"2019-11-26T10:58:09.664Z\",\"version\":\"1.0\",\"payload\":{\"invoice_number\":\"b1a2eaa9-11ba-4cab-8580-40f091e37742\"},\"link\":\"https://accounting.zaikami.cloud/api/v1/payments/1234\",\"received_at\":\"2019-11-26T10:58:09.664Z\"}"
-signature     = "0d2744941cc989ce12a43339727768c5e9f1948a6bb764507e09e0f8ea7299b4"
+message       = "{\"id\":\"62abcc92-e17e-4db0-b78e-13369251474b\",\"name\":\"accounting.invoice_paid\",\"subject\":\"Org/2b271d51-e447-4a16-810f-5abdc596700a\",\"timestamp\":\"2019-11-26T10:58:09.664Z\",\"version\":\"1.0\",\"payload\":{\"invoice_number\":\"b1a2eaa9-11ba-4cab-8580-40f091e37742\"},\"link\":\"https://accounting.zaikami.cloud/api/v1/payments/1234\",\"received_at\":\"2019-11-26T10:58:09.664Z\"}"
+signature     = "1adc24533be31055a94df0f39295b28afed5ff230b4eced1786b5905e5a6a1b5"
 
 ActiveSupport::SecurityUtils.secure_compare(
   OpenSSL::HMAC.hexdigest("SHA256", shared_secret, message),
@@ -67,7 +67,7 @@ Results from this endpoint are paginated to 100 events per page. Find the total 
   {
     "id": "62abcc92-e17e-4db0-b78e-13369251474b",
     "name": "accounting.invoice_paid",
-    "bearer": "Org/2b271d51-e447-4a16-810f-5abdc596700a",
+    "subject": "Org/2b271d51-e447-4a16-810f-5abdc596700a",
     "timestamp": "2019-11-26T10:58:09.664Z",
     "version": "1.0",
     "payload": {
