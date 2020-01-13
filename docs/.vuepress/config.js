@@ -74,7 +74,7 @@ module.exports = {
     [
       "feed",
       {
-        canonical_base: "https://docs.zaiku.cloud",
+        canonical_base: "https://docs.zaikio.com",
         feed_options: {
           title: "Connect Print Changelog",
           description: "Developer changelog and scheduled changes of Connect Print",

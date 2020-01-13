@@ -1,6 +1,6 @@
 # hc-docs
 
-Visit the docs here: [docs.zaiku.cloud](https://docs.zaiku.cloud/)
+Visit the docs here: [docs.zaiku.cloud](https://docs.zaikio.com/)
 
 Developer Hub based on [Vuepress](https://vuepress.vuejs.org/) and [swagger-ui](https://swagger.io/tools/swagger-ui/).
 
