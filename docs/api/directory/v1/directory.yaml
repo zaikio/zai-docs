@@ -20,7 +20,7 @@ info:
 servers:
   - url: https://directory.heidelberg.cloud/api/v1/
     description: Production server (uses live data)
-  - url: https://directory.sandbox.zaiku.cloud/api/v1/
+  - url: https://directory.sandbox.zaikio.com/api/v1/
     description: Sandbox server (uses test data)
 
 tags:

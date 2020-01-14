@@ -2,7 +2,7 @@
   <div class="jwt-verifier">
     <label>Environment:</label>
     <select v-model="server">
-      <option value="sandbox">Sandbox https://directory.sandbox.zaiku.cloud/api/v1/</option>
+      <option value="sandbox">Sandbox https://directory.sandbox.zaikio.com/api/v1/</option>
       <option value="production">Production https://directory.heidelberg.cloud/api/v1/</option>
     </select>
     <textarea
@@ -24,7 +24,7 @@ import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
 const API_URLS = {
-  sandbox: 'https://directory.sandbox.zaiku.cloud/api/v1',
+  sandbox: 'https://directory.sandbox.zaikio.com/api/v1',
   production: 'https://directory.heidelberg.cloud/api/v1'
 }
 
