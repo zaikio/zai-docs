@@ -25,6 +25,10 @@ module.exports = {
             link: "/guide/oauth/"
           },
           {
+            text: "Navigation component: Launchpad",
+            link: "/guide/launchpad/"
+          },
+          {
             text: "Event Handling with Loom",
             link: "/guide/loom/"
           }
@@ -66,7 +70,8 @@ module.exports = {
         "scopes",
         "jwt"
       ],
-      "/guide/loom/": ["posting-events", "receiving-events"]
+      "/guide/loom/": ["posting-events", "receiving-events"],
+      "/guide/launchpad/": ["default-integration", "spa"]
     }
   },
   plugins: [
