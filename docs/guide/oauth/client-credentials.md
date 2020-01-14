@@ -4,6 +4,16 @@ As a trusted client, you can also use the Client Credentials Flow. It enables yo
 
 After the token generation you will need to use the regular [Access Token Refresh](./access-token-refresh.html).
 
+## Becoming a trusted client
+
+Requested scopes by the Client Credentials Flow must be granted beforehand, otherwise the scope error `ungranted_scope` (see [scope errors](/guide/oauth/scopes.html)) will be returned.
+
+This means that the person or organization must have successfully accepted the scopes in advance through a [Redirect Flow](/guide/oauth/redirect-flow.html) (or through the Device Flow) for this app.
+
+::: tip
+This authorization can also be done later directly through the Directory App (via Connections), if the App has been approved by the Zaikio Team. If you want to participate, please contact us directly.
+:::
+
 ## Creating an access token
 
 In order to create a valid access token you need send a `POST` request to `https://directory.heidelberg.cloud/oauth/access_token`. The following parameters must accompany the request:
