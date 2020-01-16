@@ -6,6 +6,12 @@ The device flow is split into two parallel streams: the device itself will reque
 
 While the user is doing this, the device will periodically query the authentication server to figure out if the authorisation was already granted by the user. If so, the device will be issued an access token and the process concludes.
 
+::: tip Examples
+
+JavaScript: [github.com/crispymtn/zai-device-flow-demo](https://github.com/crispymtn/zai-device-flow-demo)
+
+:::
+
 ## Device authentication flow
 
 The Directory supports the device authentication flow based on the standard [device authorization grant type (RFC 8628)](https://tools.ietf.org/html/rfc8628). In order to use this flow you need to create an App (which can be either public or private) in the Directory.

@@ -12,6 +12,12 @@ In order to do so, four steps are necessary:
 4. Your app uses the Directory API to query user information
 5. Integrate the [Launchpad](/guide/launchpad/) on your website
 
+::: tip Examples
+
+JavaScript: [github.com/crispymtn/zai-demo-app-javascript](https://github.com/crispymtn/zai-demo-app-javascript)
+
+:::
+
 ## Requesting a user's identity
 
 To start the web application OAuth flow, you need to redirect users that don't have a valid session for your App to `GET https://directory.heidelberg.cloud/oauth/authorize`.
