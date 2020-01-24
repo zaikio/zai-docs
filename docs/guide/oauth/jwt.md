@@ -32,7 +32,7 @@ import jwkToPem from 'jwk-to-pem';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
-const SANDBOX_SERVER = 'https://directory.sandbox.zaiku.cloud/api/v1';
+const SANDBOX_SERVER = 'https://directory.sandbox.zaikio.com/api/v1';
 let jwk;
 
 async function validateJWT(jwt) {
@@ -56,7 +56,7 @@ require 'jwt'
 require 'net/http'
 require 'active_support/all'
 
-sandbox_server = 'https://directory.sandbox.zaiku.cloud/api/v1'
+sandbox_server = 'https://directory.sandbox.zaikio.com/api/v1'
 uri = URI("#{sandbox_server}/jwt_public_keys.json")
 keys = JSON.parse(Net::HTTP.get(uri))['keys']
 # Cache JWKs on your server

@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://directory.heidelberg.cloud/oauth/
     description: Production server (uses live data)
-  - url: https://directory.sandbox.zaiku.cloud/oauth/
+  - url: https://directory.sandbox.zaikio.com/oauth/
     description: Sandbox server (uses test data)
 
 tags:
