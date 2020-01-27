@@ -25,7 +25,7 @@ module.exports = {
         "jwt"
       ],
       "/guide/loom/": ["posting-events", "receiving-events"],
-      "/guide/launchpad/": ["default-integration", "spa"]
+      "/guide/launchpad/": ["default-integration", "spa", "custom-switch"]
     },
     nav: [
       {
