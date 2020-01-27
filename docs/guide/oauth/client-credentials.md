@@ -47,7 +47,7 @@ If such a token was successfully requested, the following JWT payload and respon
 
 ```json
 {
-  "iss": "CP",
+  "iss": "ZAI",
   "sub": "Person/29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7>Organization/b1475f65-236c-58b8-96e1-e1778b43beb7",
   "aud": [],
   "jti": "b1475f65-236c-58b8-96e1-e1778b43beb7",
