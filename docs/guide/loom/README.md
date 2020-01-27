@@ -13,7 +13,7 @@ When a developer registers an application in the Directory two list of events ca
   - events which are fired by the application
   - events to which the application wants to subscribe
 
-After an event was fired to Loom, it is verified and then immediately send to all subscribers via `HTTP POST` to their configured webhook URL.
+After an event was fired to Loom, it is verified and then immediately send to all subscribered Apps via `HTTP POST` to their configured webhook URL.
 
 Read more about:
 
