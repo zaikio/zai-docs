@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
+const externalApisNav = require("./externalApisNav.json");
+
 module.exports = {
   title: "Developer Hub",
   dest: "dist",
@@ -12,6 +14,19 @@ module.exports = {
   `,
   themeConfig: {
     logo: "/connect_print_logo.png",
+    sidebar: {
+      "/guide/oauth/": [
+        "redirect-flow",
+        "device-flow",
+        "client-credentials",
+        "access-token-refresh",
+        "delegate-access",
+        "scopes",
+        "jwt"
+      ],
+      "/guide/loom/": ["posting-events", "receiving-events"],
+      "/guide/launchpad/": ["default-integration", "spa", "custom-switch"]
+    },
     nav: [
       {
         text: "Home",
@@ -40,11 +55,7 @@ module.exports = {
       },
       {
         text: "API Reference",
-        items: [
-          {
-            text: "Directory API",
-            link: "/api/directory/v1/"
-          },
+        items: externalApisNav.concat([
           {
             text: "Loom API",
             link: "/api/loom/v1/"
@@ -53,26 +64,13 @@ module.exports = {
             text: "OAuth API",
             link: "/api/oauth/"
           }
-        ]
+        ])
       },
       {
         text: "Directory",
         link: "https://directory.heidelberg.cloud/"
       }
-    ],
-    sidebar: {
-      "/guide/oauth/": [
-        "redirect-flow",
-        "device-flow",
-        "client-credentials",
-        "access-token-refresh",
-        "delegate-access",
-        "scopes",
-        "jwt"
-      ],
-      "/guide/loom/": ["posting-events", "receiving-events"],
-      "/guide/launchpad/": ["default-integration", "spa", "custom-switch"]
-    }
+    ]
   },
   plugins: [
     "vuepress-plugin-element-tabs",
