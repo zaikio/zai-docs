@@ -1,6 +1,6 @@
 # The Redirect Flow
 
-Connect Print supports the web application flow based on the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1). In order to use this flow you need to create an App (which can be either public or private) in the Directory. Please see [Introduction](doc:oauth-single-sign-on-with-the-redirect-flow) for further details on how to create Apps.
+Connect Print supports the web application flow based on the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1). In order to use this flow you need to create an App (which can be either public or private) in the Directory.
 
 After your App has been created you can use this flow to identify users that visit your App.
 
