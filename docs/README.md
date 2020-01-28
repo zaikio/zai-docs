@@ -23,5 +23,5 @@ features:
     details: >
       To make it as easy as possible for you, we have many examples and step-by-step guides.
       If you don't know what to do, use the search or contact us via our chat.
-footer: Copyright © 2019 Crispy Mountain GmbH
+footer: Copyright © 2020 Crispy Mountain GmbH
 ---
