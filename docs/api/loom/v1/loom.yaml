@@ -4,7 +4,10 @@ info:
   description: 'This is the documentation of the Zaikio Loom API Endpoints.'
   version: 1.0.0
 servers:
-  - url: https://loom.zaikio.com/api/v1/
+- url: https://loom.zaikio.com/api/v1/
+  description: Production server (uses live data)
+- url: https://loom.sandbox.zaikio.com/api/v1/
+  description: Sandbox server (uses test data)
 
 tags:
   - name: Events
