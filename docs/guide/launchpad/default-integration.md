@@ -22,7 +22,22 @@ if (window.zaiLaunchpad) {
         // Person was selected
         // your code
       }
-    }
+    },
+    helpMenu: [
+      {
+        label: 'Ask us a question',
+        onClick: () => {
+          // custom JS behavior
+        },
+      },
+      {
+        divider: true,
+      },
+      {
+        label: 'Developer Hub',
+        url: 'https://docs.zaikio.com/',
+      },
+    ]
   });
 }
 ```
