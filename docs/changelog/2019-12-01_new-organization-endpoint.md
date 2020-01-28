@@ -10,5 +10,5 @@ change_types:
 description: >
   You can now access `GET /organization` to view an organization's name and other meta data.
 
-  Please check the [Directory API Reference](/api/directory/v1/) for more details.
+  Please check the [Directory API Reference](/api/directory/) for more details.
 ---
