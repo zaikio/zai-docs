@@ -9,7 +9,7 @@ If your App is confidential you can use this tutorial to integrate the launchpad
 ```js
 if (window.zaiLaunchpad) {
   window.zaiLaunchpad.setup({
-    loadPersonData: () {
+    loadPersonData: () => {
       return fetch('/current_person.json').then(response => response.json());
     },
     directoryHost: 'https://directory.sandbox.zaikio.com', // optional host, you can specify the sandbox for your test environment

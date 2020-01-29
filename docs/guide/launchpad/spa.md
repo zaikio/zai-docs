@@ -11,7 +11,7 @@ if (window.zaiLaunchpad) {
   const directoryAccessToken = "eyJraWQiOiJhNmE1MzF..."; // Access Token that has the scope directory.person.r
 
   window.zaiLaunchpad.setup({
-    loadPersonData: () {
+    loadPersonData: () => {
       return fetch(
         'https://directory.sandbox.zaikio.com/api/v1/person.json',
         {
