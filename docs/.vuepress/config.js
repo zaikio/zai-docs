@@ -13,6 +13,11 @@ module.exports = {
     you get stuck. Let's jump right in!
   `,
   themeConfig: {
+    repo: "crispymtn/zai-docs",
+    repoLabel: "Contribute",
+    docsDir: "docs",
+    editLinks: true,
+    editLinkText: "Edit this page on GitHub",
     logo: "/connect_print_logo.png",
     sidebar: {
       "/guide/oauth/": [
