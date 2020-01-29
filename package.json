@@ -26,6 +26,7 @@
     "js-yaml-loader": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.3",
+    "node-fetch": "^2.6.0",
     "swagger-ui": "^3.25.0",
     "vue-server-renderer": "2.6.10",
     "vuepress": "^1.2.0",
