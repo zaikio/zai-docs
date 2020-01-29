@@ -1,4 +1,4 @@
-# hc-docs
+# zai-docs
 
 Visit the docs here: [docs.zaikio.com](https://docs.zaikio.com/)
 

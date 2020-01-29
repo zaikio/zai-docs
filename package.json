@@ -1,7 +1,7 @@
 {
-  "name": "hc-docs",
+  "name": "zai-docs",
   "version": "1.0.0",
-  "description": "Static Site for hc documentation, including API, Guides and UI Components.",
+  "description": "Static Site for zaikio documentation, including API, Guides and UI Components.",
   "private": true,
   "scripts": {
     "serve": "node ./scripts/fetchDocs.js && vuepress dev docs",
@@ -17,9 +17,9 @@
     "swagger"
   ],
   "bugs": {
-    "url": "https://github.com/crispymtn/hc-docs/issues"
+    "url": "https://github.com/crispymtn/zai-docs/issues"
   },
-  "homepage": "https://github.com/crispymtn/hc-docs#readme",
+  "homepage": "https://github.com/crispymtn/zai-docs#readme",
   "devDependencies": {
     "@vuepress/shared-utils": "^1.2.0",
     "axios": "^0.19.1",
