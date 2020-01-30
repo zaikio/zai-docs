@@ -62,12 +62,22 @@ module.exports = {
         text: "API Reference",
         items: externalApisNav.concat([
           {
-            text: "Loom API",
-            link: "/api/loom/v1/"
+            text: "Loom",
+            items: [
+              {
+                text: "API Reference",
+                link: "/api/loom/v1/"
+              }
+            ]
           },
           {
-            text: "OAuth API",
-            link: "/api/oauth/"
+            text: "OAuth",
+            items: [
+              {
+                text: "API Reference",
+                link: "/api/oauth/"
+              }
+            ]
           }
         ])
       },
