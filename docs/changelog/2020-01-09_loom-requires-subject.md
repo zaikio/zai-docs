@@ -9,5 +9,5 @@ change_types:
     - Action required
     - Update
 description: >
-  It is now required that the JSON body includes a valid `subject` when posting events to the Loom API. The `subject identifies the Person or Organization that triggered the event. [Read more](/guide/loom/posting-events.html)
+  From now on it is required that the JSON body includes a valid `subject` when posting events to the Loom API. The `subject identifies the Person or Organization in which context the event was triggered. The event will only be delivered to Apps that are connected to the subject and that have granted access to the specific event type. [Read more](/guide/loom/posting-events.html)
 ---
