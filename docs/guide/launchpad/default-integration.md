@@ -9,7 +9,7 @@ If your App is confidential you can use this tutorial to integrate the launchpad
 ```js
 if (window.zaiLaunchpad) {
   window.zaiLaunchpad.setup({
-    loadPersonData: () {
+    loadPersonData: () => {
       return fetch('/current_person.json').then(response => response.json());
     },
     directoryHost: 'https://directory.sandbox.zaikio.com', // optional host, you can specify the sandbox for your test environment
@@ -42,7 +42,7 @@ if (window.zaiLaunchpad) {
 }
 ```
 
-3. Add an endpoint to your app that is called `current_person.json` that returns the same data as `api/v1/person.json` (see [Directory API Specification](/api/directory/v1/)). This encapsulation is required so that the JSON Web token is not exposed.
+3. Add an endpoint to your app that is called `current_person.json` that returns the same data as `api/v1/person.json` (see [Directory API Specification](/api/directory/)). This encapsulation is required so that the JSON Web token is not exposed.
 
 
 :::: tabs

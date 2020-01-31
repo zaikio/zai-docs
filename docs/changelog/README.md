@@ -1,6 +1,7 @@
 ---
 title: Developer Changelog
 pageClass: changelog
+editLink: false
 ---
 
 # Developer Changelog

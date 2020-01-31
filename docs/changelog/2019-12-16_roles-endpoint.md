@@ -10,5 +10,5 @@ change_types:
 description: >
   You can now access the public endpoint `GET /roles` to view all roles.
 
-  Please check the [Directory API Reference](/api/directory/v1/) for more details.
+  Please check the [Directory API Reference](/api/directory/) for more details.
 ---

@@ -13,6 +13,11 @@ module.exports = {
     you get stuck. Let's jump right in!
   `,
   themeConfig: {
+    repo: "crispymtn/zai-docs",
+    repoLabel: "Contribute",
+    docsDir: "docs",
+    editLinks: true,
+    editLinkText: "Edit this page on GitHub",
     logo: "/connect_print_logo.png",
     sidebar: {
       "/guide/oauth/": [
@@ -57,12 +62,22 @@ module.exports = {
         text: "API Reference",
         items: externalApisNav.concat([
           {
-            text: "Loom API",
-            link: "/api/loom/v1/"
+            text: "Loom",
+            items: [
+              {
+                text: "API Reference",
+                link: "/api/loom/v1/"
+              }
+            ]
           },
           {
-            text: "OAuth API",
-            link: "/api/oauth/"
+            text: "OAuth",
+            items: [
+              {
+                text: "API Reference",
+                link: "/api/oauth/"
+              }
+            ]
           }
         ])
       },
