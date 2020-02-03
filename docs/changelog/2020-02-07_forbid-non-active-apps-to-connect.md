@@ -1,6 +1,6 @@
 ---
 title: "Users can not connect to foreign and unreviewed Apps in production"
-date: 2020-02-04 09:00:00
+date: 2020-02-07 09:00:00
 type: post
 changelog: true
 components:
