@@ -82,8 +82,8 @@ module.exports = {
         ])
       },
       {
-        text: "Directory",
-        link: "https://directory.heidelberg.cloud/"
+        text: "Sandbox",
+        link: "https://directory.sandbox.zaikio.com/"
       }
     ]
   },

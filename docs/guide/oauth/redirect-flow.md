@@ -20,7 +20,7 @@ JavaScript: [github.com/crispymtn/zai-demo-app-javascript](https://github.com/cr
 
 ## Requesting a user's identity
 
-To start the web application OAuth flow, you need to redirect users that don't have a valid session for your App to `GET https://directory.heidelberg.cloud/oauth/authorize`.
+To start the web application OAuth flow, you need to redirect users that don't have a valid session for your App to `GET https://directory.sandbox.zaikio.com/oauth/authorize`.
 
 | Name                     | Description                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -37,7 +37,7 @@ After a user has successfully logged into the Directory and approved access for 
 
 ## Exchange the grant code for an access token
 
-The final OAuth step exchanges the grant `code` that you received with the redirect from step 2 into a valid API token for the Directory. In order to perform the exchange you need to send a request to `POST https://directory.heidelberg.cloud/oauth/access_token`. The following parameters must accompany the request:
+The final OAuth step exchanges the grant `code` that you received with the redirect from step 2 into a valid API token for the Directory. In order to perform the exchange you need to send a request to `POST https://directory.sandbox.zaikio.com/oauth/access_token`. The following parameters must accompany the request:
 
 | Name          | Required     | Description                                                   |
 | ------------- | ------------ | ------------------------------------------------------------- |
@@ -96,7 +96,7 @@ access_token=749ceefd1f7909a1773501e0bc57d5b2&token_type=bearer
 
 ## Retrieve user information via the Directory API
 
-In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory V1 REST API at `GET https://directory.heidelberg.cloud/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. To authenticate against the API the `Authorization` header must be set to
+In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory V1 REST API at `GET https://directory.sandbox.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. To authenticate against the API the `Authorization` header must be set to
 
 ```
 Bearer <your API token>
@@ -108,7 +108,7 @@ An example call to this endpoint might look like this:
 
 ```
 curl --request GET \
-     --url https://directory.heidelberg.cloud/api/v1/person \
+     --url https://directory.sandbox.zaikio.com/api/v1/person \
      --header 'Authorization: Bearer 749ceefd1f7909a1773501e0bc57d5b2'
 ```
 

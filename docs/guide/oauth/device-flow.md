@@ -25,7 +25,7 @@ In order to connect, the following steps are necessary:
 
 ## Your device requests a device authorisation grant
 
-To start the device authorisation OAuth flow, you need to send a `POST` request to `https://directory.heidelberg.cloud/oauth/device_authorizations/authorize`.
+To start the device authorisation OAuth flow, you need to send a `POST` request to `https://directory.sandbox.zaikio.com/oauth/device_authorizations/authorize`.
 
 The following parameters are supported for this request:
 
@@ -44,7 +44,7 @@ The response also contains the `verification_url_complete`. This URL already con
 
 As soon as you receive the authorisation information from step 1 and display confirmation information as described in step 2 your device must start querying the Directory if the authorisation has already been granted. The interval that needs to pass between two polling attempts is specified in the `interval` parameter which is returned in the response for step 1.
 
-To start polling you need to send a `POST` request to `https://directory.heidelberg.cloud/oauth/access_token`.
+To start polling you need to send a `POST` request to `https://directory.sandbox.zaikio.com/oauth/access_token`.
 
 The following parameters must accompany the polling request:
 
@@ -93,7 +93,7 @@ The `authorization_pending` and `slow_down` error codes define particularly uniq
 
 ## Your device starts making API calls, such as querying the Directory API for user information
 
-In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory V1 REST API at `GET https://directory.heidelberg.cloud/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. In order to gain access to the following information, you must have asked for authorisation for the `directory.person.read` scope.
+In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory V1 REST API at `GET https://directory.sandbox.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. In order to gain access to the following information, you must have asked for authorisation for the `directory.person.read` scope.
 
 To authenticate against the API the `Authorization` header must be set to
 
@@ -107,6 +107,6 @@ An example call to this endpoint might look like this:
 
 ```
 curl --request GET \
-     --url https://directory.heidelberg.cloud/api/v1/person \
+     --url https://directory.sandbox.zaikio.com/api/v1/person \
      --header 'Authorization: Bearer 749ceefd1f7909a1773501e0bc57d5b2'
 ```
