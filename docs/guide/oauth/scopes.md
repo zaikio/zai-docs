@@ -50,22 +50,22 @@ When scopes are returned in `POST oauth/access_tokens`, the `BEARER_TYPE` will b
 
 Scopes are validated and following errors can occur:
 
-| Error identifier                          | Description                                                                                                                                             |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `different_bearer_types`                  | Multiple scopes were specified for different bearer types.                                                                                              |
-| `invalid_audience`                        | The audience that was specified does not exist.                                                                                                         |
-| `invalid_scope_name`                      | The given scope name does not exist for the provided audience.                                                                                          |
-| `invalid_permission`                      | The given permission does not exist for the provided scope.                                                                                             |
-| `malformed_scope`                         | The scope your provided does not match the regex as outlined above.                                                                                     |
-| `unavailable_scope_for_bearer_type`       | Some scopes are only available for `Person` or `Organization`. Usually this should be documented by the app provider.                                   |
-| `scope_is_not_included_in_desired_scopes` | The required scopes were not created as desired scopes.                                                                                                 |
-| `different_bearer_ids`                    | The bearer types are correct, but the IDs are different (Only happens in [Client Credentials Flow](./client-credentials.html)).                         |
-| `bearer_does_not_exist`                   | The bearer was not found or the client was not authorized by the bearer. (Only happens in [Client Credentials Flow](./client-credentials.html)).        |
-| `unpermitted_bearer_id`                   | Bearer IDs are not allowed to be passed, the only exception is the [Client Credentials Flow](./client-credentials.html).                                |
-| `ungranted_scope`                         | The bearer has not previously granted this access (e.g. through Redirect Flow). (Only happens in [Client Credentials Flow](./client-credentials.html)). |
-| `scope_was_not_granted_in_parent`         | When a scope was not granted in the parent access token. See [Delegating Access to Subsystems](./delegate-access.md).                                   |
-| `delegation_access_token_cannot_delegate` | A `directory.delegations.rw` scope cannot be granted for a delegated access token. See [Delegating Access to Subsystems](./delegate-access.md).         |
-| `parent_has_no_delegation_permission`     | A `directory.delegations.rw` scope has to be present for the parent token. See [Delegating Access to Subsystems](./delegate-access.md).                 |
+| Error identifier                          | Description                                                                                                                                                    |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `different_bearer_types`                  | Multiple scopes were specified for different bearer types.                                                                                                     |
+| `invalid_audience`                        | The audience that was specified does not exist.                                                                                                                |
+| `invalid_scope_name`                      | The given scope name does not exist for the provided audience.                                                                                                 |
+| `invalid_permission`                      | The given permission does not exist for the provided scope.                                                                                                    |
+| `malformed_scope`                         | The scope your provided does not match the regex as outlined above.                                                                                            |
+| `unavailable_scope_for_bearer_type`       | Some scopes are only available for `Person` or `Organization`. Usually this should be documented by the app provider.                                          |
+| `scope_is_not_included_in_desired_scopes` | The required scopes were not created as desired scopes.                                                                                                        |
+| `different_bearer_ids`                    | The bearer types are correct, but the IDs are different (Only happens in [Client Credentials Flow](./client-credentials.html)).                                |
+| `bearer_does_not_exist`                   | The bearer was not found or the client was not authorized by the bearer. (Only happens in [Client Credentials Flow](./client-credentials.html)).               |
+| `unpermitted_bearer_id`                   | Bearer IDs are not allowed to be passed, the only exception is the [Client Credentials Flow](./client-credentials.html).                                       |
+| `unconnected_app`                         | The bearer has not previously granted access to this app (e.g. through Redirect Flow). (Only happens in [Client Credentials Flow](./client-credentials.html)). |
+| `scope_was_not_granted_in_parent`         | When a scope was not granted in the parent access token. See [Delegating Access to Subsystems](./delegate-access.md).                                          |
+| `delegation_access_token_cannot_delegate` | A `directory.delegations.rw` scope cannot be granted for a delegated access token. See [Delegating Access to Subsystems](./delegate-access.md).                |
+| `parent_has_no_delegation_permission`     | A `directory.delegations.rw` scope has to be present for the parent token. See [Delegating Access to Subsystems](./delegate-access.md).                        |
 
 ## Provided OAuth Scopes Guidelines
 
