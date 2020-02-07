@@ -1,6 +1,7 @@
 ---
 title: JSON Web Tokens
 lang: en-US
+sidebar: auto
 ---
 
 # Exchanging JSON Web Tokens

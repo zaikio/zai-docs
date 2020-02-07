@@ -21,13 +21,19 @@ module.exports = {
     logo: "/connect_print_logo.png",
     sidebar: {
       "/guide/oauth/": [
-        "redirect-flow",
-        "device-flow",
-        "client-credentials",
-        "access-token-refresh",
-        "delegate-access",
-        "scopes",
-        "jwt"
+        "/guide/oauth/",
+        {
+          title: "OAuth in detail",
+          collapsable: false,
+          children: [
+            "redirect-flow",
+            "device-flow",
+            "client-credentials",
+            "access-token-refresh",
+            "delegate-access",
+            "scopes"
+          ]
+        }
       ],
       "/guide/loom/": ["posting-events", "receiving-events"],
       "/guide/launchpad/": ["default-integration", "spa", "custom-switch"]
@@ -41,16 +47,20 @@ module.exports = {
         text: "Guides",
         items: [
           {
-            text: "Single Sign On & OAuth",
+            text: "OAuth",
             link: "/guide/oauth/"
           },
           {
-            text: "Navigation component: Launchpad",
+            text: "Launchpad",
             link: "/guide/launchpad/"
           },
           {
             text: "Event Handling with Loom",
             link: "/guide/loom/"
+          },
+          {
+            text: "JWT Validation",
+            link: "/guide/jwt/"
           }
         ]
       },
