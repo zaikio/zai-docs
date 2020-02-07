@@ -16,7 +16,7 @@ This authorization can also be done later directly through the Directory App (vi
 
 ## Creating an access token
 
-In order to create a valid access token you need send a `POST` request to `https://directory.sandbox.zaikio.com/oauth/access_token`. The following parameters must accompany the request:
+In order to create a valid access token you need send a `POST` request to `/oauth/access_token`. The following parameters must accompany the request:
 
 | Name       | Required     | Description                                                                                                                                                                                    |
 | ---------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

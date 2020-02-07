@@ -17,7 +17,7 @@ As an API provider, you **MUST** to validate incoming tokens and verify that the
 
 Each programming language usually provides public libraries that can be used to validate and decode the JWT.
 
-1. Get the public JWK (JSON Web Key) via the directory API `GET https://directory.sandbox.zaikio.com/api/v1/jwt_public_keys`
+1. Get the public JWK (JSON Web Key) via the directory API `GET /api/v1/jwt_public_keys`
 2. (optionally) Depending on the library used, transform the JWK into a public certificate `.pem` (since some libraries require this format)
 3. Decode the payload and verify validity of the JWT with a JWT library
 

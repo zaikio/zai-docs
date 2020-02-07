@@ -10,7 +10,7 @@ It is important to be aware that this **only works for `OAuth confidential` apps
 
 ## Request access token for subsystem
 
-Send a `POST` request to `https://directory.sandbox.zaikio.com/oauth/delegate` with the generated access token provided in the `Authorization` header. The following parameters must accompany the request:
+Send a `POST` request to `/oauth/delegate` with the generated access token provided in the `Authorization` header. The following parameters must accompany the request:
 
 | Name                     | Description                                                                                                                                                                                                                                                                                      |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
