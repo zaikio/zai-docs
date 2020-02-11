@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
 const fs = require("fs");
 const path = require("path");
+const $RefParser = require('json-schema-ref-parser');
+const yaml = require('js-yaml');
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -47,11 +49,22 @@ Object.keys(AVAILABLE_APPS).forEach(async appName => {
       const filePath = path.join(appApiDir, specPath.split("/").pop());
       const response = await fetch(`${url}${specPath}`).then(res => res.text());
       console.log("FETCHED", `${url}${specPath}`);
-      fs.writeFileSync(filePath, response, err => {
-        if (err) {
-          console.log(err);
-        }
-      });
+      if (specPath.includes('.yml')) {
+        const parser = new $RefParser;
+        parser.dereference(`${url}${specPath}`).then(schema => {
+          fs.writeFileSync(filePath, yaml.safeDump(schema), err => {
+            if (err) {
+              console.log(err);
+            }
+          });
+        });
+      } else {
+        fs.writeFileSync(filePath, response, err => {
+          if (err) {
+            console.log(err);
+          }
+        });
+      }
       console.log(specPath);
       apiSpecLinks = fs.existsSync(navFilePath)
         ? JSON.parse(require("fs").readFileSync(navFilePath, "utf8"))
