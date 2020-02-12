@@ -1,0 +1,13 @@
+required:
+- errors
+type: object
+properties:
+  errors:
+    type: object
+    example:
+      name:
+      - can't be blank
+    additionalProperties:
+      type: array
+      items:
+        type: string
