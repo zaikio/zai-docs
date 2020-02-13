@@ -47,7 +47,14 @@ For a detailed list of scopes you can refer to the [Directory API Reference](htt
 
 ### Step 2: Setup Entry Point URL
 
-Coming soon
+As an Entry Point we describe the website that users see when they want to open your app via the Launchpad or the Zaikio Connectivity Hub. Usually this is the dashboard of your app, which is only visible to authenticated users. The Organization Admin user will also be directed there after they have installed the app for their organization.
+
+We also send two additional parameters. The first is `launchpad=1`, so that you know that the user came via the launchpad, and the `organization_id=abc-def` if an organization was selected. It is also possible that the user has not yet selected an organization.
+
+Entry Point URL `https://example.com/myapp` will result in e.g. `https://example.com/myapp?launchpad=1&organization_id=9c31b099-e28a-42c8-86b4-d4fddd3512c6`
+
+To change the Entry Point URL go to `My Apps` > Your App > `Edit App Details`.
+
 
 ### Step 3: Install your app
 
