@@ -70,7 +70,13 @@ Once the app has been published, users can of course find the app directly on th
 
 ### Step 4: Get Client Credentials
 
-Coming soon
+You need to retrieve an API key and secret key to identify the client during the authorization process.
+
+Go to `My Apps` > Your App > `SSO & OAuth`.
+
+You should see a list of OAuth credentials. At the beginning we already create an ID-Secret Pair for you. By default, the credentials are set to non confidential, but we recommend that you always make the authorization confidential. The only exceptions are single page applications that have no backend or clients in the IoT context. You can change this by clicking on `View` and then on `Make OAuth credentials confidential`.
+
+Copy the ID and the secret by clicking on `View` before. It is important that you store these credentials in a safe place where they cannot be easily read and they should not be stored in the source code (it is best to use environment variables).
 
 ### Step 5: Initialize the Redirect Flow
 
