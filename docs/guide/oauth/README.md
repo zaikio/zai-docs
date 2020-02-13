@@ -137,7 +137,13 @@ Add your callback URL (e.g. `http://localhost:3000/auth/zaikio/callback`) to you
 
 ### Step 6: Make authenticated requests
 
-Coming soon
+In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory API at `GET https://directory.sandbox.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. To authenticate against the API the `Authorization` header must be set to
+
+```
+Bearer <your API token>
+```
+
+where `<your API token>` must be replaced with the token you obtained in step 5.
 
 ### Step 7: Get Organisation Access token
 
