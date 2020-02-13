@@ -165,20 +165,21 @@ curl --request POST \
   --header 'authorization: Basic <Basic Auth with your Zaikio Client ID as username and Client Secret as password>'
 ```
 
-With the access token that is returned here, you can make further requests to the Directory API. 
+With the access token that is returned here, you can make further requests to the Directory API.
 
 ## Refreshing tokens
 
-Coming soon
+Every time the Directory hands out an access token, this token is accompanied by a refresh token. The refresh token can be used to obtain a new access token, when the old one has expired. To ensure frequent check-ins with the Directory for security reasons, all access tokens are valid for 60 minutes. After this time it must be exchanged into a new one with the refresh token. If the permissions of the bearer have changed in the interim, this exchange will be denied, thus giving us one method of access control and permission revocation.
 
-See also: [Access Token Refresh](./access-token-refresh.html)
+Read more about [how to refresh the Access Token](./access-token-refresh.html)
 
 ## Other Flows
 
 Currently the following OAuth flows are supported:
 
-- [The Device Flow](./device-flow.html)
-- [Client Credentials Flow](./client-credentials.html)
+- [The Redirect Flow](./redirect-flow.html) - Default for most Apps
+- [The Device Flow](./device-flow.html) - For IoT or Mobile Devices
+- [Client Credentials Flow](./client-credentials.html) - Machine to Machine communication
 - [Delegating Access to Subsystems](./delegate-access.html)
 
 ## Further Reading
