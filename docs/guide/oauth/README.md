@@ -82,7 +82,7 @@ Copy the ID and the secret by clicking on `View` before. It is important that yo
 
 After the administrator has been redirected to your Entry Point URL and other members of the organization could also access the Entry Point URL, you should authorize the users. For this we use the Authorization Code Grant Flow (or Redirect Flow).
 
-There are many [OAuth clients in different programming languages](https://oauth.net/code/) that implement this procedure for you. If you already have your own authentication in your app, it should be easy to connect it to OAuth Flow.
+There are many [OAuth clients in different programming languages](https://oauth.net/code/) that implement this procedure for you. If you already have your own authentication, it should be easy to add an OAuth2 Client.
 
 Read our detailed [Redirect Flow Guides](./redirect-flow.html).
 
