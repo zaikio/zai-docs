@@ -30,6 +30,14 @@ An app in Zaikio can not only request permissions for the Zaikio app, but also r
 
 ![Default Zaikio Organization Flow](./zaikio_organization_authorization_flow.png)
 
+On this figure you can see how the standard flow of an app installation in Zaikio works.
+
+First, the Organization Admin User discovers the app in the Connectivity Hub and installs it by accepting the requested access permissions. Then the Admin User is redirected to the app's entry point and can perform an onboarding process or use the app directly. Once the app is installed, other members of the organization can view and open the app (they will also be able to access the Entry Point).
+
+The Entry Point should ideally be a website protected by authentication via the Authorization Code Grant Flow from OAuth2.
+
+Any person can be a member of multiple organizations, so the app should allow the user to switch between organizations. Our API can read for each organization of the user if the organization has already installed the app (`GET api/v1/person`, via `connected` attribute).
+
 
 ### Step 1: Setup desired OAuth Scopes
 
