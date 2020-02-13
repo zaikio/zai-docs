@@ -137,7 +137,15 @@ Add your callback URL (e.g. `http://localhost:3000/auth/zaikio/callback`) to you
 
 ### Step 6: Make authenticated requests
 
-In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory API at `GET https://directory.sandbox.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. To authenticate against the API the `Authorization` header must be set to
+In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory API at
+
+```
+curl --request GET \
+  --url 'https://directory.sandbox.zaikio.com/api/v1/person?=' \
+  --header 'authorization: Bearer <your API token>'
+```
+
+Please note that contrary to the token exchange response, the API only responds with JSON. To authenticate against the API the `Authorization` header must be set to
 
 ```
 Bearer <your API token>
@@ -147,7 +155,17 @@ where `<your API token>` must be replaced with the token you obtained in step 5.
 
 ### Step 7: Get Organisation Access token
 
-Coming soon
+Now you can already make requests on behalf of the person, but in many use cases you want to call APIs and act on behalf of the organization regardless of the access rights an individual person has.
+
+Once the app is installed for the organization, you can use the [Client Credentials Flow](./client-credentials.html). With this you can issue an access token for the organization with only one request. However, this is only possible with confidential OAuth credentials:
+
+```
+curl --request POST \
+  --url 'https://directory.sandbox.zaikio.com/oauth/access_token?grant_type=client_credentials&scope=Org%2Fb1475f65-236c-58b8-96e1-e1778b43beb7.directory.organization.r%2COrg%2Fb1475f65-236c-58b8-96e1-e1778b43beb7.directory.sites.rw' \
+  --header 'authorization: Basic <Basic Auth with your Zaikio Client ID as username and Client Secret as password>'
+```
+
+With the access token that is returned here, you can make further requests to the Directory API. 
 
 ## Refreshing tokens
 
