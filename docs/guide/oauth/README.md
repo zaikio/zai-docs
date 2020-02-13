@@ -80,9 +80,60 @@ Copy the ID and the secret by clicking on `View` before. It is important that yo
 
 ### Step 5: Initialize the Redirect Flow
 
-Coming soon
+After the administrator has been redirected to your Entry Point URL and other members of the organization could also access the Entry Point URL, you should authorize the users. For this we use the Authorization Code Grant Flow (or Redirect Flow).
 
-See also: [The Redirect Flow](./redirect-flow.html)
+There are many [OAuth clients in different programming languages](https://oauth.net/code/) that implement this procedure for you. If you already have your own authentication in your app, it should be easy to connect it to OAuth Flow.
+
+Read our detailed [Redirect Flow Guides](./redirect-flow.html).
+
+#### Example with node.js and passportjs
+
+This guide can also be transferred to other clients and programming languages.
+
+1. You have installed and setup a nodejs server e.g. with [express](https://expressjs.com/): `npm install express`
+2. You have installed [passport](http://www.passportjs.org/) and [passport-oauth2](http://www.passportjs.org/packages/passport-oauth2/): `npm install passport passport-oauth2`
+3. You have configured passport
+
+4. Add OAuth Strategy
+```js
+passport.use(new OAuth2Strategy({
+    authorizationURL: 'https://directory.sandbox.zaikio.com/oauth/authorize',
+    tokenURL: 'https://directory.sandbox.zaikio.com/oauth/access_token',
+    clientID: ZAIKIO_CLIENT_ID, // your stored credentials: client id
+    clientSecret: ZAIKIO_CLIENT_SECRET, // your stored credentials: client secret
+    callbackURL: "http://localhost:3000/auth/zaikio/callback", // your callback url
+    scope: ['directory.person.r'], // list of scopes
+    passReqToCallback: true // receive request data
+  },
+  function(accessToken, refreshToken, data, _, cb) {
+    // Fetch person data e.g. from GET person
+    User.findOrCreate({ zaikioId: data.bearer.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+```
+
+5. Add callback endpoint to your app
+
+```js
+// Your pages that should only allow authroized access (e.g. your dashboard)
+app.get('/dashboard', passport.authenticate('oauth2'));
+
+// The callback URL that the user is redirected when coming from Zaikio
+app.get('/auth/zaikio/callback',
+  passport.authenticate('oauth2', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect to dashboard
+    res.redirect('/dashboard');
+  });
+```
+
+6. Add your callback URL as a Redirect URL in Zaikio
+
+Go to `Your Apps` > Your App > `SSO & OAUth` > `Redirect URLs` and click `Change URLs`.
+Add your callback URL (e.g. `http://localhost:3000/auth/zaikio/callback`) to your Redirect URLs.
+
 
 ### Step 6: Make authenticated requests
 
