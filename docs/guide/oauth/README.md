@@ -1,3 +1,7 @@
+---
+sidebarDepth: 2
+---
+
 # OAuth
 
 Your app cannot access data through our REST API of a Zaikio organization or person without the organization's admin or person having granted access. Here we show you how the installation and authorization process works in Zaikio. For further details please refer to the [OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749).
@@ -17,18 +21,55 @@ An app in Zaikio can not only request permissions for the Zaikio app, but also r
 
 ## Terminology
 
-- **API**: Zaikio's REST API or Zaikio apps that offer a REST API.
 - **Bearer**: We distinguish between two types of bearers: `Organization` and `Person`. For the default Authentication flow you will most likely use a `Person` bearer.
-- **User**: A `Person` that is giving access.
-- **OAuth Client**: A Zaikio app that wants to access data of an organisation or person.
+- **Directory API**: Zaikio's REST API to fetch data from the Bearer.
+- **User**: A `Person` that can grant access.
+- **Client**: A Zaikio app that wants to access data of an organisation or person.
 
-## Zaikio App Installation Flow
+## Zaikio Default Flow
 
 ![Default Zaikio Organization Flow](./zaikio_organization_authorization_flow.png)
+
+
+### Step 1: Setup desired OAuth Scopes
+
+<img src="./request_permissions.png" alt="Request permissions in Zaikio" width="300" style="margin-left:15px;box-shadow: 2px 2px 8px #ccc;float:right;" />
+
+
+When users install your app, we show them which data their app wants to get access to. These access rights are represented by scopes. The scope decides which API calls the app can perform.
+
+First you must select the scopes to be requested in the Zaikio app under your app in the `SSO & OAuth` tab.
+
+If you type `directory`, our autocomplete will show you the available scopes of the directory API. For now you only need to select the `directory.person.r` and the `directory.organization.r` scope to get started. You can add more scopes later, these will be requested proactively to the user.
+
+For a detailed list of scopes you can refer to the [Directory API Reference](http://localhost:8081/api/directory/).
+
+
+### Step 2: Setup Entry Point URL
+
+Coming soon
+
+### Step 3: Install your app
+
+Coming soon
+
+### Step 4: Get Client Credentials
+
+Coming soon
+
+### Step 5: Initialize the Redirect Flow
 
 Coming soon
 
 See also: [The Redirect Flow](./redirect-flow.html)
+
+### Step 6: Make authenticated requests
+
+Coming soon
+
+### Step 7: Get Organisation Access token
+
+Coming soon
 
 ## Refreshing tokens
 
