@@ -1,0 +1,240 @@
+openapi: 3.0.0
+info:
+  title: Loom API (public beta)
+  description: This is the documentation of the Zaikio Loom API Endpoints.
+  version: 1.0.0
+servers:
+  - url: 'https://loom.zaikio.com/api/v1/'
+    description: Production server (uses live data)
+  - url: 'https://loom.sandbox.zaikio.com/api/v1/'
+    description: Sandbox server (uses test data)
+tags:
+  - name: Events
+paths:
+  /events:
+    post:
+      tags:
+        - Events
+      description: |
+        Fires a new event with the given arguments.
+      parameters:
+        - in: query
+          name: 'event[id]'
+          required: true
+          description: Must be an unique UUID for each fired event
+          schema:
+            type: string
+            format: uuid
+            example: d6308910-f5ae-58c0-aba7-d099947845c6
+        - in: query
+          name: 'event[timestamp]'
+          required: true
+          description: ISO8601 timestamp of the event
+          schema:
+            type: date-time
+            example: 2019-11-18T14:06:40.421Z
+        - in: query
+          name: 'event[name]'
+          required: true
+          description: With <app_name>.<event_name> from the Directory
+          schema:
+            type: string
+            example: accounting.invoice_paid
+        - in: query
+          name: 'event[subject]'
+          required: true
+          description: >-
+            Type and id of the subject in which context the event was triggered,
+            see [Guide](/guide/loom/posting-events.html) for further
+            requirements
+          schema:
+            type: string
+            example: Org/2b271d51-e447-4a16-810f-5abdc596700a
+            pattern: >-
+              /(Org|Per)\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}/
+        - in: query
+          name: 'event[version]'
+          required: true
+          description: Version of the payload structure and format
+          schema:
+            type: integer
+            example: 1
+        - in: query
+          name: 'event[payload]'
+          description: >-
+            The payload must be a hash and may not exceed 256 bytes, see
+            [Guide](/guide/loom/posting-events.html#payload-requirements) for
+            further requirements
+          schema:
+            type: object
+            additionalProperties: {}
+            example:
+              invoice_number: 1234
+        - in: query
+          name: 'event[link]'
+          description: An URL providing further information about this event
+          schema:
+            type: string
+            format: uri
+            example: 'https://account.example.tld/api/v1/payments/1234'
+      security:
+        - basicAuth: []
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema: &ref_0
+                title: ValidationErrors
+                type: object
+                required:
+                  - errors
+                properties:
+                  errors:
+                    type: object
+                    example:
+                      name:
+                        - can't be blank
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: string
+              example:
+                errors:
+                  event:
+                    - must exist
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable Entity (Validation error during creation)
+          content:
+            application/json:
+              schema: *ref_0
+              example:
+                errors:
+                  subject:
+                    - has an invalid type
+        '429':
+          description: 'Too Many Requests, API rate limit exceeded'
+    get:
+      tags:
+        - Events
+      description: >
+        Returns all subscribed events matching the filter. Please note that the
+        response is limited to events to which the app is subscribed in the
+        Directory.
+      parameters:
+        - in: path
+          name: 'filter[name]'
+          description: Filter events by name
+          schema:
+            type: string
+            example: accounting.invoice_paid
+        - in: path
+          name: 'filter[from]'
+          description: Filter events by timestamp
+          schema:
+            type: date-time
+            example: 2019-11-01T00:00:00.000Z
+        - in: path
+          name: 'filter[to]'
+          description: Filter events by timestamp
+          schema:
+            type: date-time
+            example: 2019-11-01T23:59:59.999Z
+        - in: path
+          name: page
+          description: Events are paginated to 100 events per default
+          schema:
+            type: integer
+            example: 1
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Returns all events that matches the query
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  title: Event
+                  type: object
+                  additionalProperties: true
+                  required:
+                    - id
+                    - timestamp
+                    - name
+                    - version
+                    - payload
+                    - link
+                    - received_at
+                  properties:
+                    id:
+                      title: UUID
+                      type: string
+                      format: uuid
+                      pattern: >-
+                        [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
+                    timestamp:
+                      type: string
+                      format: date-time
+                      example: 2019-11-28T09:31:45.764Z
+                    name:
+                      type: string
+                      example: accounting.invoice_paid
+                    version:
+                      type: string
+                      example: '1.2'
+                    payload:
+                      type: object
+                      description: >-
+                        A hashmap with keys in lowercase snake_case. Format and
+                        structure is defined by the app that fires an event.
+                        example: { invoice_number: 1234 }
+                      additionalProperties: {}
+                      example:
+                        invoice_number: 1234
+                    link:
+                      type: string
+                      nullable: true
+                      format: uri
+                      example: 'https://account.example.tld/api/v1/payments/1234'
+                    received_at:
+                      type: string
+                      format: date-time
+                      example: 2019-11-28T09:31:45.764Z
+                    subject:
+                      type: string
+                      example: Org/2b271d51-e447-4a16-810f-5abdc596700a
+              example:
+                - id: 1db08fb6-91fe-4f4b-9e7a-9aca5036a262
+                  timestamp: '2020-02-13T14:37:13.983Z'
+                  name: producer.single_event
+                  version: '1'
+                  payload:
+                    foo: bar
+                  link: null
+                  received_at: '2020-02-14T14:37:13.994Z'
+                  subject: Per/383663bc-149a-5b76-b50d-ee039046c12e
+          headers:
+            X-Total-Count:
+              description: Number of events matching the filter
+              schema:
+                type: string
+                format: integer
+            Link:
+              description: RFC5988 pagination and navigation link
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '429':
+          description: 'Too Many Requests, API rate limit exceeded'
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
