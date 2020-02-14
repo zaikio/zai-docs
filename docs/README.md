@@ -1,7 +1,7 @@
 ---
 home: true
-actionText: Getting started with OAuth →
-actionLink: /guide/oauth/
+actionText: Getting started →
+actionLink: /getting-started/
 heroText: Developer Hub
 tagline: >
   Welcome to the Connect Print Directory developer hub. You'll find
