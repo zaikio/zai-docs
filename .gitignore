@@ -1,6 +1,6 @@
 .DS_Store
 dist
 docs/.vuepress/externalApisNav.json
-docs/api/directory
-docs/api/loom
+docs/api/directory/
+docs/api/loom/
 node_modules
