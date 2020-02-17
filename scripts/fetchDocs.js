@@ -12,7 +12,7 @@ async function asyncForEach(array, callback) {
 
 const AVAILABLE_APPS = {
   directory: "https://directory.zaikio.com",
-  loom: "http://loom.zaikio.test"
+  loom: "https://loom.zaikio.com"
 };
 
 const navFilePath = path.join(

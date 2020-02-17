@@ -162,7 +162,7 @@ paths:
                 items:
                   title: Event
                   type: object
-                  additionalProperties: true
+                  additionalProperties: false
                   required:
                     - id
                     - timestamp
@@ -171,6 +171,7 @@ paths:
                     - payload
                     - link
                     - received_at
+                    - subject
                   properties:
                     id:
                       title: UUID
@@ -210,14 +211,14 @@ paths:
                       type: string
                       example: Org/2b271d51-e447-4a16-810f-5abdc596700a
               example:
-                - id: 1db08fb6-91fe-4f4b-9e7a-9aca5036a262
-                  timestamp: '2020-02-13T14:37:13.983Z'
-                  name: producer.single_event
+                - id: 0bf02119-52c6-4201-9523-9b9f26f6c81a
+                  timestamp: '2020-02-17T08:11:40.036Z'
+                  name: producer.event_produced
                   version: '1'
                   payload:
                     foo: bar
                   link: null
-                  received_at: '2020-02-14T14:37:13.994Z'
+                  received_at: '2020-02-17T08:11:40.042Z'
                   subject: Per/383663bc-149a-5b76-b50d-ee039046c12e
           headers:
             X-Total-Count:
