@@ -72,15 +72,6 @@ module.exports = {
         text: "API Reference",
         items: externalApisNav.concat([
           {
-            text: "Loom",
-            items: [
-              {
-                text: "API Reference",
-                link: "/api/loom/v1/"
-              }
-            ]
-          },
-          {
             text: "OAuth",
             items: [
               {
