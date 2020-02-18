@@ -26,7 +26,7 @@ fs.writeFile(navFilePath, JSON.stringify([]), err => {
   }
 });
 
-Object.keys(AVAILABLE_APPS).forEach(async appName => {
+asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
   const url = AVAILABLE_APPS[appName];
   const manifest = await fetch(`${url}/docs/manifest.json`).then(res => res.json());
   const appApiDir = path.join(__dirname, `../docs/api/${appName}`);
@@ -36,10 +36,6 @@ Object.keys(AVAILABLE_APPS).forEach(async appName => {
   console.log("FETCHED MANIFEST", manifest);
 
   if (manifest.specs) {
-    let apiSpecLinks = fs.existsSync(navFilePath)
-      ? JSON.parse(require("fs").readFileSync(navFilePath, "utf8"))
-      : [];
-
     apiSpecLink = {
       text: manifest.title,
       items: []
@@ -67,9 +63,6 @@ Object.keys(AVAILABLE_APPS).forEach(async appName => {
         });
       }
       console.log(specPath);
-      apiSpecLinks = fs.existsSync(navFilePath)
-        ? JSON.parse(require("fs").readFileSync(navFilePath, "utf8"))
-        : [];
 
       if (specPath.includes('.md')) {
         const path = specPath.split("/").pop().split('.md').shift();
@@ -103,6 +96,10 @@ pageClass: full-width
       }
     });
 
+
+    let apiSpecLinks = fs.existsSync(navFilePath)
+      ? JSON.parse(require("fs").readFileSync(navFilePath, "utf8"))
+      : [];
     apiSpecLinks.push(apiSpecLink);
 
     fs.writeFileSync(navFilePath, JSON.stringify(apiSpecLinks), err => {
