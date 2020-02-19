@@ -98,8 +98,8 @@ export default {
       </h2>
     </div>
     <ul class="blog-list">
-      <li v-for="(item, index) in filteredList" class="blog-list__item">
-        <Changelog v-show="index < 20" :item="item" />
+      <li v-for="(item, index) in filteredList" class="blog-list__item" v-show="index < 20">
+        <Changelog :item="item" />
         <hr />
       </li>
     </ul>
