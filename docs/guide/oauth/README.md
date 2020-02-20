@@ -194,4 +194,4 @@ Currently the following OAuth flows are supported:
 
 - [Make your first request to the Zaikio directory API with postman](#coming-soon)
 - [Connect with other Zaikio apps and use their API](#coming-soon)
-- [Receiving Zaikio events with webhooks](#coming-soon)
+- [Receiving Zaikio events with webhooks](/guide/loom/receiving-events.html)
