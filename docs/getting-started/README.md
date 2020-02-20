@@ -68,7 +68,7 @@ Your app is created as a draft and is not visible to others. We recommend that y
 
 ### Consuming Zaikio-APIs
 
-- [Make your first request to the Zaikio directory API with postman](#coming-soon)
+- [Make your first request to the Zaikio directory API](/guide/try-api/)
 - [Connect with other Zaikio apps and use their API](#coming-soon)
 - [Receiving Zaikio events with webhooks](/guide/loom/receiving-events.html)
 

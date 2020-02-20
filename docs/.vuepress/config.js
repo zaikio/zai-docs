@@ -59,6 +59,10 @@ module.exports = {
             link: "/guide/loom/"
           },
           {
+            text: "Try Zaikio API",
+            link: "/guide/try-api/"
+          },
+          {
             text: "JWT Validation",
             link: "/guide/jwt/"
           }
