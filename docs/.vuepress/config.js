@@ -61,6 +61,10 @@ module.exports = {
           {
             text: "JWT Validation",
             link: "/guide/jwt/"
+          },
+          {
+            text: "Provide API and events",
+            link: "/guide/provide-api/"
           }
         ]
       },
