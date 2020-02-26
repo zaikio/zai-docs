@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
   title: OAuth API
-  description: 'This is the documentation of the Connect Print OAuth API Endpoints.'
+  description: 'This is the documentation of the Zaikio OAuth API Endpoints.'
   version: 1.0.0
 servers:
-  - url: https://directory.heidelberg.cloud/oauth/
+  - url: https://directory.zaikio.com/oauth/
     description: Production server (uses live data)
   - url: https://directory.sandbox.zaikio.com/oauth/
     description: Sandbox server (uses test data)

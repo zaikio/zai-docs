@@ -4,12 +4,12 @@ const fs = require("fs");
 const externalApisNav = require("./externalApisNav.json");
 
 module.exports = {
-  title: "Developer Hub",
+  title: "Zaikio Developer Hub",
   dest: "dist",
   description: `
-    Welcome to the Connect Print Directory developer hub. You'll find
+    Welcome to the Zaikio developer hub. You'll find
     comprehensive guides and documentation to help you start working with
-    Connect Print Directory as quickly as possible, as well as support if
+    Zaikio as quickly as possible, as well as support if
     you get stuck. Let's jump right in!
   `,
   themeConfig: {
@@ -18,7 +18,7 @@ module.exports = {
     docsDir: "docs",
     editLinks: true,
     editLinkText: "Edit this page on GitHub",
-    logo: "/connect_print_logo.png",
+    logo: "/zai_developer_hub.svg",
     sidebar: {
       "/guide/oauth/": [
         "/guide/oauth/",
@@ -88,7 +88,7 @@ module.exports = {
       },
       {
         text: "Directory",
-        link: "https://directory.heidelberg.cloud/"
+        link: "https://directory.zaikio.com/"
       }
     ]
   },
@@ -99,9 +99,9 @@ module.exports = {
       {
         canonical_base: "https://docs.zaikio.com",
         feed_options: {
-          title: "Connect Print Changelog",
-          description: "Developer changelog and scheduled changes of Connect Print",
-          copyright: "Crispy Mountain GmbH",
+          title: "Zaikio Changelog",
+          description: "Developer changelog and scheduled changes of Zaikio",
+          copyright: "Zaikio GmbH",
           language: "en"
         },
         sort: entries =>

@@ -4,15 +4,15 @@ actionText: Getting started →
 actionLink: /getting-started/
 heroText: Developer Hub
 tagline: >
-  Welcome to the Connect Print Directory developer hub. You'll find
+  Welcome to the Zaikio developer hub. You'll find
   comprehensive guides and documentation to help you start working with
-  Connect Print Directory as quickly as possible, as well as support if
+  Zaikio Directory as quickly as possible, as well as support if
   you get stuck. Let's jump right in!
 features:
   -
     title: Single Sign On & OAuth
     details: >
-      The Connect Print platform allows for a simple single sign-on flow across all applications on the platform.
+      Zaikio allows for a simple single sign-on flow across all applications on the platform.
   -
     title: Comprehensive API Reference
     details: >
