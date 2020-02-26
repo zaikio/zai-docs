@@ -16,7 +16,7 @@ This authorization can also be done later directly through the Directory App (vi
 
 ## Creating an access token
 
-In order to create a valid access token you need send a `POST` request to `https://directory.heidelberg.cloud/oauth/access_token`. The following parameters must accompany the request:
+In order to create a valid access token you need send a `POST` request to `https://directory.zaikio.com/oauth/access_token`. The following parameters must accompany the request:
 
 | Name       | Required     | Description                                                                                                                                                                                    |
 | ---------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -53,7 +53,7 @@ If such a token was successfully requested, the following JWT payload and respon
   "jti": "b1475f65-236c-58b8-96e1-e1778b43beb7",
   "nbf": 1576225131,
   "exp": 1576225731,
-  "jku": "https://https://directory.heidelberg.cloud/api/v1/jwt_public_keys",
+  "jku": "https://https://directory.zaikio.com/api/v1/jwt_public_keys",
   "scope": [
     "directory.machines.rw"
   ],
