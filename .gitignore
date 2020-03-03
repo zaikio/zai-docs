@@ -3,4 +3,5 @@ dist
 docs/.vuepress/externalApisNav.json
 docs/api/directory/
 docs/api/loom/
+docs/api/procurement_suppliers/
 node_modules
