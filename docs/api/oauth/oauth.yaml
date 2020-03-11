@@ -129,6 +129,7 @@ paths:
       summary: Create access token
       description: '[For more details read this guide](/guide/oauth/redirect-flow.html)'
       security:
+        - bearerAuth: []
         - basicAuth: []
       parameters:
         - name: client_id
