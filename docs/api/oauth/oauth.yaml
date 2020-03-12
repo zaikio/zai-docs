@@ -174,6 +174,13 @@ paths:
               - urn:ietf:params:oauth:grant-type:device_code
               - client_credentials
               - refresh_token
+        - name: refresh_token
+          in: query
+          description: >
+            Optional refresh token, only needed for grant_type refresh_token
+          required: false
+          schema:
+            type: string
       responses:
         '200':
           description: OK
