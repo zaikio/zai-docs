@@ -85,6 +85,33 @@ paths:
             [More information here](/guide/oauth/redirect-flow.html#pkce)
           schema:
             type: string
+        - name: organization[name]
+          in: query
+          required: false
+          description: "optional: suggested name for a new organization"
+          schema:
+            type: string
+            example: My suggested name
+        - name: organization[kind]
+          in: query
+          required: false
+          description: "optional: kind of new organization"
+          schema:
+            type: string
+            example: printer
+            enum:
+              - printer
+              - publisher
+              - software_vendor
+              - developer
+              - other
+        - name: organization[country_code]
+          in: query
+          required: false
+          description: "optional: country of new organization"
+          schema:
+            example: DE
+            type: string
       responses:
         '302':
           description: >
@@ -219,6 +246,33 @@ paths:
           schema:
             type: string
             example: Org.warehouse.items.r,Org.directory.machines.rw
+        - name: organization[name]
+          in: query
+          required: false
+          description: "optional: suggested name for a new organization"
+          schema:
+            type: string
+            example: My suggested name
+        - name: organization[kind]
+          in: query
+          required: false
+          description: "optional: kind of new organization"
+          schema:
+            type: string
+            example: printer
+            enum:
+              - printer
+              - publisher
+              - software_vendor
+              - developer
+              - other
+        - name: organization[country_code]
+          in: query
+          required: false
+          description: "optional: country of new organization"
+          schema:
+            example: DE
+            type: string
       responses:
         '200':
           description: OK
