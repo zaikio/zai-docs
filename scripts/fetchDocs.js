@@ -12,6 +12,7 @@ async function asyncForEach(array, callback) {
 
 const AVAILABLE_APPS = {
   directory: "https://directory.zaikio.com",
+  oauth: "https://directory.zaikio.com/oauth",
   loom: "https://loom.zaikio.com",
   procurement_suppliers: "https://procurement.zaikio.com/suppliers"
 };
@@ -78,6 +79,7 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
 title: ${specName}
 lang: en-US
 pageClass: full-width
+editLink: false
 ---
 
 <ClientOnly><ApiDocWrapper src="api/${appName}/${specPath

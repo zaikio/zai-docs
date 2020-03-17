@@ -1,7 +1,5 @@
 .DS_Store
 dist
 docs/.vuepress/externalApisNav.json
-docs/api/directory/
-docs/api/loom/
-docs/api/procurement_suppliers/
+docs/api
 node_modules
