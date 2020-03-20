@@ -13,7 +13,7 @@ async function asyncForEach(array, callback) {
 const AVAILABLE_APPS = {
   directory: "https://directory.zaikio.com",
   loom: "https://loom.zaikio.com",
-  warehouse: "https://zai-warehous-feature-ad-kxiyap.herokuapp.com"
+  warehouse: "https://warehouse.sandbox.zaikio.com"
 };
 
 const navFilePath = path.join(
