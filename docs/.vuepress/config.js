@@ -81,7 +81,7 @@ module.exports = {
         items: externalApisNav
       },
       {
-        text: "Directory",
+        text: "Zaikio Hub",
         link: "https://directory.zaikio.com/"
       }
     ]
