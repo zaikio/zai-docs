@@ -70,11 +70,12 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
         const path = specPath.split("/").pop().split('.md').shift();
         apiSpecLink.items.push({
           text: specName,
-          link: `/api/${appName}/${path}/`
+          link: `/api/${appName}/${path}.html`
         });
       } else {
+        let simpleName = specPath.split("/").pop().split(".").shift();
         fs.writeFile(
-          path.join(appApiDir, "README.md"),
+          path.join(appApiDir, `${simpleName}.md`),
           `---
 title: ${specName}
 lang: en-US
@@ -94,7 +95,7 @@ editLink: false
         );
         apiSpecLink.items.push({
           text: specName,
-          link: `/api/${appName}/`
+          link: `/api/${appName}/${simpleName}.html`
         });
       }
     });
