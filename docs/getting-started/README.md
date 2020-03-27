@@ -76,4 +76,4 @@ Your app is created as a draft and is not visible to others. We recommend that y
 
 If you have already successfully connected to Zaikio and would like to give other apps access to your API and events, please read our guides.
 
-- [Providing APIs and events guide](#coming-soon)
+- [Providing APIs and events guide](/guide/provide-api)

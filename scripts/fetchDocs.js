@@ -12,7 +12,9 @@ async function asyncForEach(array, callback) {
 
 const AVAILABLE_APPS = {
   directory: "https://directory.zaikio.com",
+  oauth: "https://directory.zaikio.com/oauth",
   loom: "https://loom.zaikio.com",
+  procurement_suppliers: "https://procurement.zaikio.com/suppliers",
   warehouse: "https://warehouse.sandbox.zaikio.com"
 };
 
@@ -69,15 +71,17 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
         const path = specPath.split("/").pop().split('.md').shift();
         apiSpecLink.items.push({
           text: specName,
-          link: `/api/${appName}/${path}/`
+          link: `/api/${appName}/${path}.html`
         });
       } else {
+        let simpleName = specPath.split("/").pop().split(".").shift();
         fs.writeFile(
-          path.join(appApiDir, "README.md"),
+          path.join(appApiDir, `${simpleName}.md`),
           `---
 title: ${specName}
 lang: en-US
 pageClass: full-width
+editLink: false
 ---
 
 <ClientOnly><ApiDocWrapper src="api/${appName}/${specPath
@@ -92,7 +96,7 @@ pageClass: full-width
         );
         apiSpecLink.items.push({
           text: specName,
-          link: `/api/${appName}/`
+          link: `/api/${appName}/${simpleName}.html`
         });
       }
     });

@@ -65,6 +65,10 @@ module.exports = {
           {
             text: "JWT Validation",
             link: "/guide/jwt/"
+          },
+          {
+            text: "Provide API and events",
+            link: "/guide/provide-api/"
           }
         ]
       },
@@ -74,20 +78,10 @@ module.exports = {
       },
       {
         text: "API Reference",
-        items: externalApisNav.concat([
-          {
-            text: "OAuth",
-            items: [
-              {
-                text: "API Reference",
-                link: "/api/oauth/"
-              }
-            ]
-          }
-        ])
+        items: externalApisNav
       },
       {
-        text: "Directory",
+        text: "Zaikio Hub",
         link: "https://directory.zaikio.com/"
       }
     ]
