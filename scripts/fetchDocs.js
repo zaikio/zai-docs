@@ -62,7 +62,7 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
               console.log(err);
             }
           });
-          fs.writeFileSync(filePathPublic, yaml.safeDump(schema), err => {
+          fs.writeFileSync(filePathPublic.replace('.yml', '.json'), JSON.stringify(schema, null, 2), err => {
             if (err) {
               console.log(err);
             }
