@@ -14,7 +14,8 @@ const AVAILABLE_APPS = {
   directory: "https://directory.zaikio.com",
   oauth: "https://directory.zaikio.com/oauth",
   loom: "https://loom.zaikio.com",
-  procurement_suppliers: "https://procurement.zaikio.com/suppliers"
+  procurement_suppliers: "https://procurement.zaikio.com/suppliers",
+  warehouse: "https://warehouse.sandbox.zaikio.com"
 };
 
 const navFilePath = path.join(
