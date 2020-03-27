@@ -4,3 +4,4 @@ docs/.vuepress/externalApisNav.json
 docs/api/**/*.yml
 docs/api/**/*.md
 node_modules
+docs/.vuepress/public/api

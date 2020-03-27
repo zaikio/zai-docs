@@ -32,8 +32,12 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
   const url = AVAILABLE_APPS[appName];
   const manifest = await fetch(`${url}/docs/manifest.json`).then(res => res.json());
   const appApiDir = path.join(__dirname, `../docs/api/${appName}`);
+  const publicApiDir = path.join(__dirname, `../docs/.vuepress/public/api/${appName}`);
   if (!fs.existsSync(appApiDir)) {
     fs.mkdirSync(appApiDir);
+  }
+  if (!fs.existsSync(publicApiDir)) {
+    fs.mkdirSync(publicApiDir);
   }
   console.log("FETCHED MANIFEST", manifest);
 
@@ -46,6 +50,7 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
     await asyncForEach(Object.keys(manifest.specs), async specName => {
       const specPath = manifest.specs[specName];
       const filePath = path.join(appApiDir, specPath.split("/").pop());
+      const filePathPublic = path.join(publicApiDir, specPath.split("/").pop());
       const response = await fetch(`${url}${specPath}`).then(res => res.text());
       console.log("FETCHED", `${url}${specPath}`);
       if (specPath.includes('.yml')) {
@@ -56,9 +61,19 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
               console.log(err);
             }
           });
+          fs.writeFileSync(filePathPublic, yaml.safeDump(schema), err => {
+            if (err) {
+              console.log(err);
+            }
+          });
         });
       } else {
         fs.writeFileSync(filePath, response, err => {
+          if (err) {
+            console.log(err);
+          }
+        });
+        fs.writeFileSync(filePathPublic, response, err => {
           if (err) {
             console.log(err);
           }
