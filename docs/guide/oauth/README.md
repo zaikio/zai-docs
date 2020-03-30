@@ -66,11 +66,11 @@ To change the Entry Point URL go to `My Apps` > Your App > `Edit App Details`.
 
 ### Step 3: Install your app
 
-In the sandbox you can install your app directly for any organization. All you need is the name of the app and the organization as a slug (URL format):
+In the sandbox you can install your app directly for any organization. Click in your app on the tab `My Apps` > Your App > `Participating Organisations`.
 
-`https://directory.sandbox.zaikio.com/{org_slug}/connections/{app_name}` e.g. `https://directory.sandbox.zaikio.com/the-imperium/connections/my_app`
+Click on `Add organization` and type the name of the organization that should be able to connect to the app.
 
-There you should now be able to see your app description and a button with `Connect` on it. Again, please note that you can only install an app as administrator of the organization.
+On `Connections` you should now be able to see your app. Again, please note that you can only install an app as administrator of the organization.
 
 After clicking on Connect and accepting the access request, you should be redirected to your Entry Point URL.
 
