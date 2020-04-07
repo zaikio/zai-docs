@@ -112,6 +112,11 @@ module.exports = {
       "script",
       {},
       fs.readFileSync(path.join(__dirname, "./intercom-snippet.js"), "utf8")
+    ],
+    [
+      "script",
+      {},
+      fs.readFileSync(path.join(__dirname, "./fathom-snippet.js"), "utf8")
     ]
   ],
   configureWebpack: (config, isServer) => {
