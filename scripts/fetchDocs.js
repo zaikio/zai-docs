@@ -33,68 +33,69 @@ fs.writeFile(navFilePath, JSON.stringify([]), err => {
 
 asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
   const url = AVAILABLE_APPS[appName];
-  const manifest = await fetch(`${url}/docs/manifest.json`).then(res => res.json());
-  const appApiDir = path.join(__dirname, `../docs/api/${appName}`);
-  const publicApiDir = path.join(__dirname, `../docs/.vuepress/public/api/${appName}`);
-  if (!fs.existsSync(appApiDir)) {
-    fs.mkdirSync(appApiDir);
-  }
-  if (!fs.existsSync(publicApiDir)) {
-    fs.mkdirSync(publicApiDir);
-  }
-  console.log("FETCHED MANIFEST", manifest);
+  try {
+    const manifest = await fetch(`${url}/docs/manifest.json`).then(res => res.json());
+    const appApiDir = path.join(__dirname, `../docs/api/${appName}`);
+    const publicApiDir = path.join(__dirname, `../docs/.vuepress/public/api/${appName}`);
+    if (!fs.existsSync(appApiDir)) {
+      fs.mkdirSync(appApiDir);
+    }
+    if (!fs.existsSync(publicApiDir)) {
+      fs.mkdirSync(publicApiDir);
+    }
+    console.log("FETCHED MANIFEST", manifest);
 
-  if (manifest.specs) {
-    apiSpecLink = {
-      text: manifest.title,
-      items: []
-    };
+    if (manifest.specs) {
+      apiSpecLink = {
+        text: manifest.title,
+        items: []
+      };
 
-    await asyncForEach(Object.keys(manifest.specs), async specName => {
-      const specPath = manifest.specs[specName];
-      const filePath = path.join(appApiDir, specPath.split("/").pop());
-      const filePathPublic = path.join(publicApiDir, specPath.split("/").pop());
-      const response = await fetch(`${url}${specPath}`).then(res => res.text());
-      console.log("FETCHED", `${url}${specPath}`);
-      if (specPath.includes('.yml')) {
-        const parser = new $RefParser;
-        parser.dereference(`${url}${specPath}`).then(schema => {
-          fs.writeFileSync(filePath, yaml.safeDump(schema), err => {
+      await asyncForEach(Object.keys(manifest.specs), async specName => {
+        const specPath = manifest.specs[specName];
+        const filePath = path.join(appApiDir, specPath.split("/").pop());
+        const filePathPublic = path.join(publicApiDir, specPath.split("/").pop());
+        const response = await fetch(`${url}${specPath}`).then(res => res.text());
+        console.log("FETCHED", `${url}${specPath}`);
+        if (specPath.includes('.yml')) {
+          const parser = new $RefParser;
+          parser.dereference(`${url}${specPath}`).then(schema => {
+            fs.writeFileSync(filePath, yaml.safeDump(schema), err => {
+              if (err) {
+                console.log(err);
+              }
+            });
+            fs.writeFileSync(filePathPublic.replace('.yml', '.json'), JSON.stringify(schema, null, 2), err => {
+              if (err) {
+                console.log(err);
+              }
+            });
+          });
+        } else {
+          fs.writeFileSync(filePath, response, err => {
             if (err) {
               console.log(err);
             }
           });
-          fs.writeFileSync(filePathPublic.replace('.yml', '.json'), JSON.stringify(schema, null, 2), err => {
+          fs.writeFileSync(filePathPublic, response, err => {
             if (err) {
               console.log(err);
             }
           });
-        });
-      } else {
-        fs.writeFileSync(filePath, response, err => {
-          if (err) {
-            console.log(err);
-          }
-        });
-        fs.writeFileSync(filePathPublic, response, err => {
-          if (err) {
-            console.log(err);
-          }
-        });
-      }
-      console.log(specPath);
+        }
+        console.log(specPath);
 
-      if (specPath.includes('.md')) {
-        const path = specPath.split("/").pop().split('.md').shift();
-        apiSpecLink.items.push({
-          text: specName,
-          link: `/api/${appName}/${path}.html`
-        });
-      } else {
-        let simpleName = specPath.split("/").pop().split(".").shift();
-        fs.writeFile(
-          path.join(appApiDir, `${simpleName}.md`),
-          `---
+        if (specPath.includes('.md')) {
+          const path = specPath.split("/").pop().split('.md').shift();
+          apiSpecLink.items.push({
+            text: specName,
+            link: `/api/${appName}/${path}.html`
+          });
+        } else {
+          let simpleName = specPath.split("/").pop().split(".").shift();
+          fs.writeFile(
+            path.join(appApiDir, `${simpleName}.md`),
+            `---
 title: ${specName}
 lang: en-US
 pageClass: full-width
@@ -102,32 +103,35 @@ editLink: false
 ---
 
 <ClientOnly><ApiDocWrapper src="api/${appName}/${specPath
-            .split("/")
-            .pop()}"></ApiDocWrapper></ClientOnly>
-        `,
-          err => {
-            if (err) {
-              console.log(err);
+              .split("/")
+              .pop()}"></ApiDocWrapper></ClientOnly>
+          `,
+            err => {
+              if (err) {
+                console.log(err);
+              }
             }
-          }
-        );
-        apiSpecLink.items.push({
-          text: specName,
-          link: `/api/${appName}/${simpleName}.html`
-        });
-      }
-    });
+          );
+          apiSpecLink.items.push({
+            text: specName,
+            link: `/api/${appName}/${simpleName}.html`
+          });
+        }
+      });
 
 
-    let apiSpecLinks = fs.existsSync(navFilePath)
-      ? JSON.parse(require("fs").readFileSync(navFilePath, "utf8"))
-      : [];
-    apiSpecLinks.push(apiSpecLink);
+      let apiSpecLinks = fs.existsSync(navFilePath)
+        ? JSON.parse(require("fs").readFileSync(navFilePath, "utf8"))
+        : [];
+      apiSpecLinks.push(apiSpecLink);
 
-    fs.writeFileSync(navFilePath, JSON.stringify(apiSpecLinks), err => {
-      if (err) {
-        console.log(err);
-      }
-    });
+      fs.writeFileSync(navFilePath, JSON.stringify(apiSpecLinks), err => {
+        if (err) {
+          console.log(err);
+        }
+      });
+    }
+  } catch(e) {
+    console.error(e);
   }
 });
