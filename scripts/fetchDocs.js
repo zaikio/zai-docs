@@ -15,8 +15,8 @@ const AVAILABLE_APPS = {
   oauth: "https://directory.zaikio.com/oauth",
   loom: "https://loom.zaikio.com",
   mission_control: "https://mc.zaikio.com",
-  procurement_suppliers: "https://procurement.zaikio.com/suppliers",
-  procurement_consumers: "https://procurement.zaikio.com/consumers",
+  procurement_suppliers: "https://procurement.sandbox.zaikio.com/suppliers",
+  procurement_consumers: "https://procurement.sandbox.zaikio.com/consumers",
   warehouse: "https://warehouse.sandbox.zaikio.com"
 };
 
