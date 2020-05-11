@@ -24,7 +24,7 @@ If you want to know what structure the JSON Web Token has, you can use our inter
 
 ## Step2: Use token in API Reference
 
-Since our [API reference](/api/directory) is interactive, you can transfer the access token there. The access token is not stored.
+Since our [API reference](/api/directory/directory.html) is interactive, you can transfer the access token there. The access token is not stored.
 
 ### Choose the right environment
 
