@@ -68,13 +68,17 @@ To change the Entry Point URL go to `My Apps` > Your App > `Edit App Details`.
 
 In the sandbox you can install your app directly for any organization. Click in your app on the tab `My Apps` > Your App > `Participating Organisations`.
 
-Click on `Add organization` and type the name of the organization that should be able to connect to the app.
+::: tip IMPORTANT
+We recommend that you create a test organization for this purpose or use one of our predefined ones that already has the apps installed with which you want to communicate and also has other relevant data, for example, a printer. You should not use your own (developer) organization, as this is usually not a customer organization.
+:::
 
-On `Connections` you should now be able to see your app. Again, please note that you can only install an app as administrator of the organization.
+Click on `Add organization` and type the name of the test organization that should be able to connect to the app.
+
+On `Connections` for the test organization (check the navigation on top) you should now be able to see your app. Again, please note that you can only install an app as administrator of the organization.
 
 After clicking on Connect and accepting the access request, you should be redirected to your Entry Point URL.
 
-Once the app has been published, users can of course find the app directly on the Zaikio platform and do not need to visit the URL.
+Once the app has been published, users can of course find the app directly on the Zaikio platform.
 
 ### Step 4: Get Client Credentials
 
@@ -165,13 +169,15 @@ where `<your API token>` must be replaced with the token you obtained in step 5.
 
 Now you can already make requests on behalf of the person, but in many use cases you want to call APIs and act on behalf of the organization regardless of the access rights an individual person has.
 
-Once the app is installed for the organization, you can use the [Client Credentials Flow](./client-credentials.html). With this you can issue an access token for the organization with only one request. However, this is only possible with confidential OAuth credentials:
+Once the app is installed for the test organization, you can use the [Client Credentials Flow](./client-credentials.html). With this you can issue an access token for the organization with only one request. However, this is only possible with confidential OAuth credentials:
 
 ```
 curl --request POST \
   --url 'https://directory.sandbox.zaikio.com/oauth/access_token?grant_type=client_credentials&scope=Org%2Fb1475f65-236c-58b8-96e1-e1778b43beb7.directory.organization.r%2COrg%2Fb1475f65-236c-58b8-96e1-e1778b43beb7.directory.sites.rw' \
   --header 'authorization: Basic <Basic Auth with your Zaikio Client ID as username and Client Secret as password>'
 ```
+
+The UUID of the organization should be the UUID of your test organization and not the UUID of your software vendor organization.
 
 With the access token that is returned here, you can make further requests to the Directory API.
 
