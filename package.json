@@ -25,7 +25,7 @@
     "axios": "^0.19.2",
     "js-yaml": "^3.13.1",
     "js-yaml-loader": "^1.2.2",
-    "json-schema-ref-parser": "^8.0.0",
+    "json-schema-ref-parser": "^9.0.1",
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.3",
     "minimist": ">=1.2.2",
