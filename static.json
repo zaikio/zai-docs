@@ -1,4 +1,9 @@
 {
   "root": "./dist",
-  "https_only": true
+  "https_only": true,
+  "headers": {
+    "/docs/shared/**": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  }
 }
