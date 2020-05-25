@@ -129,7 +129,7 @@ passport.use(new OAuth2Strategy({
 5. Add callback endpoint to your app
 
 ```js
-// Your pages that should only allow authroized access (e.g. your dashboard)
+// Your pages that should only allow authorized access (e.g. your dashboard)
 app.get('/dashboard', passport.authenticate('oauth2'));
 
 // The callback URL that the user is redirected when coming from Zaikio
