@@ -47,29 +47,44 @@ module.exports = {
         text: "Guides",
         items: [
           {
-            text: "OAuth",
-            link: "/guide/oauth/"
+            text: "General Guides",
+            items: [
+              {
+                text: "OAuth",
+                link: "/guide/oauth/"
+              },
+              {
+                text: "Try Zaikio API",
+                link: "/guide/try-api/"
+              },
+              {
+                text: "Event Handling with Loom",
+                link: "/guide/loom/"
+              },
+              {
+                text: "Provide API and events",
+                link: "/guide/provide-api/"
+              },
+              {
+                text: "JWT Validation",
+                link: "/guide/jwt/"
+              },
+              {
+                text: "Launchpad",
+                link: "/guide/launchpad/"
+              }
+            ]
           },
           {
-            text: "Launchpad",
-            link: "/guide/launchpad/"
-          },
-          {
-            text: "Event Handling with Loom",
-            link: "/guide/loom/"
-          },
-          {
-            text: "Try Zaikio API",
-            link: "/guide/try-api/"
-          },
-          {
-            text: "JWT Validation",
-            link: "/guide/jwt/"
-          },
-          {
-            text: "Provide API and events",
-            link: "/guide/provide-api/"
+            text: "Use Cases",
+            items: [
+              {
+                text: "Migrate an existing Customer Database",
+                link: "/guide/migrate-existing-customers/"
+              }
+            ]
           }
+
         ]
       },
       {
