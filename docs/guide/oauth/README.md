@@ -74,7 +74,7 @@ We recommend that you create a test organization for this purpose or use one of 
 
 Click on `Add organization` and type the name of the test organization that should be able to connect to the app.
 
-On `Connections` for the test organization (check the navigation on top) you should now be able to see your app. Again, please note that you can only install an app as administrator of the organization.
+On `Connections` for the test organization (check the navigation on the left side) you should now be able to see your app. Again, please note that you can only install an app as administrator of the organization.
 
 After clicking on Connect and accepting the access request, you should be redirected to your Entry Point URL.
 
@@ -86,9 +86,9 @@ You need to retrieve an API key and secret key to identify the client during the
 
 Go to `My Apps` > Your App > `SSO & OAuth`.
 
-You should see a list of OAuth credentials. At the beginning we already create an ID-Secret Pair for you. By default, the credentials are set to non confidential, but we recommend that you always make the authorization confidential. The only exceptions are single page applications that have no backend or clients in the IoT context. You can change this by clicking on `View` and then on `Make OAuth credentials confidential`.
+You should see a list of OAuth credentials. At the beginning we already create an ID-Secret Pair for you. By default, the credentials are set to non confidential, but we recommend that you always make the authorization confidential. The only exceptions are single page applications that have no backend or clients in the IoT context. You can change this by clicking on `Edit Credentials` and then checking the box next to `Confidential`.
 
-Copy the ID and the secret by clicking on `View` before. It is important that you store these credentials in a safe place where they cannot be easily read and they should not be stored in the source code (it is best to use environment variables).
+Copy the ID and the secret by clicking on `Show Credentials` before. It is important that you store these credentials in a safe place where they cannot be easily read and they should not be stored in the source code (it is best to use environment variables).
 
 ### Step 5: Initialize the Redirect Flow
 
