@@ -17,7 +17,7 @@ const AVAILABLE_APPS = {
   mission_control: "https://mc.zaikio.com",
   procurement_suppliers: "https://procurement.sandbox.zaikio.com/suppliers",
   procurement_consumers: "https://procurement.sandbox.zaikio.com/consumers",
-  warehouse: "https://warehouse.sandbox.zaikio.com"
+  warehouse: "https://warehouse.sandbox.keyline.app"
 };
 
 const navFilePath = path.join(
