@@ -58,7 +58,7 @@ curl --request GET \
 
 This endpoint only returns events to which the application subscribed in the Directory. The subscription type must be `pull`.
 
-Results from this endpoint are paginated to 100 events per page. Find the total number of events matching the filter in a custom `X-Total-Count` response header. Furthermore the response will contain `Link` headers following [RFC5988](https://tools.ietf.org/html/rfc5988). Example response from Loom to the above query:
+Results from this endpoint are paginated to 100 events per page. Find the total number of events matching the filter in a custom `Total-Count` response header. Furthermore the response will contain `Link` headers following [RFC5988](https://tools.ietf.org/html/rfc5988). Example response from Loom to the above query:
 
 **Body:**
 
@@ -84,6 +84,6 @@ Results from this endpoint are paginated to 100 events per page. Find the total 
 **Header:**
 
 ```
-X-Total-Count: 3316
+Total-Count: 3316
 Link: <https://loom.zaikio.com/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=15>; rel="next",<https://loom.zaikio.com/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=34>; rel="last",<https://loom.zaikio.com/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=1>; rel="first",<https://loom.zaikio.com/api/v1/events?filter[name]=accounting.invoice_paid&filter[from]=2019-11-26T10%3A00%3A00&filter[to]=2019-11-26T10%3A59%3A59&page=13>; rel="prev"
 ```
