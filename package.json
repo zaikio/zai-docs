@@ -27,7 +27,7 @@
     "js-yaml-loader": "^1.2.2",
     "json-schema-ref-parser": "^9.0.6",
     "jsonwebtoken": "^8.5.1",
-    "jwk-to-pem": "^2.0.3",
+    "jwk-to-pem": "^2.0.4",
     "minimist": ">=1.2.2",
     "node-fetch": "^2.6.1",
     "reselect": "^4.0.0",
