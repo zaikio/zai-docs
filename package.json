@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/crispymtn/zai-docs#readme",
   "devDependencies": {
-    "@vuepress/shared-utils": "^1.5.0",
+    "@vuepress/shared-utils": "^1.6.0",
     "axios": "^0.19.2",
     "js-yaml": "^3.14.0",
     "js-yaml-loader": "^1.2.2",
