@@ -116,7 +116,7 @@ module.exports = {
         sort: entries =>
           entries.sort(
             (a, b) =>
-              new Date(a.frontmatter.date) - new Date(b.frontmatter.date)
+              new Date(b.frontmatter.date) - new Date(a.frontmatter.date)
           )
       }
     ]
