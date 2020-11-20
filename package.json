@@ -31,7 +31,7 @@
     "minimist": ">=1.2.2",
     "node-fetch": "^2.6.1",
     "reselect": "^4.0.0",
-    "swagger-ui": "^3.36.2",
+    "swagger-ui": "^3.37.0",
     "vue-server-renderer": "^2.6.12",
     "vuepress": "^1.7.1",
     "vuepress-plugin-element-tabs": "^0.2.8",
