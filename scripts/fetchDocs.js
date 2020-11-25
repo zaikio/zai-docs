@@ -48,8 +48,25 @@ asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
     if (manifest.specs) {
       apiSpecLink = {
         text: manifest.title,
+        path: `/api/${appName}/`,
         items: []
       };
+
+      fs.writeFile(
+        path.join(appApiDir, `README.md`),
+        `---
+title: ${manifest.title}
+lang: en-US
+editLink: false
+---
+
+Coming soon`,
+        err => {
+          if (err) {
+            console.log(err);
+          }
+        }
+      );
 
       await asyncForEach(Object.keys(manifest.specs), async specName => {
         const specPath = manifest.specs[specName];
