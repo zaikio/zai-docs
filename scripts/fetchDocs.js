@@ -1,12 +1,205 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 const fs = require("fs");
 const path = require("path");
-const $RefParser = require('json-schema-ref-parser');
-const yaml = require('js-yaml');
+const $RefParser = require("json-schema-ref-parser");
+const yaml = require("js-yaml");
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);
+  }
+}
+
+function saveFile(path, content) {
+  fs.writeFileSync(path, content, err => (err ? console.log(err) : null));
+}
+
+function parameterize(str) {
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9 -]/, "")
+    .replace(/\s/g, "-");
+}
+
+function swaggerFile(title, folder, fileName) {
+  return `---
+title: ${title}
+lang: en-US
+pageClass: full-width
+editLink: false
+---
+
+<ClientOnly><ApiDocWrapper src="api/${folder}/${fileName}"></ApiDocWrapper></ClientOnly>`;
+}
+
+class AppDocs {
+  constructor(name, url) {
+    this.name = name;
+    this.url = url;
+  }
+
+  get publicFolder() {
+    return path.join(__dirname, `../docs/.vuepress/public/api/${this.name}`);
+  }
+
+  get folder() {
+    return path.join(__dirname, `../docs/api/${this.name}`);
+  }
+
+  get configFolder() {
+    return path.join(__dirname, `../docs/.vuepress/apps`);
+  }
+
+  get relativeFolder() {
+    return `/api/${this.name}`;
+  }
+
+  async getManifest() {
+    this.manifest =
+      this.manifest ||
+      (await fetch(`${this.url}/docs/manifest.json`).then(res => res.json()));
+
+    return this.manifest;
+  }
+
+  async createGuideItems(folder, relativeFolder, guides) {
+    if (!fs.existsSync(folder)) {
+      fs.mkdirSync(folder);
+    }
+
+    const text = await fetch(`${this.url}${guides.url}`).then(res =>
+      res.text()
+    );
+
+    saveFile(`${folder}/README.md`, text);
+
+    let items = {};
+
+    await asyncForEach(Object.keys(guides.items || {}), async itemName => {
+      items[itemName] = {
+        path: `${relativeFolder}/${parameterize(itemName)}`,
+        items: await this.createGuideItems(
+          `${folder}/${parameterize(itemName)}`,
+          `${relativeFolder}/${parameterize(itemName)}`,
+          guides.items[itemName]
+        )
+      };
+    });
+
+    return items;
+  }
+
+  async createGuides() {
+    const manifest = await this.getManifest();
+
+    if (!manifest.guides) {
+      return {};
+    }
+
+    return {
+      Overview: { path: `${this.relativeFolder}/guides` },
+      ...(await this.createGuideItems(
+        `${this.folder}/guides`,
+        `${this.relativeFolder}/guides`,
+        manifest.guides
+      ))
+    };
+  }
+
+  async createReferences() {
+    const manifest = await this.getManifest();
+
+    if (!manifest.references) {
+      manifest.references = manifest.specs;
+    }
+
+    let references = {};
+
+    await asyncForEach(
+      Object.keys(manifest.references),
+      async referenceName => {
+        const content = await fetch(
+          `${this.url}${manifest.references[referenceName]}`
+        ).then(res => res.text());
+        const fileName = manifest.references[referenceName].split("/").pop();
+
+        if (manifest.references[referenceName].includes(".yml")) {
+          const parser = new $RefParser();
+          await parser
+            .dereference(`${this.url}${manifest.references[referenceName]}`)
+            .then(schema => {
+              saveFile(
+                `${this.publicFolder}/${fileName}`,
+                yaml.safeDump(schema)
+              );
+              saveFile(`${this.folder}/${fileName}`, yaml.safeDump(schema));
+              saveFile(
+                `${this.publicFolder}/${fileName.replace(".yml", ".json")}`,
+                JSON.stringify(schema, null, 2)
+              );
+              saveFile(
+                `${this.folder}/${fileName.replace(".yml", ".md")}`,
+                swaggerFile(referenceName, this.name, fileName)
+              );
+              references[referenceName] = `${
+                this.relativeFolder
+              }/${fileName.replace(".yml", "")}`;
+            });
+        } else {
+          saveFile(`${this.folder}/${fileName}`, content);
+          references[referenceName] = `${this.relativeFolder}/${fileName
+            .split(".")
+            .shift()}`;
+        }
+      }
+    );
+
+    return references;
+  }
+
+  async create() {
+    if (!fs.existsSync(this.folder)) {
+      fs.mkdirSync(this.folder);
+    }
+
+    if (!fs.existsSync(this.publicFolder)) {
+      fs.mkdirSync(this.publicFolder);
+    }
+
+    const manifest = await this.getManifest();
+    let logo = null;
+
+    if (manifest.logo) {
+      const logoBuffer = await fetch(`${this.url}${manifest.logo}`).then(res =>
+        res.buffer()
+      );
+
+      saveFile(`${this.publicFolder}/logo.png`, logoBuffer);
+      logo = `${this.relativeFolder}/logo.png`;
+    }
+
+    const guides = await this.createGuides();
+    const references = await this.createReferences();
+
+    saveFile(
+      `${this.configFolder}/${this.name}.json`,
+      JSON.stringify(
+        {
+          title: manifest.title,
+          summary: manifest.summary,
+          path: this.relativeFolder,
+          home: guides.Overview
+            ? guides.Overview.path
+            : Object.values(references)[0],
+          logo,
+          guides,
+          references
+        },
+        null,
+        2
+      )
+    );
   }
 }
 
@@ -17,138 +210,9 @@ const AVAILABLE_APPS = {
   mission_control: "https://mc.zaikio.com",
   procurement_suppliers: "https://procurement.zaikio.com/suppliers",
   procurement_consumers: "https://procurement.zaikio.com/consumers",
-  warehouse: "https://warehouse.sandbox.keyline.app"
+  warehouse: "https://warehouse.keyline.app"
 };
 
-const navFilePath = path.join(
-  __dirname,
-  "../docs/.vuepress/externalApisNav.json"
-);
-
-fs.writeFile(navFilePath, JSON.stringify([]), err => {
-  if (err) {
-    console.log(err);
-  }
-});
-
-asyncForEach(Object.keys(AVAILABLE_APPS), async appName => {
-  const url = AVAILABLE_APPS[appName];
-  try {
-    const manifest = await fetch(`${url}/docs/manifest.json`).then(res => res.json());
-    const appApiDir = path.join(__dirname, `../docs/api/${appName}`);
-    const publicApiDir = path.join(__dirname, `../docs/.vuepress/public/api/${appName}`);
-    if (!fs.existsSync(appApiDir)) {
-      fs.mkdirSync(appApiDir);
-    }
-    if (!fs.existsSync(publicApiDir)) {
-      fs.mkdirSync(publicApiDir);
-    }
-    console.log("FETCHED MANIFEST", manifest);
-
-    if (manifest.specs) {
-      apiSpecLink = {
-        text: manifest.title,
-        path: `/api/${appName}/`,
-        items: []
-      };
-
-      fs.writeFile(
-        path.join(appApiDir, `README.md`),
-        `---
-title: ${manifest.title}
-lang: en-US
-editLink: false
----
-
-Coming soon`,
-        err => {
-          if (err) {
-            console.log(err);
-          }
-        }
-      );
-
-      await asyncForEach(Object.keys(manifest.specs), async specName => {
-        const specPath = manifest.specs[specName];
-        const filePath = path.join(appApiDir, specPath.split("/").pop());
-        const filePathPublic = path.join(publicApiDir, specPath.split("/").pop());
-        const response = await fetch(`${url}${specPath}`).then(res => res.text());
-        console.log("FETCHED", `${url}${specPath}`);
-        if (specPath.includes('.yml')) {
-          const parser = new $RefParser;
-          parser.dereference(`${url}${specPath}`).then(schema => {
-            fs.writeFileSync(filePath, yaml.safeDump(schema), err => {
-              if (err) {
-                console.log(err);
-              }
-            });
-            fs.writeFileSync(filePathPublic.replace('.yml', '.json'), JSON.stringify(schema, null, 2), err => {
-              if (err) {
-                console.log(err);
-              }
-            });
-          });
-        } else {
-          fs.writeFileSync(filePath, response, err => {
-            if (err) {
-              console.log(err);
-            }
-          });
-          fs.writeFileSync(filePathPublic, response, err => {
-            if (err) {
-              console.log(err);
-            }
-          });
-        }
-        console.log(specPath);
-
-        if (specPath.includes('.md')) {
-          const path = specPath.split("/").pop().split('.md').shift();
-          apiSpecLink.items.push({
-            text: specName,
-            link: `/api/${appName}/${path}.html`
-          });
-        } else {
-          let simpleName = specPath.split("/").pop().split(".").shift();
-          fs.writeFile(
-            path.join(appApiDir, `${simpleName}.md`),
-            `---
-title: ${specName}
-lang: en-US
-pageClass: full-width
-editLink: false
----
-
-<ClientOnly><ApiDocWrapper src="api/${appName}/${specPath
-              .split("/")
-              .pop()}"></ApiDocWrapper></ClientOnly>
-          `,
-            err => {
-              if (err) {
-                console.log(err);
-              }
-            }
-          );
-          apiSpecLink.items.push({
-            text: specName,
-            link: `/api/${appName}/${simpleName}.html`
-          });
-        }
-      });
-
-
-      let apiSpecLinks = fs.existsSync(navFilePath)
-        ? JSON.parse(require("fs").readFileSync(navFilePath, "utf8"))
-        : [];
-      apiSpecLinks.push(apiSpecLink);
-
-      fs.writeFileSync(navFilePath, JSON.stringify(apiSpecLinks), err => {
-        if (err) {
-          console.log(err);
-        }
-      });
-    }
-  } catch(e) {
-    console.error(e);
-  }
+asyncForEach(Object.keys(AVAILABLE_APPS), app => {
+  new AppDocs(app, AVAILABLE_APPS[app]).create();
 });

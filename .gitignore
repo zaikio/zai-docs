@@ -1,9 +1,11 @@
 .DS_Store
 dist
-docs/.vuepress/externalApisNav.json
 docs/api/**/*.yml
 docs/api/**/*.md
+docs/api/**/*.png
+docs/api/**/*.json
 node_modules
 docs/.vuepress/public/api/**/*.yml
-docs/.vuepress/public/api/**/*.md
+docs/.vuepress/public/api/**/*.png
 docs/.vuepress/public/api/**/*.json
+docs/.vuepress/apps/*.json

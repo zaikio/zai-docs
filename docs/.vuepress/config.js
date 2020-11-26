@@ -1,8 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 
-const externalApisNav = require("./externalApisNav.json");
-
 module.exports = {
   title: "Zaikio Developer Hub",
   dest: "dist",
