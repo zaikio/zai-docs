@@ -1,79 +1,14 @@
 # Getting Started
 
-With Zaikio you can create great solutions for all participants in the printing industry: printers, press manufacturers and suppliers. We offer you a large ecosystem where you can focus on making your solution perfect.
+Zaikio brings printers, customers, brand owners, suppliers, software & equipment manufacturers together on a modern and open platform so that everyone can communicate and exchange data on a level playing field. We offer you a large ecosystem where you can focus on making your solution perfect.
 
-# Building an app
+For more details about our products and our missions, check out the [Zaikio website](https://zaikio.com/).
 
-The integration with the Zaikio platform can be done in different ways. Depending on the requirements of your app, different approaches are possible. First of all you have to decide which type of app is right for you. We distinguish between **public** and **private** apps.
+In the following guide we show you the first steps to integrate Zaikio into your app. Of course you can always <a onclick="Intercom('showNewMessage');" style="cursor:pointer">contact us</a> if you have further questions!
 
-## Types of Zaikio Apps
+---
 
-<div style="display:flex">
-  <div style="width:50%;margin-right:25px;">
-
-### Public apps (recommended)
-
-<ul>
-<li>Different organisations and people can connect</li>
-<li>Must go through Zaikio's app approval process</li>
-<li>Can be listed in Zaikio's connectivity hub and can receive payments/subscriptions</li>
-</ul>
-
-  </div>
-  <div style="width:50%;margin-left:25px;">
-
-### Private apps
-
-<ul>
-<li>Only invited organisations and its members can connect</li>
-<li>Don't go through Zaikio's app approval process</li>
-<li>Can't be listed in Zaikio's connectivity hub</li>
-</ul>
-
-  </div>
-</div>
-
-### Both types
-
-<div style="display:flex">
-  <div style="width:50%;margin-right:25px;"><br>
-    ✔ Can be accessed through the Zaikio launchpad<br><br>
-    ✔ Can consume APIs and events of other published apps
-  </div>
-
-  <div style="width:50%;margin-left:25px;"><br>
-    ✔ Manage authentication with <strong>OAuth 2.0</strong><br><br>
-    ✔ Can offer APIs and events to other Zaikio apps
-  </div>
-</div>
-<br>
-
-The following guides can be used by both app types.
-
-## Create app in the Zaikio platform
-
-To be able to manage apps you must first create an organisation in [Zaikio sandbox](https://directory.sandbox.zaikio.com) and be an admin in that organisation.
-
-Go then in the context of your organisation to `Dashboard` > `App Developer Programme` and accept our terms and conditions.
-
-Afterwards you can access `My Apps` in the sidebar and click on `Create new app`. You can leave the `Entry point url` and `Webhook url` empty for the beginning. You can change them later.
-
-Your app is created as a draft and is not visible to others. We recommend that you create important meta data such as logo, screenshots and texts for your app before publishing it.
-
-### Single Sign On with OAuth
-
-- [OAuth guide](/guide/oauth/)
-- [Launchpad guide: add a general navigation component to your app](/guide/launchpad/)
-
-
-### Consuming Zaikio-APIs
-
-- [Make your first request to the Zaikio directory API](/guide/try-api/)
-- [Connect with other Zaikio apps and use their API](#coming-soon)
-- [Receiving Zaikio events with webhooks](/guide/loom/receiving-events.html)
-
-### Offering APIs and events to other Apps
-
-If you have already successfully connected to Zaikio and would like to give other apps access to your API and events, please read our guides.
-
-- [Providing APIs and events guide](/guide/provide-api)
+1. [Setup a Zaikio App](./create-app.html)
+2. [Single sign-on with Zaikio account](./sso-person.html)
+3. [Fetch data about person with the Zaikio Hub API](./use-api.html)
+4. [Install app for organisations](./organization-install.html)

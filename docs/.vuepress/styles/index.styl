@@ -1,5 +1,25 @@
 @import 'swagger-ui'
 @import 'jwt-verifier'
+@import 'browser-mockup'
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.grid > div {
+  background-color: #F2F3F5;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.grid .browser-mockup {
+  margin: 0;
+  margin-bottom: 10px;
+}
 
 .theme-container.full-width .content__default {
   max-width: 1300px;
