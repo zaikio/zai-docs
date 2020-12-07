@@ -10,46 +10,84 @@ If you want a quick start to the Zaikio API, you can follow this guide.
 
 To easily test the API, you can generate Private Access Tokens. These have the same structure as access tokens generated via Client Credentials Flow or Redirect Flow.
 
-Access Tokens are issued either to a person or to an organization. Depending on your use case, one or the other may make sense. In our [API reference](/api/directory) we define all Scopes and their Bearer Type. In this example we use a person token.
+Access Tokens are issued either to a person or to an organisation. Depending on your use case, one or the other may make sense. In our [API reference](/api/directory) we define all Scopes and their Bearer Type. In this example we use a person token.
 
-Log into the [zaikio sandbox](https://hub.sandbox.zaikio.com) and select `Private Access Tokens` in the navigation. Then click on `Generate new Access Token`:
+Log into the [zaikio sandbox](https://hub.sandbox.zaikio.com), choose an organisation and select **Private Access Tokens** in the navigation. Then click on **Generate new Access Token**.
 
-<img src="./step1.png" alt="Step 1" style="border: 1px solid #adadad;" />
+<div class="grid">
+<div><div class="browser-mockup" data-url="organizations/printery/private_oauth_access_tokens">
 
-Select the scopes you want to share and generate the token. The generated access token will then be displayed once. The Access Token has to be treated as protected passwords.
+![Step 1](./step1.png)
 
-<img src="./step2.png" alt="Step 2" style="border: 1px solid #adadad;" />
+</div>
 
-If you want to know what structure the JSON Web Token has, you can use our interactive [JWT Verifier](/guide/jwt/).
+Select the scopes you want to share and generate the token. The generated access token will then be displayed once.
 
-## Step2: Use token in API Reference
+</div>
 
-Since our [API reference](/api/directory/directory.html) is interactive, you can transfer the access token there. The access token is not stored.
+<div><div class="browser-mockup" data-url="organizations/printery/private_oauth_access_tokens">
 
-### Choose the right environment
+![Step 2](./step2.png)
 
-If you use the access token for testing purposes, it probably makes sense to select the sandbox environment:
+</div>
 
-<img src="./step3.png" alt="Step 3" style="border: 1px solid #adadad;" />
+Copy the access token. The Access Token has to be treated as protected passwords. If you want to know what structure the JSON Web Token has, you can use our interactive [JWT Verifier](/guide/jwt/).
 
-### Enter Access Token
+</div>
 
-Click on `Authorize` in the upper right corner with the lock icon.
+</div>
 
-In the opening modal insert your access token under bearerAuth:
 
-<img src="./step4.png" alt="Step 4" style="border: 1px solid #adadad;" />
+## Step 2: Use token in API Reference
 
-Then click on `Authorize` and `Close`.
+Since our [API reference](/api/directory/directory.html) is **interactive**, you can copy the access token there. The access token is not stored.
 
-### Try out an endpoint
+
+<div class="grid">
+<div><div class="browser-mockup" data-url="https://docs.zaikio.com/api/directory/directory.html">
+
+![Step 3](./step3.png)
+
+</div>
+
+If you use the access token for testing purposes, it probably makes sense to select the sandbox environment.
+
+</div>
+
+<div><div class="browser-mockup" data-url="https://docs.zaikio.com/api/directory/directory.html">
+
+![Step 4](./step4.png)
+
+</div>
+
+Click on **Authorize** in the upper right corner with the lock icon.
+
+</div>
+
+<div><div class="browser-mockup" data-url="https://docs.zaikio.com/api/directory/directory.html">
+
+![Step 5](./step5.png)
+
+</div>
+
+In the opening modal insert your access token under bearerAuth. Then click on **Authorize** and **Close**.
+
+</div>
+
+</div>
+
+## Step 3: Try out an endpoint
 
 Then open the endpoint you would like to test. Which endpoints you can now test is indicated by the black, closed lock icon.
 
-Then click on the `Try out` button on the left. Specify the parameters, if there are any.
+Then click on the **Try out** button on the left. Specify the parameters, if there are any.
 
-Then click on `Execute`.
+Then click on **Execute**.
 
-<img src="./step5.png" alt="Step 5" style="border: 1px solid #adadad;" />
+<div class="browser-mockup" data-url="https://docs.zaikio.com/api/directory/directory.html">
+
+![Step 6](./step6.png)
+
+</div>
 
 Now you see on the right side the response to your request and the call in CURL. You can now easily test API requests this way.
