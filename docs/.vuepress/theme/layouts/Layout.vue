@@ -179,18 +179,20 @@ export default {
     padding-top: 0
 
 .zaikio-content--inner-sidebar
+  .page
+    max-width: 900px
+    padding-right: "%s" % $sidebarWidth
+    margin: 0 auto
+
   .sidebar
     position: fixed
-    right: 0
-    top "calc(1px + %s)" % $navbarHeight
+    right: "max(0\px, calc((100vw - 300px) / 2 - (%s / 2) - 450px))" % $sidebarWidth
     left: auto
+    top "calc(1px + %s)" % $navbarHeight
     border-left: 1px solid $borderColor
     background-color: transparent
 
   .theme-default-content
     margin: 0
-    box-sizing: border-box
-    max-width "calc(100vw - 302px - %s)" % $sidebarWidth
-
 
 </style>

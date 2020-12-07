@@ -20,7 +20,7 @@ JavaScript: [github.com/crispymtn/zai-demo-app-javascript](https://github.com/cr
 
 ## Requesting a user's identity
 
-To start the web application OAuth flow, you need to redirect users that don't have a valid session for your App to `GET https://directory.zaikio.com/oauth/authorize`.
+To start the web application OAuth flow, you need to redirect users that don't have a valid session for your App to `GET https://hub.zaikio.com/oauth/authorize`.
 
 | Name                     | Description                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -31,9 +31,9 @@ To start the web application OAuth flow, you need to redirect users that don't h
 | `signup`                 | If omitted or set to `true`, the Directory will allow the user to create a new account during the authorisation process. If set to `false`, a signup is not possible.                                                                                                                                                                                                                            |
 | `scope`                  | A comma-seperated list of the scopes you want authorisation for. Please read the [scope guides](/guide/oauth/scopes.html).                                                                                                                                                                                                                                                                       |
 
-## Users are redirected back to your App by the Directory
+## Users are redirected back to your App by Zaikio
 
-After a user has successfully logged into the Directory and approved access for your App, the Directory will redirect the user back to your App, based on the `redirect_uri` specified in step 1 or in your App configuration. The redirect call will contain the `code` parameter which you need to exchange for an access token in step 3. It will also contain the `state` parameter from the previous step. You should use the `state` parameter to ensure that the request originated from your App. If the `state` doesn't match the process must be aborted.
+After a user has successfully logged into Zaikio and approved access for your App, Zaikio will redirect the user back to your App, based on the `redirect_uri` specified in step 1 or in your App configuration. The redirect call will contain the `code` parameter which you need to exchange for an access token in step 3. It will also contain the `state` parameter from the previous step. You should use the `state` parameter to ensure that the request originated from your App. If the `state` doesn't match the process must be aborted.
 
 ## Exchange the grant code for an access token
 
@@ -94,9 +94,9 @@ access_token=749ceefd1f7909a1773501e0bc57d5b2&token_type=bearer
 :::
 ::::
 
-## Retrieve user information via the Directory API
+## Retrieve user information via the Zaikio Hub API
 
-In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory V1 REST API at `GET https://directory.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. To authenticate against the API the `Authorization` header must be set to
+In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Directory V1 REST API at `GET https://hub.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. To authenticate against the API the `Authorization` header must be set to
 
 ```
 Bearer <your API token>
@@ -108,7 +108,7 @@ An example call to this endpoint might look like this:
 
 ```
 curl --request GET \
-     --url https://directory.zaikio.com/api/v1/person \
+     --url https://hub.zaikio.com/api/v1/person \
      --header 'Authorization: Bearer 749ceefd1f7909a1773501e0bc57d5b2'
 ```
 

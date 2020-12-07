@@ -7,7 +7,7 @@ Scopes can also be added to various audiences.
 
 ## Requested Scope Structure
 
-This is the basic structure of a requested scope `BEARER_TYPE_AND_ID`.`AUDIENCE_NAME`.`SCOPE_NAME`.`PERMISSION`
+This is the basic structure of a requested scope `BEARER_TYPE_AND_ID`.`APP_NAME`.`SCOPE_NAME`.`PERMISSION`
 
 ### `BEARER_TYPE_AND_ID`
 
@@ -15,7 +15,7 @@ Can be omitted or be `Org` or `Per`. For the [client credentials flow](/guide/oa
 
 It is also allowed to pass the Organization ID in the Redirect Flow or Device Flow, so that the user does not have to select an organisation again. However, this does not work for people, because it is automatically the currently logged in person.
 
-### `AUDIENCE_NAME`
+### `APP_NAME`
 
 Defines for which app the permission should be granted. For example: `warehouse`.
 
