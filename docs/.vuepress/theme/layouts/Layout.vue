@@ -180,13 +180,13 @@ export default {
 
 .zaikio-content--inner-sidebar
   .page
-    max-width: 900px
+    max-width: 980px
     padding-right: "%s" % $sidebarWidth
     margin: 0 auto
 
   .sidebar
     position: fixed
-    right: "max(0\px, calc((100vw - 300px) / 2 - (%s / 2) - 450px))" % $sidebarWidth
+    right: "max(0\px, calc((100vw - 300px) / 2 - (%s / 2) - 490px))" % $sidebarWidth
     left: auto
     top "calc(1px + %s)" % $navbarHeight
     border-left: 1px solid $borderColor

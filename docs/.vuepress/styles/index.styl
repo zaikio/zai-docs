@@ -54,3 +54,29 @@
 a {
   color: #40b781;
 }
+
+.sidebar
+  .sidebar-heading
+    padding-left: 32px
+
+  a.sidebar-link
+    line-height: 1.7
+    margin: 4px 0
+
+    &:hover
+      background-color: #F2F3F5
+      color: $textColor
+
+    &.active
+      background-color: $accentColorLight
+      color: $textColor
+
+  .sidebar-sub-header
+    a.sidebar-link
+      margin-right: 10px
+      border-radius: 6px
+      width: auto
+      display: block
+
+      &.active
+        background-color: transparent
