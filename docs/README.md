@@ -6,7 +6,7 @@ heroText: Developer Hub
 tagline: >
   Welcome to the Zaikio developer hub. You'll find
   comprehensive guides and documentation to help you start working with
-  Zaikio Directory as quickly as possible, as well as support if
+  Zaikio as quickly as possible, as well as support if
   you get stuck. Let's jump right in!
 features:
   -

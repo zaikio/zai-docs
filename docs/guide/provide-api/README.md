@@ -92,9 +92,9 @@ You should already have successfully validated the JWT and checked the scopes. E
 
 Therefore a list of revoked Access Token IDs (JTIs) should be stored, for example in a database like Redis. You only need to keep Access Tokens in this list that have not expired.
 
-To let you know immediately when an access token has been revoked, we provide the `directory.revoked_access_token` event. The `access_token_id` is returned in the payload of this event. More information about this Loom Event, you can get in the [Directory Events Reference](/api/directory/events.html#directory-revoked-access-token). If you want to know how to receive Loom Events via a Webhook, read our [Loom Receive Event Guide](/guide/loom/receiving-events.html).
+To let you know immediately when an access token has been revoked, we provide the `directory.revoked_access_token` event. The `access_token_id` is returned in the payload of this event. More information about this Loom Event, you can get in the [Hub Events Reference](/api/directory/events.html#directory-revoked-access-token). If you want to know how to receive Loom Events via a Webhook, read our [Loom Receive Event Guide](/guide/loom/receiving-events.html).
 
-If you restart your app or your memory has been cleared, there is also the possibility to retrieve all revoked Access Tokens that have not yet expired via the Zaikio API. To retrieve this list make a `GET /api/v1/blacklisted_access_tokens` request. This endpoint is public. For more details see our [Directory API Reference](/api/directory/#/Blacklisted%20Access%20Tokens/get_blacklisted_access_tokens).
+If you restart your app or your memory has been cleared, there is also the possibility to retrieve all revoked Access Tokens that have not yet expired via the Zaikio API. To retrieve this list make a `GET /api/v1/blacklisted_access_tokens` request. This endpoint is public. For more details see our [Zaikio Hub API Reference](/api/directory/#/Blacklisted%20Access%20Tokens/get_blacklisted_access_tokens).
 
 The different checks are already part of our [Ruby Gem Zaikio JWTAuth](https://github.com/crispymtn/zaikio-jwt_auth).
 
@@ -157,13 +157,13 @@ All you need to do is to contact us via intercom, for example (bottom right).
 
 You can see here for example how the manifest of the directory looks like:
 
-[https://directory.zaikio.com/docs/manifest.json](https://directory.zaikio.com/docs/manifest.json)
+[https://hub.zaikio.com/docs/manifest.json](https://hub.zaikio.com/docs/manifest.json)
 
 ## Step 6: Write additional guides with Markdown
 
 Besides the specification as explained in the previous chapter, you can also provide guides in addition to your API specification, which will appear here in the Zaikio Developer Hub. To do this, the guides must be written in markdown.
 
-Here you find an example how such a file can look like: [https://directory.zaikio.com/docs/events.md](https://directory.zaikio.com/docs/events.md)
+Here you find an example how such a file can look like: [https://hub.zaikio.com/docs/events.md](https://hub.zaikio.com/docs/events.md)
 
 The markdown files must then also be placed in the `/docs` folder and can then be added to `manifest.json`:
 

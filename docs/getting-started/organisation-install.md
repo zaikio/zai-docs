@@ -142,7 +142,7 @@ Coming soon
 
 ### Refreshing tokens
 
-Every time Zaikio hands out an access token, this token is accompanied by a refresh token. The refresh token can be used to obtain a new access token, when the old one has expired. To ensure frequent check-ins with the Directory for security reasons, all access tokens are valid for 60 minutes. After this time it must be exchanged into a new one with the refresh token. If the permissions of the bearer have changed in the interim, this exchange will be denied, thus giving us one method of access control and permission revocation.
+Every time Zaikio hands out an access token, this token is accompanied by a refresh token. The refresh token can be used to obtain a new access token, when the old one has expired. To ensure frequent check-ins with Zaikio for security reasons, all access tokens are valid for 60 minutes. After this time it must be exchanged into a new one with the refresh token. If the permissions of the bearer have changed in the interim, this exchange will be denied, thus giving us one method of access control and permission revocation.
 
 Read more about [how to refresh the Access Token](./access-token-refresh.html)
 
@@ -164,7 +164,7 @@ If you have already successfully connected to Zaikio and would like to give othe
 
 ### Other
 
-- [Make your first request to the Zaikio directory API](/guide/try-api/)
+- [Make your first request to the Zaikio Hub API](/guide/try-api/)
 - [Connect with other Zaikio apps and use their API](#coming-soon)
 - [Receiving Zaikio events with webhooks](/guide/loom/receiving-events.html)
 - [Launchpad guide: add a general navigation component to your app](/guide/launchpad/)

@@ -4,7 +4,7 @@ date: 2020-06-09 11:00:00
 type: post
 changelog: true
 components:
-    - Directory API
+    - Zaikio Hub API
 change_types:
     - Action required
     - Update
@@ -14,5 +14,5 @@ description: >
   The old API endpoints get deleted on the 1st of August.
 
   <br><br>
-  Further Reading: [Directory API Reference Revoked Access Tokens](/api/directory/directory.html#/Revoked%20Access%20Tokens)
+  Further Reading: [Zaikio Hub API Reference Revoked Access Tokens](/api/directory/directory.html#/Revoked%20Access%20Tokens)
 ---

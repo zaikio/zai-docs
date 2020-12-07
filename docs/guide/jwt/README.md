@@ -18,7 +18,7 @@ As an API provider, you **MUST** to validate incoming tokens and verify that the
 
 Each programming language usually provides public libraries that can be used to validate and decode the JWT.
 
-1. Get the public JWK (JSON Web Key) via the directory API `GET https://directory.zaikio.com/api/v1/jwt_public_keys`
+1. Get the public JWK (JSON Web Key) via the directory API `GET https://hub.zaikio.com/api/v1/jwt_public_keys`
 2. (optionally) Depending on the library used, transform the JWK into a public certificate `.pem` (since some libraries require this format)
 3. Decode the payload and verify validity of the JWT with a JWT library
 
@@ -33,7 +33,7 @@ import jwkToPem from 'jwk-to-pem';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
-const SANDBOX_SERVER = 'https://directory.sandbox.zaikio.com/api/v1';
+const SANDBOX_SERVER = 'https://hub.sandbox.zaikio.com/api/v1';
 let jwk;
 
 async function validateJWT(jwt) {
@@ -57,7 +57,7 @@ require 'jwt'
 require 'net/http'
 require 'active_support/all'
 
-sandbox_server = 'https://directory.sandbox.zaikio.com/api/v1'
+sandbox_server = 'https://hub.sandbox.zaikio.com/api/v1'
 uri = URI("#{sandbox_server}/jwt_public_keys.json")
 keys = JSON.parse(Net::HTTP.get(uri))['keys']
 # Cache JWKs on your server

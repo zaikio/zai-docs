@@ -25,7 +25,7 @@ This token needs to be attached as the `state` parameter when using the [Zaikio 
 The first request that is made would look similar to this:
 
 ```
-GET https://directory.zaikio.com/oauth/authorize?client_id={YOUR_CLIEND_ID}&scope=directory.person.r&redirect_uri={YOUR_REDIRECT_URL}&state={SECURE_TOKEN_FOR_CURRENT_PERSON}
+GET https://hub.zaikio.com/oauth/authorize?client_id={YOUR_CLIEND_ID}&scope=directory.person.r&redirect_uri={YOUR_REDIRECT_URL}&state={SECURE_TOKEN_FOR_CURRENT_PERSON}
 ```
 
 If the person is now redirected back to the `YOUR_REDIRECT_URL`, they have created a Zaikio account or logged in with an existing one. It is also possible to prefill the person's data in this request, if he/she registers newly. [Read our detailed API Reference](/api/oauth/oauth.html#/OAuth/get_authorize).

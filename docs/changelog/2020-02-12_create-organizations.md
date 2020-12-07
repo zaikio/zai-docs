@@ -4,7 +4,7 @@ date: 2020-02-12 15:00:00
 type: post
 changelog: true
 components:
-    - Directory API
+    - Zaikio Hub API
 change_types:
     - New
 description: >
@@ -13,5 +13,5 @@ description: >
   In addition, the app that issued the token will connect directly with desired OAuth Scopes and Event Subscriptions from the directory.
   This means that after creation you can directly request an Organization Access Token via the Client Credentials Flow.<br><br>
 
-  Further Reading: [Directory API Reference `POST /person/organizations`](/api/directory/#/Person/post_person_organizations)
+  Further Reading: [Zaikio Hub API Reference `POST /person/organizations`](/api/directory/#/Person/post_person_organizations)
 ---

@@ -4,7 +4,7 @@ date: 2019-12-18 09:00:00
 type: post
 changelog: true
 components:
-    - Directory API
+    - Zaikio Hub API
 change_types:
     - Action required
     - Update

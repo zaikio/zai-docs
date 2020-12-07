@@ -204,8 +204,8 @@ class AppDocs {
 }
 
 const AVAILABLE_APPS = {
-  directory: "https://directory.zaikio.com",
-  oauth: "https://directory.zaikio.com/oauth",
+  directory: "https://hub.zaikio.com",
+  oauth: "https://hub.zaikio.com/oauth",
   loom: "https://loom.zaikio.com",
   mission_control: "https://mc.zaikio.com",
   procurement_suppliers: "https://procurement.zaikio.com/suppliers",

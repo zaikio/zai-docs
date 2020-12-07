@@ -8,7 +8,7 @@
 
 Loom is a system to handle events between applications on the platform.
 
-When a developer registers an application in the Directory two list of events can be configured
+When a developer registers an application in the Zaikio Hub two list of events can be configured
 
   - events which are fired by the application
   - events to which the application wants to subscribe

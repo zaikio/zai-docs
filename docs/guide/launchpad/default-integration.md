@@ -12,7 +12,7 @@ if (window.zaiLaunchpad) {
     loadPersonData: () => {
       return fetch('/current_person.json').then(response => response.json());
     },
-    directoryHost: 'https://directory.sandbox.zaikio.com', // optional host, you can specify the sandbox for your test environment
+    directoryHost: 'https://hub.sandbox.zaikio.com', // optional host, you can specify the sandbox for your test environment
     activeOrganizationId: activeOrganizationId, // The currently active organization or null if the user is selected
     activeAppName: 'your_app_name', // The currently active app, so the name of your app
     onSelectOrganization: organization => {
@@ -42,7 +42,7 @@ if (window.zaiLaunchpad) {
 }
 ```
 
-3. Add an endpoint to your app that is called `current_person.json` that returns the same data as `api/v1/person.json` (see [Directory API Specification](/api/directory/)). This encapsulation is required so that the JSON Web token is not exposed.
+3. Add an endpoint to your app that is called `current_person.json` that returns the same data as `api/v1/person.json` (see [Zaikio Hub API Specification](/api/directory/)). This encapsulation is required so that the JSON Web token is not exposed.
 
 
 :::: tabs
@@ -54,7 +54,7 @@ class CurrentPersonController < ApplicationController
   def show
     # Current.directory_jwt - Stored JSON Web token with directory.person.r scope
 
-    uri = URI('https://directory.sandbox.zaikio.com/api/v1/person.json')
+    uri = URI('https://hub.sandbox.zaikio.com/api/v1/person.json')
     request = Net::HTTP::Get.new(uri,
       'Content-Type' => 'application/json',
       'Authorization' => "Bearer #{Current.directory_jwt}"

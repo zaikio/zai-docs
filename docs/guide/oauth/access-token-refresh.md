@@ -1,12 +1,12 @@
 # Access Token Refresh
 
-Every time the Directory hands out an access token, this token is accompanied by a refresh token. The refresh token can be used to obtain a new access token, when the old one has expired. To ensure frequent check-ins with the Directory for security reasons, all access tokens are valid for 60 minutes. After this time it must be exchanged into a new one with the refresh token. If the permissions of the bearer have changed in the interim, this exchange will be denied, thus giving us one method of access control and permission revocation.
+Every time the Zaikio Hub hands out an access token, this token is accompanied by a refresh token. The refresh token can be used to obtain a new access token, when the old one has expired. To ensure frequent check-ins with the Zaikio Hub for security reasons, all access tokens are valid for 60 minutes. After this time it must be exchanged into a new one with the refresh token. If the permissions of the bearer have changed in the interim, this exchange will be denied, thus giving us one method of access control and permission revocation.
 
 ## Refresh token expiration time and refresh
 The refresh token itself lives for 7 days. Whenever a refresh token is exchanged into a new access token, a new refresh token will be transmitted as well, which is again valid for 7 days. The refresh token can only be used once and expires immediately after being exchanged for a new access token. However this does not affect the old access token, if such a token is still valid, it will remain so.
 
 ## Exchanging a refresh token for an access token
-In order to exchange a valid refresh token for an access token you need send a `POST` request to ` https://directory.zaikio.com/oauth/access_token`. The following parameters must accompany the request:
+In order to exchange a valid refresh token for an access token you need send a `POST` request to ` https://hub.zaikio.com/oauth/access_token`. The following parameters must accompany the request:
 
 | Name | Required | Description |
 | --- | --- | --- |

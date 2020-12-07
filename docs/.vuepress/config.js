@@ -20,7 +20,7 @@ module.exports = {
     nav: [
       {
         text: "Zaikio Hub",
-        link: "https://directory.zaikio.com/"
+        link: "https://hub.zaikio.com/"
       }
     ]
   },

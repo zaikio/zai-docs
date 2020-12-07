@@ -4,7 +4,7 @@ date: 2020-02-10 07:00:00
 type: post
 changelog: true
 components:
-    - Directory API
+    - Zaikio Hub API
 change_types:
     - New
     - Update
@@ -13,5 +13,5 @@ description: >
   A new endpoint has also been added to return information of a single page (`/api/v1/sites/{site_id}`).<br><br>
   Also, addresses can now be retrieved for each site if they have been added.<br><br>
   Furthermore, the `site_id` is now also returned for the machines, if a site has been assigned to the machine.<br><br>
-  Further Reading: [Directory API Reference](/api/directory/)
+  Further Reading: [Zaikio Hub API Reference](/api/directory/)
 ---

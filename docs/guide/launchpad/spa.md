@@ -13,7 +13,7 @@ if (window.zaiLaunchpad) {
   window.zaiLaunchpad.setup({
     loadPersonData: () => {
       return fetch(
-        'https://directory.sandbox.zaikio.com/api/v1/person.json',
+        'https://hub.sandbox.zaikio.com/api/v1/person.json',
         {
           headers: {
             "Authorization" : `Bearer ${directoryAccessToken}`
@@ -21,7 +21,7 @@ if (window.zaiLaunchpad) {
         }
       ).then(response => response.json());
     },
-    directoryHost: 'https://directory.sandbox.zaikio.com', // optional host, you can specify the sandbox for your test environment
+    directoryHost: 'https://hub.sandbox.zaikio.com', // optional host, you can specify the sandbox for your test environment
     activeOrganizationId: activeOrganizationId, // The currently active organization or null if the user is selected
     activeAppName: 'your_app_name', // The currently active app, so the name of your app
     onSelectOrganization: organization => {

@@ -2,8 +2,8 @@
   <div class="jwt-verifier">
     <label>Environment:</label>
     <select v-model="server">
-      <option value="sandbox">Sandbox https://directory.sandbox.zaikio.com/api/v1/</option>
-      <option value="production">Production https://directory.zaikio.com/api/v1/</option>
+      <option value="sandbox">Sandbox https://hub.sandbox.zaikio.com/api/v1/</option>
+      <option value="production">Production https://hub.zaikio.com/api/v1/</option>
     </select>
     <textarea
       v-model="jwt"
@@ -24,8 +24,8 @@ import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
 const API_URLS = {
-  sandbox: 'https://directory.sandbox.zaikio.com/api/v1',
-  production: 'https://directory.zaikio.com/api/v1'
+  sandbox: 'https://hub.sandbox.zaikio.com/api/v1',
+  production: 'https://hub.zaikio.com/api/v1'
 }
 
 export default {

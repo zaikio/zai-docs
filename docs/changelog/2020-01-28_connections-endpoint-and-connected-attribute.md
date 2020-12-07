@@ -4,7 +4,7 @@ date: 2020-01-28 13:00:00
 type: post
 changelog: true
 components:
-    - Directory API
+    - Zaikio Hub API
 change_types:
     - New
 description: >
@@ -12,4 +12,4 @@ description: >
 
   Additionally, there is the `connected` attribute in all API replies sent. So it is for example possible to see via a GET `/api/v1/person` request which organizations of the person are already connected to the app that requested the access token.
 
-  Please check the [Directory API Reference](/api/directory/) for more details.
+  Please check the [Zaikio Hub API Reference](/api/directory/) for more details.

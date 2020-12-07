@@ -4,7 +4,7 @@ date: 2020-01-27 12:00:00
 type: post
 changelog: true
 components:
-    - Directory API
+    - Zaikio Hub API
 change_types:
     - Action required
     - Update

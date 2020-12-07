@@ -4,7 +4,7 @@ date: 2020-02-12 07:01:00
 type: post
 changelog: true
 components:
-    - Directory Events
+    - Hub Events
 change_types:
     - New
 description: >
@@ -13,5 +13,5 @@ description: >
   `directory.member_roles_updated`<br>
   `directory.member_left`
   <br><br>
-  Further Reading: [Receiving Events with Loom](/guide/loom/receiving-events.html), [Reference of Directory Events](/api/directory/events.html)
+  Further Reading: [Receiving Events with Loom](/guide/loom/receiving-events.html), [Reference of Hub Events](/api/directory/events.html)
 ---

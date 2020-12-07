@@ -4,7 +4,7 @@ date: 2020-03-16 08:00:00
 type: post
 changelog: true
 components:
-    - Directory API
+    - Zaikio Hub API
 change_types:
     - Action required
     - Update
@@ -14,5 +14,5 @@ description: >
   We will allow the site to be set in the machine until April 6, 2020. After that, setting the site will only be possible in the ownership.
 
   <br><br>
-  Further Reading: [Directory API Reference `POST /machines/{machine_id}/ownership`](/api/directory/#/Machines/post_machines__machine_id__machine_ownership)
+  Further Reading: [Zaikio Hub API Reference `POST /machines/{machine_id}/ownership`](/api/directory/#/Machines/post_machines__machine_id__machine_ownership)
 ---
