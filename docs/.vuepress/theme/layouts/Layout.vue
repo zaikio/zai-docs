@@ -186,7 +186,7 @@ export default {
 
   .sidebar
     position: fixed
-    right: "max(0px, calc((100vw - 300px) / 2) - (%s / 2) - 450px)" % $sidebarWidth
+    right: "max(0\px, calc((100vw - 300px) / 2 - (%s / 2) - 450px))" % $sidebarWidth
     left: auto
     top "calc(1px + %s)" % $navbarHeight
     border-left: 1px solid $borderColor

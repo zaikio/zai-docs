@@ -59,7 +59,32 @@
             path: '/getting-started/',
             title: 'Getting started',
             type: 'group',
-            children: []
+            children: [
+              {
+                path: '/getting-started/create-app.html',
+                title: '1. Setup Zaikio App',
+                type: 'group',
+                children: []
+              },
+              {
+                path: '/getting-started/sso-person.html',
+                title: '2. SSO with Zaikio account',
+                type: 'group',
+                children: []
+              },
+              {
+                path: '/getting-started/use-api.html',
+                title: '3. Fetch data with API',
+                type: 'group',
+                children: []
+              },
+              {
+                path: '/getting-started/organisation-install.html',
+                title: '4. Install app for organisations',
+                type: 'group',
+                children: []
+              }
+            ]
           },
           {
             path: '/changelog/',
@@ -68,89 +93,96 @@
             children: []
           },
           {
+            title: 'Guides',
             path: '/guide/oauth/',
-            title: 'OAuth',
             type: 'group',
             children: [
               {
-                path: '/guide/oauth/redirect-flow',
-                title: 'Redirect flow',
+                path: '/guide/oauth/',
+                title: 'OAuth',
+                type: 'group',
+                children: [
+                  {
+                    path: '/guide/oauth/redirect-flow',
+                    title: 'Redirect flow',
+                    children: []
+                  },
+                  {
+                    path: '/guide/oauth/device-flow',
+                    title: 'Device Flow',
+                    children: []
+                  },
+                  {
+                    path: '/guide/oauth/client-credentials',
+                    title: 'Client Credentials',
+                    children: []
+                  },
+                  {
+                    path: '/guide/oauth/access-token-refresh',
+                    title: 'Access token refresh',
+                    children: []
+                  },
+                  {
+                    path: '/guide/oauth/delegate-access',
+                    title: 'Delegate Access',
+                    children: []
+                  },
+                  {
+                    path: '/guide/oauth/scopes',
+                    title: 'Scopes',
+                    children: []
+                  }
+                ]
+              },
+              {
+                path: '/guide/try-api/',
+                title: 'Try Zaikio APIs',
+                type: 'group',
                 children: []
               },
               {
-                path: '/guide/oauth/device-flow',
-                title: 'Device Flow',
+                path: '/guide/loom/',
+                title: 'Event Handling with Loom',
+                type: 'group',
+                children: [
+                  {
+                    path: '/guide/loom/receiving-events',
+                    title: 'Receiving events',
+                    children: []
+                  },
+                  {
+                    path: '/guide/loom/posting-events',
+                    title: 'Posting events',
+                    children: []
+                  }
+                ]
+              },
+              {
+                path: '/guide/provide-api/',
+                title: 'Provide API and events',
+                type: 'group',
                 children: []
               },
               {
-                path: '/guide/oauth/client-credentials',
-                title: 'Client Credentials',
+                path: '/guide/jwt/',
+                title: 'JWT Validation',
+                type: 'group',
                 children: []
               },
               {
-                path: '/guide/oauth/access-token-refresh',
-                title: 'Access token refresh',
+                path: '/guide/launchpad/',
+                title: 'Launchpad',
+                type: 'group',
                 children: []
               },
               {
-                path: '/guide/oauth/delegate-access',
-                title: 'Delegate Access',
-                children: []
-              },
-              {
-                path: '/guide/oauth/scopes',
-                title: 'Scopes',
+                path: '/guide/migrate-existing-customers/',
+                title: 'Migrate an existing Customer Database',
+                type: 'group',
                 children: []
               }
             ]
           },
-          {
-            path: '/guide/try-api/',
-            title: 'Try Zaikio APIs',
-            type: 'group',
-            children: []
-          },
-          {
-            path: '/guide/loom/',
-            title: 'Event Handling with Loom',
-            type: 'group',
-            children: [
-              {
-                path: '/guide/loom/receiving-events',
-                title: 'Receiving events',
-                children: []
-              },
-              {
-                path: '/guide/loom/posting-events',
-                title: 'Posting events',
-                children: []
-              }
-            ]
-          },
-          {
-            path: '/guide/provide-api/',
-            title: 'Provide API and events',
-            type: 'group',
-            children: []
-          },
-          {
-            path: '/guide/jwt/',
-            title: 'JWT Validation',
-            type: 'group',
-            children: []
-          },
-          {
-            path: '/guide/launchpad/',
-            title: 'Launchpad',
-            type: 'group',
-            children: []
-          },
-          {
-            path: '/guide/migrate-existing-customers/',
-            title: 'Migrate an existing Customer Database',
-            type: 'group',
-            children: []
-          }
         ]"
       />
 
@@ -251,7 +283,8 @@ export default {
 .sidebar-group.depth-0 > a + .sidebar-links
   display: none
 
-.sidebar-group.depth-0 > a.router-link-active + .sidebar-links
+.sidebar-group.depth-0 > a.router-link-active + .sidebar-links,
+.sidebar-group.depth-0 > a.open + .sidebar-links
   display: block
 
 .sidebar-links

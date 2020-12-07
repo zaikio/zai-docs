@@ -1,0 +1,46 @@
+.browser-mockup {
+  border-top: 2em solid rgba(230, 230, 230, 0.7);
+  box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
+  position: relative;
+  border-radius: 3px 3px 0 0;
+  margin: 2em 0;
+}
+
+.browser-mockup:before {
+  display: block;
+  position: absolute;
+  content: "";
+  top: -1.25em;
+  left: 1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: #f44;
+  box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+}
+
+.browser-mockup:after {
+  display: block;
+  position: absolute;
+  content: attr(data-url);
+  top: -2.1em;
+  left: 7.5em;
+  right: 0.5em;
+  height: 1em;
+  padding: 0.4em;
+  font-size: 0.8em;
+  line-height: 1em;
+  border-radius: 2px;
+  background-color: white;
+  color: #ccc;
+}
+
+.browser-mockup p {
+  margin: 0;
+  padding: 0;
+}
+
+.browser-mockup img {
+  width: 100%;
+  display: block;
+}
