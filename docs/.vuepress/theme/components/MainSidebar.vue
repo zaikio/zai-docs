@@ -290,9 +290,12 @@ export default {
     padding: 0
   a
     display: block
-    color: $white
+    color: lighten($textColor, 60%)
     border: none
     border-radius: 6px
+
+    &:hover
+      color: $white
 
 .sidebar-group.depth-0 > a.router-link-active + .sidebar-links
 //.sidebar-group.depth-0 > a.open + .sidebar-links
@@ -344,12 +347,12 @@ export default {
       color: $accentColor
       // background-color: $greySidebarBgLighter
 
-    a.router-link-exact-active
-      color: $textColor !important
-      // font-weight: bold
+    a.open
+      color: lighten($textColor, 60%)
 
-    a.sidebar-heading.clickable.active
-      color: $textColor
+    a.router-link-exact-active,
+    a.active
+      color: $textColor !important
       background-color: $accentColorLight
 
 </style>
