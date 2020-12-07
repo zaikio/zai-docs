@@ -93,7 +93,7 @@
             },
             {
               title: 'Guides',
-              path: '/guide/oauth/',
+              path: '/guide/',
               type: 'group',
               children: [
                 {
