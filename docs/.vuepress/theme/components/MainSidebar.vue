@@ -271,98 +271,120 @@ export default {
   background-color: $greySidebarBg
   color: $white
 
-.logo
-  max-width: 100%
+  .logo
+    max-width: 100%
 
-.home-link-logo
-  display: block
-  margin-bottom: 4rem
-
-.app-box
-  display: flex
-  margin-bottom: .5rem
-  margin-top: 3rem
-  align-items: center
-
-  h3
-    margin: 0
-
-.app-box__logo
-  width: 40px
-  min-width: 40px
-  height: 40px
-  background-size: cover
-  background-repeat: no-repeat
-  float: left
-  flex-basis: 40px
-  margin-right: 20px
-
-.sidebar-group.depth-0 > a + .sidebar-links
-  display: none
-
-  li
-    margin: 8px 0
-    padding: 0
-  a
+  .home-link-logo
     display: block
-    color: lighten($textColor, 60%)
-    border: none
-    border-radius: 6px
+    margin-bottom: 4rem
 
-    &:hover
-      color: $white
+  .app-box
+    display: flex
+    margin-bottom: .5rem
+    margin-top: 3rem
+    align-items: center
 
-.sidebar-group.depth-0 > a.router-link-active + .sidebar-links
-//.sidebar-group.depth-0 > a.open + .sidebar-links
-  display: block
+    h3
+      margin: 0
 
-.app-list.sidebar-links
-  .link-app-logo
-    height: 40px
+  .app-box__logo
     width: 40px
-    background-size: cover
-    background-color: #ccc
-    border-radius: 6px
     min-width: 40px
+    height: 40px
+    background-size: cover
+    background-repeat: no-repeat
+    float: left
     flex-basis: 40px
     margin-right: 20px
 
-  li:nth-of-type(4n - 3) .depth-0 > a
-    .link-app-logo
-      background-color: #E2B3FF
+  .sidebar-group.depth-0 > a + .sidebar-links
+    display: none
 
-  li:nth-of-type(4n - 2) .depth-0 > a
-    .link-app-logo
-      background-color: #B3C4FF
+    li
+      margin: 8px 0
+      padding: 0
+    a
+      display: block
+      color: lighten($textColor, 60%)
+      border: none
+      border-radius: 6px
 
-  li:nth-of-type(4n - 1) .depth-0 > a
-    .link-app-logo
-      background-color: #FFE380
+      &:hover
+        color: $white
 
-  li:nth-of-type(4n - 0) .depth-0 > a
-    .link-app-logo
-      background-color: #FFBD99
-
-  li .depth-0 > a
-    display: flex
-    align-items: center
-    padding-left: 0
-    padding-right: 0
-
-.app-section
-  margin-bottom: 40px
-
-  p
-    line-height: 1.5
-
-.app-references
-  margin-top: 40px
-
-  .sidebar-links li .depth-0 > a
+  .sidebar-group.depth-0 > a.router-link-active + .sidebar-links
+  //.sidebar-group.depth-0 > a.open + .sidebar-links
     display: block
-    background-image: url(./book_inactive.svg)
+
+  .app-list.sidebar-links
+    .link-app-logo
+      height: 40px
+      width: 40px
+      background-size: cover
+      background-color: #ccc
+      border-radius: 6px
+      min-width: 40px
+      flex-basis: 40px
+      margin-right: 20px
+
+    li:nth-of-type(4n - 3) .depth-0 > a
+      .link-app-logo
+        background-color: #E2B3FF
+
+    li:nth-of-type(4n - 2) .depth-0 > a
+      .link-app-logo
+        background-color: #B3C4FF
+
+    li:nth-of-type(4n - 1) .depth-0 > a
+      .link-app-logo
+        background-color: #FFE380
+
+    li:nth-of-type(4n - 0) .depth-0 > a
+      .link-app-logo
+        background-color: #FFBD99
+
+    li .depth-0 > a
+      display: flex
+      align-items: center
+      padding-left: 0
+      padding-right: 0
+
+  .app-section
+    margin-bottom: 40px
+
+    p
+      line-height: 1.5
+
+  .app-references
+    margin-top: 40px
+
+    .sidebar-links li .depth-0 > a
+      display: block
+      background-image: url(./book_inactive.svg)
+      background-repeat: no-repeat
+      background-position: 12px center
+      padding: 4px 12px 4px 48px
+      color: lighten($textColor, 60%)
+      background-size: 20px
+      border-radius: 6px
+      line-height: 1.7
+
+      &:hover
+        background-image: url(./book_hover.svg)
+        color: #fff
+
+      &.active
+        background-image: url(./book_active.svg)
+        color: $textColor
+        background-color: $accentColorLight
+
+
+  .home-link
+    display: block
+    margin-bottom: 40px
+    background-image: url(./home_inactive.svg)
     background-repeat: no-repeat
-    background-position: 12px center
+    background-position: 12px calc(50% - 1px)
     padding: 4px 12px 4px 48px
     color: lighten($textColor, 60%)
     background-size: 20px
@@ -370,80 +392,58 @@ export default {
     line-height: 1.7
 
     &:hover
-      background-image: url(./book_hover.svg)
+      background-image: url(./home_hover.svg)
       color: #fff
 
-    &.active
-      background-image: url(./book_active.svg)
+    &.router-link-exact-active
+      background-image: url(./home_active.svg)
       color: $textColor
       background-color: $accentColorLight
 
+  .guide-links
+    margin-bottom: 40px
 
-.home-link
-  display: block
-  margin-bottom: 40px
-  background-image: url(./home_inactive.svg)
-  background-repeat: no-repeat
-  background-position: 12px calc(50% - 1px)
-  padding: 4px 12px 4px 48px
-  color: lighten($textColor, 60%)
-  background-size: 20px
-  border-radius: 6px
-  line-height: 1.7
-
-  &:hover
-    background-image: url(./home_hover.svg)
-    color: #fff
-
-  &.router-link-exact-active
-    background-image: url(./home_active.svg)
-    color: $textColor
-    background-color: $accentColorLight
-
-.guide-links
-  margin-bottom: 40px
-
-.sidebar-links
-  list-style: none
-  margin: 0
-  padding: 0
-
-  li
-    margin: 0 0 8px 0
+  .sidebar-links
+    list-style: none
+    margin: 0
     padding: 0
 
-    .depth-0
-      > a
-        font-size: 1em
-        display: block
-        color: lighten($textColor, 60%)
-        border: none
-        border-radius: 6px
-        padding: 4px 12px
-        font-weight: 600
+    li
+      margin: 0 0 8px 0
+      padding: 0
 
-        &:hover
-          color: $accentColor
-
-        &.router-link-exact-active,
-        &.router-link-active.open,
-        &.active
-          color: $textColor !important
-          background-color: $accentColorLight
-
-    .is-sub-group
-      > a
-        &.router-link-exact-active,
-        &.router-link-active,
-        &.active
-          color: $white
+      .depth-0
+        > a
+          font-size: 1em
+          display: block
+          color: lighten($textColor, 60%)
+          border: none
+          border-radius: 6px
+          padding: 4px 12px
           font-weight: 600
 
-    .sidebar-group-items
-      > li > a
-        &.router-link-exact-active,
-        &.router-link-active,
-        &.active
-          color: $white
-          font-weight: 600
+          &:hover
+            color: $accentColor
+
+          &.router-link-exact-active,
+          &.router-link-active.open,
+          &.active
+            color: $textColor !important
+            background-color: $accentColorLight
+
+      .is-sub-group
+        > a
+          &.router-link-exact-active,
+          &.router-link-active,
+          &.active
+            color: $white
+            font-weight: 600
+
+      .sidebar-group-items
+        > li > a
+          &.router-link-exact-active,
+          &.router-link-active,
+          &.active
+            color: $white
+            font-weight: 600
 </style>
