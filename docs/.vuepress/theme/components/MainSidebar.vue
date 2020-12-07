@@ -189,7 +189,9 @@
       <h3>Apps</h3>
       <ul class="sidebar-links">
         <li v-for="item in apps">
-          <RouterLink :to="item.home">{{ item.title }}</RouterLink>
+          <div class="depth-0">
+            <RouterLink :to="item.home">{{ item.title }}</RouterLink>
+          </div>
         </li>
       </ul>
     </div>
@@ -306,7 +308,7 @@ export default {
   margin-bottom: 40px
   background-image: url(./home_inactive.svg)
   background-repeat: no-repeat
-  background-position: 12px center
+  background-position: 12px calc(50% - 1px)
   padding: 4px 12px 4px 48px
   color: lighten($textColor, 60%)
   background-size: 20px
@@ -334,25 +336,39 @@ export default {
     margin: 0 0 8px 0
     padding: 0
 
-    a
-      font-size: 1em
-      display: block
-      color: lighten($textColor, 60%)
-      border: none
-      border-radius: 6px
-      padding: 4px 12px
-      font-weight: 600;
+    .depth-0
+      > a
+        font-size: 1em
+        display: block
+        color: lighten($textColor, 60%)
+        border: none
+        border-radius: 6px
+        padding: 4px 12px
+        font-weight: 600
 
-    a:hover
-      color: $accentColor
-      // background-color: $greySidebarBgLighter
+        &:hover
+          color: $accentColor
 
-    a.open
-      color: lighten($textColor, 60%)
+        &.router-link-exact-active,
+        &.router-link-active.open,
+        &.active
+          color: $textColor !important
+          background-color: $accentColorLight
 
-    a.router-link-exact-active,
-    a.active
-      color: $textColor !important
-      background-color: $accentColorLight
+    .is-sub-group
+      > a
+        &.router-link-exact-active,
+        &.router-link-active,
+        &.active
+          color: $white
+          font-weight: 600
+
+    .sidebar-group-items
+      > li > a
+        &.router-link-exact-active,
+        &.router-link-active,
+        &.active
+          color: $white
+          font-weight: 600
 
 </style>
