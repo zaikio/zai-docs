@@ -14,8 +14,6 @@ module.exports = {
     repo: "crispymtn/zai-docs",
     repoLabel: "Contribute",
     docsDir: "docs",
-    editLinks: true,
-    editLinkText: "Edit this page on GitHub",
     logo: "/zai_developer_hub_white.svg",
     nav: [
       {
