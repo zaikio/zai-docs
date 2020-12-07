@@ -16,7 +16,7 @@ module.exports = {
     docsDir: "docs",
     editLinks: true,
     editLinkText: "Edit this page on GitHub",
-    logo: "/zai_developer_hub.svg",
+    logo: "/zai_developer_hub_white.svg",
     nav: [
       {
         text: "Zaikio Hub",

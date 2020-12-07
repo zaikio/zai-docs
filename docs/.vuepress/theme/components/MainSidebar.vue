@@ -219,9 +219,11 @@ export default {
   width: 300px
   border-right: 1px solid $borderColor
   box-sizing: border-box
-  padding: 1rem
+  padding: 2rem
   position: fixed
   overflow-y: auto
+  background-color: $greySidebarBg 
+  color: $white
 
 .logo
   max-width: 100%
@@ -251,6 +253,15 @@ export default {
 .sidebar-group.depth-0 > a + .sidebar-links
   display: none
 
+  li
+    margin: 8px 0
+    padding: 0
+  a
+    display: block
+    color: $white
+    border: none
+    border-radius: 6px
+
 .sidebar-group.depth-0 > a.router-link-active + .sidebar-links
   display: block
 
@@ -260,15 +271,24 @@ export default {
   padding: 0
 
   li
-    margin: 0
+    margin: 0 0 8px 0
     padding: 0
     a
-      color: lighten($textColor, 30%)
+      display: block
+      color: lighten($textColor, 60%)
+      border: none
+      border-radius: 6px
 
     a:hover
-      color: $accentColor
+      color: $textColor
+      // background-color: $greySidebarBgLighter
 
     a.router-link-exact-active
+      color: $textColor !important
+      // font-weight: bold
+
+    a.sidebar-heading.clickable.active
       color: $textColor
-      font-weight: bold
+      background-color: $accentColorLight
+
 </style>

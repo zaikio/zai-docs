@@ -213,6 +213,6 @@ const AVAILABLE_APPS = {
   warehouse: "https://warehouse.keyline.app"
 };
 
-asyncForEach(Object.keys(AVAILABLE_APPS), app => {
-  new AppDocs(app, AVAILABLE_APPS[app]).create();
+asyncForEach(Object.keys(AVAILABLE_APPS), async app => {
+  await new AppDocs(app, AVAILABLE_APPS[app]).create();
 });
