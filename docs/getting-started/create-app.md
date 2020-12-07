@@ -20,17 +20,25 @@ Afterwards you can access **My Apps** in the sidebar.
 
 ### Types of Zaikio Apps
 
-The integration with the Zaikio platform can be done in different ways. Depending on the requirements of your app, different approaches are possible. First of all you have to decide which type of app is right for you. We distinguish between **public** and **private** apps.
+The integration with the Zaikio platform can be done in different ways. Depending on the requirements of your app, different approaches are possible. First of all you have to decide which type of app is right for you. We distinguish between **public**, **add-on** and **private** apps.
 
 <div style="display:flex">
   <div style="width:50%;margin-right:25px;">
 
-#### Public apps (recommended)
+#### Public apps
 
 <ul>
 <li>Different organisations and people can connect</li>
 <li>Must go through Zaikio's app approval process</li>
-<li>Can be listed in Zaikio's connectivity hub and can receive payments/subscriptions</li>
+<li>Can be subscribed to the Zaikio connectivity hub</li>
+</ul>
+
+#### Add-ons
+
+<ul>
+<li>Different organisations and people can connect</li>
+<li>Must go through Zaikio's app approval process</li>
+<li>Can be subscribed to the Zaikio connectivity hub together with a parent public app or can be subscribed with a redirect flow within the parent application</li>
 </ul>
 
   </div>
@@ -47,7 +55,7 @@ The integration with the Zaikio platform can be done in different ways. Dependin
   </div>
 </div>
 
-#### Both types
+#### All types
 
 <div style="display:flex">
   <div style="width:50%;margin-right:25px;"><br>
