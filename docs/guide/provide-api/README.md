@@ -143,8 +143,10 @@ The contents of this file must look like this:
 ```json
 {
   "title": "My App",
-  "specs": {
-    "API Reference": "/docs/my-api.yml"
+  "logo": "/docs/logo.png",
+  "summary": "My app",
+  "references": {
+    "API": "/docs/my-api.yml"
   }
 }
 ```
@@ -153,7 +155,7 @@ The contents of this file must look like this:
 
 As soon as you have made these files available on your server, please let us know. We will then roughly check again that everything is correct and add the specification to the Zaikio Developer Hub.
 
-All you need to do is to contact us via intercom, for example (bottom right).
+All you need to do is to <a onclick="Intercom('showNewMessage');" style="cursor:pointer">contact us</a>.
 
 You can see here for example how the manifest of the directory looks like:
 
@@ -170,9 +172,24 @@ The markdown files must then also be placed in the `/docs` folder and can then b
 ```json
 {
   "title": "My App",
-  "specs": {
-    "API Reference": "/docs/my-api.yml",
-    "My Guide": "/docs/my-guide.md"
+  "logo": "/docs/logo.png",
+  "summary": "My app",
+  "guides": {
+    "url": "/docs/guides/README.md",
+    "items": {
+      "Second page": {
+        "url": "/docs/guides/second_page/README.md",
+        "items": {
+          "nested": {
+            "url": "/docs/guides/second_page/nested.md"
+          }
+        }
+      }
+    }
+  },
+  "references": {
+    "API": "/docs/my-api.yml",
+    "Loom Events": "/docs/events.md"
   }
 }
 ```
