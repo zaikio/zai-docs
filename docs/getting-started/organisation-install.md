@@ -150,11 +150,11 @@ Read more about [how to refresh the Access Token](./access-token-refresh.html)
 
 Currently the following OAuth flows are supported:
 
-- [The Redirect Flow](./redirect-flow.html) - Default for most Apps
-- [The Device Flow](./device-flow.html) - For IoT or Mobile Devices
-- [Client Credentials Flow](./client-credentials.html) - Machine to Machine communication
-- [Delegating Access to Subsystems](./delegate-access.html)
-- [Scopes](./scopes.html)
+- [The Redirect Flow](/guide/oauth/redirect-flow.html) - Default for most Apps
+- [The Device Flow](/guide/oauth/device-flow.html) - For IoT or Mobile Devices
+- [Client Credentials Flow](/guide/oauth/client-credentials.html) - Machine to Machine communication
+- [Delegating Access to Subsystems](/guide/oauth/delegate-access.html)
+- [Scopes](/guide/oauth/scopes.html)
 
 ### Offering APIs and events to other Apps
 
