@@ -94,7 +94,7 @@ Therefore a list of revoked Access Token IDs (JTIs) should be stored, for exampl
 
 To let you know immediately when an access token has been revoked, we provide the `directory.revoked_access_token` event. The `access_token_id` is returned in the payload of this event. More information about this Loom Event, you can get in the [Hub Events Reference](/api/directory/events.html#directory-revoked-access-token). If you want to know how to receive Loom Events via a Webhook, read our [Loom Receive Event Guide](/guide/loom/receiving-events.html).
 
-If you restart your app or your memory has been cleared, there is also the possibility to retrieve all revoked Access Tokens that have not yet expired via the Zaikio API. To retrieve this list make a `GET /api/v1/blacklisted_access_tokens` request. This endpoint is public. For more details see our [Zaikio Hub API Reference](/api/directory/#/Blacklisted%20Access%20Tokens/get_blacklisted_access_tokens).
+If you restart your app or your memory has been cleared, there is also the possibility to retrieve all revoked Access Tokens that have not yet expired via the Zaikio API. To retrieve this list make a `GET /api/v1/revoked_access_tokens` request. This endpoint is public. For more details see our [Zaikio Hub API Reference](/api/directory/#/Blacklisted%20Access%20Tokens/get_blacklisted_access_tokens).
 
 The different checks are already part of our [Ruby Gem Zaikio JWTAuth](https://github.com/crispymtn/zaikio-jwt_auth).
 
