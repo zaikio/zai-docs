@@ -34,8 +34,11 @@ pageClass: landing-page
   </div>
 </div>
 
+<h2>Explore our apps</h2>
 
-<RouterLink to="/guide/" class="btn">Explore all guides →</RouterLink>
+<AppList :only-logo="true" :limit="3" />
+
+<RouterLink to="/apps/" class="btn">Explore all apps →</RouterLink>
 
 <br /><br />
 <p style="color:#6B6C6E;">Copyright © 2020 Zaikio GmbH</p>
