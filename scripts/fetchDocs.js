@@ -55,6 +55,14 @@ class AppDocs {
     return `/api/${this.name}`;
   }
 
+  getFullUrl(url) {
+    if (url.startsWith("http:")) {
+      return url;
+    } else {
+      return `${this.url}${url}`;
+    }
+  }
+
   async getManifest() {
     this.manifest =
       this.manifest ||
@@ -68,7 +76,7 @@ class AppDocs {
       fs.mkdirSync(folder);
     }
 
-    const text = await fetch(`${this.url}${guides.url}`).then(res =>
+    const text = await fetch(this.getFullUrl(guides.url)).then(res =>
       res.text()
     );
 
@@ -120,14 +128,14 @@ class AppDocs {
       Object.keys(manifest.references),
       async referenceName => {
         const content = await fetch(
-          `${this.url}${manifest.references[referenceName]}`
+          this.getFullUrl(manifest.references[referenceName])
         ).then(res => res.text());
         const fileName = manifest.references[referenceName].split("/").pop();
 
         if (manifest.references[referenceName].includes(".yml")) {
           const parser = new $RefParser();
           await parser
-            .dereference(`${this.url}${manifest.references[referenceName]}`)
+            .dereference(this.getFullUrl(manifest.references[referenceName]))
             .then(schema => {
               saveFile(
                 `${this.publicFolder}/${fileName}`,
@@ -171,7 +179,7 @@ class AppDocs {
     let logo = null;
 
     if (manifest.logo) {
-      const logoBuffer = await fetch(`${this.url}${manifest.logo}`).then(res =>
+      const logoBuffer = await fetch(this.getFullUrl(manifest.logo)).then(res =>
         res.buffer()
       );
 
