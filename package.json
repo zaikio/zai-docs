@@ -23,7 +23,7 @@
   "devDependencies": {
     "@vuepress/shared-utils": "^1.7.1",
     "axios": "^0.21.0",
-    "js-yaml": "^3.14.0",
+    "js-yaml": "^3.14.1",
     "js-yaml-loader": "^1.2.2",
     "json-schema-ref-parser": "^9.0.6",
     "jsonwebtoken": "^8.5.1",
