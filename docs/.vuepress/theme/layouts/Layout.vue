@@ -195,4 +195,10 @@ export default {
   .theme-default-content
     margin: 0
 
+.landing-page
+  .zaikio-content
+    .theme-default-content
+      max-width: 980px
+
+
 </style>

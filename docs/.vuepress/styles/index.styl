@@ -55,6 +55,145 @@ a {
   color: #40b781;
 }
 
+.u-flex
+  display: flex
+
+.u-col-1
+  width: calc(100% * (1/12))
+  flex-basis: calc(100% * (1/12))
+
+.u-col-2
+  width: calc(100% * (2/12))
+  flex-basis: calc(100% * (2/12))
+
+.u-col-3
+  width: calc(100% * (3/12))
+  flex-basis: calc(100% * (3/12))
+
+.u-col-4
+  width: calc(100% * (4/12))
+  flex-basis: calc(100% * (4/12))
+
+.u-col-5
+  width: calc(100% * (5/12))
+  flex-basis: calc(100% * (5/12))
+
+.u-col-6
+  width: calc(100% * (6/12))
+  flex-basis: calc(100% * (6/12))
+
+.u-col-7
+  width: calc(100% * (7/12))
+  flex-basis: calc(100% * (7/12))
+
+.u-col-8
+  width: calc(100% * (8/12))
+  flex-basis: calc(100% * (8/12))
+
+.u-col-9
+  width: calc(100% * (9/12))
+  flex-basis: calc(100% * (9/12))
+
+.u-col-10
+  width: calc(100% * (10/12))
+  flex-basis: calc(100% * (10/12))
+
+.u-col-11
+  width: calc(100% * (11/12))
+  flex-basis: calc(100% * (11/12))
+
+.u-center
+  text-align: center
+
+.u-right
+  text-align: right
+
+.u-flex-align-center
+  align-items: center
+
+.u-lead
+  font-size: 20px
+  line-height: 32px
+
+.btn
+  display: inline-block
+  background-color: $black
+  color: $white
+  font-size: 20px
+  line-height: 32px
+  font-weight: 600
+  padding: 10px 20px
+  border-radius: 6px
+  text-decoration: none !important
+
+  &:hover
+    background-color: #3d3e40
+
+.btn--cta
+  background-color: #40f1a4
+  color: $black
+  border-radius: 999px
+  padding: 15px 30px
+
+  &:hover
+    background-color: #88f6c7
+
+.u-no-border
+  border: 0
+
+.u-margin-big-bottom
+  margin-bottom: 20px
+
+.article-list
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 30px
+  margin: 20px 0 40px 0
+
+.link
+  color: #003cff
+  font-weight: 600
+  font-size: 16px
+
+.article-list__item
+  position: relative
+  display: flex
+  flex-direction: column
+
+  img
+    border-radius: 6px
+
+  h3
+    font-weight: 700
+    font-size: 20px
+    margin-bottom: 10px
+    line-height: 32px
+
+  p
+    color: #6B6C6E
+    font-size: 16px
+    line-height: 25px
+    margin: 0 0 20px
+
+.article-list__item__footer
+  align-content: flex-end
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+
+.article-list > .article-list__item:nth-child(3n-2),
+.article-list > .article-list__item:nth-child(3n-1)
+  &::after
+    position: absolute
+    top: 0
+    right: -15px
+    content: ""
+    display: block
+    height: 100%
+    width: 1px
+    border-right: 1px solid #E2E2E5
+
 .sidebar
   .sidebar-heading
     padding-left: 32px
