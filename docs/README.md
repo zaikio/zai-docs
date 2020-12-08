@@ -42,9 +42,9 @@ pageClass: landing-page
 
 <div class="u-margin-super-huge-bottom"><RouterLink to="/apps/" class="btn">Explore all apps →</RouterLink></div>
 
-<h2>Try our demo apps</h2>
+<h2 class="u-no-border">Try our demo apps</h2>
 
-<div class="article-list">
+<div class="article-list u-margin-super-huge-bottom">
   <div class="article-list__item article-list__item--box">
     <div>Node.js</div>
     <h3>Redirect Flow & Organisation installation</h3>
@@ -70,6 +70,46 @@ pageClass: landing-page
     </div>
   </div>
 </div>
+
+<h2 class="u-no-border">Libraries</h2>
+
+<div class="article-list u-margin-super-huge-bottom">
+  <div class="article-list__item article-list__item--box">
+    <a href="https://github.com/crispymtn/zaikio-oauth_client" target="_blank" class="link link--github u-margin-reg-bottom">
+      crispymtn/zaikio-oauth_client
+    </a>
+    <p class="u-small">
+      This gem is a mountable Rails engine that provides single sign on, Zaikio access and further Zaikio platform connectivity
+    </p>
+    <div class="article-list__item__footer">
+      <img src="./ruby.png" alt="Ruby" style="width:30px" />
+    </div>
+  </div>
+  <div class="article-list__item article-list__item--box">
+    <a href="https://github.com/crispymtn/zaikio-webhooks" target="_blank" class="link link--github u-margin-reg-bottom">
+      crispymtn/zaikio-webhooks
+    </a>
+    <p class="u-small">
+      Allows to register webhook callbacks for Zaikio Loom for multiple apps as background jobs
+    </p>
+    <div class="article-list__item__footer">
+      <img src="./ruby.png" alt="Ruby" style="width:30px" />
+    </div>
+  </div>
+  <div class="article-list__item article-list__item--box">
+    <a href="https://github.com/crispymtn/zaikio-procurement-ruby" target="_blank" class="link link--github u-margin-reg-bottom">
+      crispymtn/zaikio-procurement-ruby
+    </a>
+    <p class="u-small">
+      Ruby API Client for Zaikio Procurement
+    </p>
+    <div class="article-list__item__footer">
+      <img src="./ruby.png" alt="Ruby" style="width:30px" />
+    </div>
+  </div>
+</div>
+
+<div class="u-margin-big-bottom"><a href="https://github.com/search?q=topic%3Azaikio-gem+org%3Acrispymtn&type=Repositories" target="_blank" class="btn btn--link">Explore all libraries on GitHub →</a></div>
 
 <h1 class="u-huge">Need help? Get in touch!</h1>
 
