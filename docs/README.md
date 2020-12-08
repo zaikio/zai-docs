@@ -34,11 +34,34 @@ pageClass: landing-page
   </div>
 </div>
 
+<div class="u-margin-big-bottom"><RouterLink to="/guide/" class="btn">Explore all guides →</RouterLink></div>
+
 <h2>Explore our apps</h2>
 
 <AppList :only-logo="true" :limit="3" />
 
-<RouterLink to="/apps/" class="btn">Explore all apps →</RouterLink>
+<div class="u-margin-big-bottom"><RouterLink to="/apps/" class="btn">Explore all apps →</RouterLink></div>
+
+<h1 class="u-huge">Need help? Get in touch!</h1>
+
+<div class="u-flex u-margin-big-bottom">
+  <div class="u-col-8">
+    <p class="u-lead u-margin-super-huge-bottom">If you ever need help, please feel free to contact us and join our Slack Zaikio community to stay up to date.</p>
+    <a href="https://join.slack.com/t/zaikio-community/shared_invite/zt-g01gvvg2-lk0TcIzkhdtu~xIvRZ5xCw" target="_blank" class="link link--img u-margin-huge-bottom">
+      <img src="./slack.png" />
+      Join our Slack Community Workspace
+    </a>
+    <a onclick="Intercom('showNewMessage');" style="cursor:pointer" class="link link--img">
+      <img src="./intercom.png" />
+      Send us a direct message
+    </a>
+  </div>
+  <div class="u-col-4">
+    <img src="./help.png" />
+  </div>
+</div>
+
+
 
 <br /><br />
 <p style="color:#6B6C6E;">Copyright © 2020 Zaikio GmbH</p>
