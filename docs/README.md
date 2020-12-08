@@ -40,7 +40,36 @@ pageClass: landing-page
 
 <AppList :only-logo="true" :limit="3" />
 
-<div class="u-margin-big-bottom"><RouterLink to="/apps/" class="btn">Explore all apps →</RouterLink></div>
+<div class="u-margin-super-huge-bottom"><RouterLink to="/apps/" class="btn">Explore all apps →</RouterLink></div>
+
+<h2>Try our demo apps</h2>
+
+<div class="article-list">
+  <div class="article-list__item article-list__item--box">
+    <div>Node.js</div>
+    <h3>Redirect Flow & Organisation installation</h3>
+    <div class="article-list__item__footer">
+      <a href="https://github.com/crispymtn/zai-demo-node" target="_blank" class="link link--github">crispymtn/zai-demo-node</a>
+      <a href="https://node-demonstrator.zaikio.com/" target="_blank" class="link link--demo">node-demonstrator.zaikio.com</a>
+    </div>
+  </div>
+  <div class="article-list__item article-list__item--box">
+    <div>Javascript / Webpack</div>
+    <h3>Redirect Flow SPA</h3>
+    <div class="article-list__item__footer">
+      <a href="https://github.com/crispymtn/zai-demo-app-javascript" target="_blank" class="link link--github">crispymtn/zai-demo-app-javascript</a>
+      <a href="https://redirect-flow-demonstrator.zaikio.com/" target="_blank" class="link link--demo">redirect-flow-demonstrator.zaikio.com</a>
+    </div>
+  </div>
+  <div class="article-list__item article-list__item--box">
+    <div>Javascript / Webpack</div>
+    <h3>Device Flow</h3>
+    <div class="article-list__item__footer">
+      <a href="https://github.com/crispymtn/zai-device-flow-demo" target="_blank" class="link link--github">crispymtn/zai-device-flow-demo</a>
+      <a href="https://device-flow-demonstrator.zaikio.com/" target="_blank" class="link link--demo">device-flow-demonstrator.zaikio.com</a>
+    </div>
+  </div>
+</div>
 
 <h1 class="u-huge">Need help? Get in touch!</h1>
 
