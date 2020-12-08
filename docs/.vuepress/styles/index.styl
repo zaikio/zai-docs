@@ -226,8 +226,12 @@ a {
   flex-direction: column
   min-width: 0
 
-  img
+  a > img
     border-radius: 10px
+    transition: .2s ease box-shadow
+
+  a:hover > img
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, .4)
 
   h3
     font-weight: 700
@@ -240,6 +244,11 @@ a {
     font-size: 16px
     line-height: 25px
     margin: 0 0 20px
+
+.article-list__item--content-wrapped
+  h3, p, .article-list__item__footer
+    padding-left: 10px
+    padding-right: 10px
 
 .article-list__item--box
   border-radius: 10px
@@ -280,6 +289,13 @@ a {
   border-radius: 10px
   padding: 20px
   height: 100px
+  transition: .2s ease box-shadow
+
+  &:hover
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, .2)
+
+  img
+    box-shadow: 0 0 0 !important
 
 .app-item-logo__logo
   height: 100px
