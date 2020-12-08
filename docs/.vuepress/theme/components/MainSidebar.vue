@@ -296,6 +296,7 @@ export default {
     float: left
     flex-basis: 40px
     margin-right: 20px
+    border-radius: 6px
 
   .sidebar-group.depth-0 > a + .sidebar-links
     display: none
