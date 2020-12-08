@@ -116,7 +116,7 @@ pageClass: landing-page
 <div class="u-flex u-margin-big-bottom">
   <div class="u-col-8">
     <p class="u-lead u-margin-super-huge-bottom">If you ever need help, please feel free to contact us and join our Slack Zaikio community to stay up to date.</p>
-    <a href="https://join.slack.com/t/zaikio-community/shared_invite/zt-g01gvvg2-lk0TcIzkhdtu~xIvRZ5xCw" target="_blank" class="link link--img u-margin-huge-bottom">
+    <a href="https://join.slack.com/t/zaikio-community/shared_invite/zt-g01gvvg2-lk0TcIzkhdtu~xIvRZ5xCw" target="_blank" class="link link--img u-margin-big-bottom">
       <img src="./slack.png" />
       Join our Slack Community Workspace
     </a>
