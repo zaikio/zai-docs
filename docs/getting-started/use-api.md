@@ -4,7 +4,23 @@ sidebar: auto
 
 # 3. Fetch data about person with the Zaikio Hub API
 
+<div class="float-article">
+  <div class="article-list__item article-list__item--box">
+    <a href="https://github.com/crispymtn/zaikio-directory-ruby" target="_blank" class="link link--github u-margin-reg-bottom">
+      crispymtn/zaikio-directory-ruby
+    </a>
+    <p class="u-small">
+      Ruby API Client for Zaikio Hub
+    </p>
+    <div class="article-list__item__footer">
+      <img src="../ruby.png" alt="Ruby" style="width:30px" />
+    </div>
+  </div>
+</div>
+
 With the Zaikio access token you obtained in the previous step, we can now get more information about the users, as we have passed the scope `directory.person.r` and the permission was granted.
+
+<div class="u-clearfix"></div>
 
 ::: tip
 See details in API specification: [GET `https://hub.sandbox.zaikio.com/api/v1/person.json`](/api/directory/directory.html#/Person/getPerson)
