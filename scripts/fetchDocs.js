@@ -56,7 +56,7 @@ class AppDocs {
   }
 
   getFullUrl(url) {
-    if (url.startsWith("http:")) {
+    if (url.startsWith("https:")) {
       return url;
     } else {
       return `${this.url}${url}`;
@@ -213,7 +213,6 @@ class AppDocs {
 
 const AVAILABLE_APPS = {
   directory: "https://hub.zaikio.com",
-  loom: "https://loom.zaikio.com",
   mission_control: "https://mc.zaikio.com",
   procurement_suppliers: "https://procurement.zaikio.com/suppliers",
   procurement_consumers: "https://procurement.zaikio.com/consumers",

@@ -36,7 +36,7 @@ pageClass: landing-page
 
 <div class="u-margin-big-bottom"><RouterLink to="/guide/" class="btn">Explore all guides →</RouterLink></div>
 
-<h2>Explore our apps</h2>
+<h2 class="u-no-border">Explore our apps</h2>
 
 <AppList :only-logo="true" :limit="3" />
 
