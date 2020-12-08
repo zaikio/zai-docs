@@ -1,5 +1,27 @@
 # The Redirect Flow
 
+<div class="float-article">
+  <div class="article-list__item article-list__item--box">
+    <div>Javascript / Webpack</div>
+    <h3>Redirect Flow SPA</h3>
+    <div class="article-list__item__footer">
+      <a href="https://github.com/crispymtn/zai-demo-app-javascript" target="_blank" class="link link--github">crispymtn/zai-demo-app-javascript</a>
+      <a href="https://redirect-flow-demonstrator.zaikio.com/" target="_blank" class="link link--demo">redirect-flow-demonstrator.zaikio.com</a>
+    </div>
+  </div>
+  <div class="article-list__item article-list__item--box">
+    <a href="https://github.com/crispymtn/zaikio-oauth_client" target="_blank" class="link link--github u-margin-reg-bottom">
+      crispymtn/zaikio-oauth_client
+    </a>
+    <p class="u-small">
+      This gem is a mountable Rails engine that provides single sign on, Zaikio access and further Zaikio platform connectivity
+    </p>
+    <div class="article-list__item__footer">
+      <img src="../../ruby.png" alt="Ruby" style="width:30px" />
+    </div>
+  </div>
+</div>
+
 Zaikio supports the web application flow based on the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1). In order to use this flow you need to create an App (which can be either public or private) in the Zaikio Hub.
 
 After your App has been created you can use this flow to identify users that visit your App.
@@ -11,12 +33,6 @@ In order to do so, four steps are necessary:
 3. Your App exchanges the grant token received through the redirect into an access token
 4. Your app uses the Zaikio Hub API to query user information
 5. Integrate the [Launchpad](/guide/launchpad/) on your website
-
-::: tip Examples
-
-JavaScript: [github.com/crispymtn/zai-demo-app-javascript](https://github.com/crispymtn/zai-demo-app-javascript)
-
-:::
 
 ## Requesting a user's identity
 
