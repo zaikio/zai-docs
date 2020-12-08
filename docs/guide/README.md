@@ -23,13 +23,13 @@ pageClass: landing-page
     <div class="article-list__item__footer"><RouterLink to="/guide/migrate-existing-customers/" class="link">Explore migration →</RouterLink></div>
   </div>
   <div class="article-list__item">
-    <RouterLink to="/guide/loom/"><img src="../preview_placeholder.png" /></RouterLink>
+    <RouterLink to="/guide/loom/"><img src="../placeholder-1.png" /></RouterLink>
     <h3>Loom event system</h3>
     <p>Receive events via webhooks or post events to other apps.</p>
     <div class="article-list__item__footer"><RouterLink to="/guide/loom/" class="link">Explore Loom →</RouterLink></div>
   </div>
   <div class="article-list__item">
-    <RouterLink to="/guide/provide-api/"><img src="../preview_placeholder.png" /></RouterLink>
+    <RouterLink to="/guide/provide-api/"><img src="../placeholder-2.png" /></RouterLink>
     <h3>Provide API</h3>
     <p>Learn how to increase your app's connectivity and offer an API by using Zaikio's JWT.</p>
     <div class="article-list__item__footer"><RouterLink to="/guide/provide-api/" class="link">Explore Provide API Guide →</RouterLink></div>
