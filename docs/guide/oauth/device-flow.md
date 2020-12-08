@@ -1,16 +1,22 @@
 # The Device Flow
 
+<div class="float-article">
+  <div class="article-list__item article-list__item--box">
+    <div>Javascript / Webpack</div>
+    <h3>Device Flow</h3>
+    <div class="article-list__item__footer">
+      <a href="https://github.com/crispymtn/zai-device-flow-demo" target="_blank" class="link link--github">crispymtn/zai-device-flow-demo</a>
+      <a href="https://device-flow-demonstrator.zaikio.com/" target="_blank" class="link link--demo">device-flow-demonstrator.zaikio.com</a>
+    </div>
+  </div>
+</div>
+
 There are situations in which devices or on-premise software need to connect to cloud resources. Such devices might not have a browser and thus cannot support the usual OAuth redirect flow. In these cases you can use the device authorisation flow to obtain connectivity.
 
 The device flow is split into two parallel streams: the device itself will request access from the Zaikio Hub and then display a URL or QR code for user confirmation. The user uses a second device, such as a mobile phone or a PC with a browser, to open the aforementioned URL (or scan a QR code) and confirm the authorisation request.
 
 While the user is doing this, the device will periodically query the authentication server to figure out if the authorisation was already granted by the user. If so, the device will be issued an access token and the process concludes.
 
-::: tip Examples
-
-JavaScript: [github.com/crispymtn/zai-device-flow-demo](https://github.com/crispymtn/zai-device-flow-demo)
-
-:::
 
 ## Device authentication flow
 
