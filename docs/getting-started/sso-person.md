@@ -2,20 +2,22 @@
 sidebar: auto
 ---
 
+<div class="float-article" style="padding-top:30px">
+  <div class="article-list__item article-list__item--box">
+    <div>Node.js</div>
+    <h3>Redirect Flow & Organisation installation</h3>
+    <div class="article-list__item__footer">
+      <a href="https://github.com/crispymtn/zai-demo-node" target="_blank" class="link link--github">crispymtn/zai-demo-node</a>
+      <a href="https://node-demonstrator.zaikio.com/" target="_blank" class="link link--demo">node-demonstrator.zaikio.com</a>
+    </div>
+  </div>
+</div>
+
 # 2. SSO with Zaikio account
 
 In this chapter you will learn how to integrate Zaikio's Single sign-on in your app.
 
-::: tip You can find some examples here:
-
-- Node.js
-  - DEMO: [node-demonstrator.zaikio.com](https://node-demonstrator.zaikio.com/)
-  - SOURCE CODE: [github.com/crispymtn/zai-demo-node](https://github.com/crispymtn/zai-demo-node)
-- Single Page Application (using Javascript & Webpack)
-  - DEMO CODE: [github.com/crispymtn/zai-demo-app-javascript](https://github.com/crispymtn/zai-demo-app-javascript)
-  - SOURCE CODE: [redirect-flow-demonstrator.zaikio.com](https://redirect-flow-demonstrator.zaikio.com/)
-- Ruby Gem: [github.com/crispymtn/zaikio-oauth_client](https://github.com/crispymtn/zaikio-oauth_client)
-:::
+<div class="u-clearfix"></div>
 
 ## Introduction Redirect Flow
 

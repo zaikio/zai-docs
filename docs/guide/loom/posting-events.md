@@ -1,8 +1,24 @@
 # Posting events
 
+<div class="float-article">
+  <div class="article-list__item article-list__item--box">
+    <a href="https://github.com/crispymtn/zaikio-loom-ruby" target="_blank" class="link link--github u-margin-reg-bottom">
+      crispymtn/zaikio-loom-ruby
+    </a>
+    <p class="u-small">
+      Post events to loom in a background job
+    </p>
+    <div class="article-list__item__footer">
+      <img src="../../ruby.png" alt="Ruby" style="width:30px" />
+    </div>
+  </div>
+</div>
+
 Applications publish events to Loom by posting to Loom's RESTful JSON API.
 
 The application needs to authenticate with its name and password via HTTP Basic Auth – both can be found in the Zaikio Hub. Furthermore, each message needs to include the following pieces of information:
+
+<br /><br />
 
 | Name | Required | Description |
 | --- | --- | --- |

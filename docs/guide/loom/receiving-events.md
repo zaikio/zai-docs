@@ -1,5 +1,19 @@
 # Receiving events
 
+<div class="float-article">
+  <div class="article-list__item article-list__item--box">
+    <a href="https://github.com/crispymtn/zaikio-webhooks" target="_blank" class="link link--github u-margin-reg-bottom">
+      crispymtn/zaikio-webhooks
+    </a>
+    <p class="u-small">
+      Allows to register webhook callbacks for Zaikio Loom for multiple apps as background jobs
+    </p>
+    <div class="article-list__item__footer">
+      <img src="../../ruby.png" alt="Ruby" style="width:30px" />
+    </div>
+  </div>
+</div>
+
 The preferred and easiest way to receive events is via webhook. An Application must configure a Webhook URL to be able to subscribe to events in the Zaikio Hub.
 
 Loom will distribute incoming events to the subscriber by `HTTP POST` of a JSON document to the provided Webhook URL. To increase security these `POST` **requests are signed** by Loom with a shared secret that is only known to Loom and the receiving application. This lets the receiver to verify that the message was forwarded by Loom and that it wasn't altered.
