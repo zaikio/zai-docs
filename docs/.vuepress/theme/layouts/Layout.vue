@@ -169,6 +169,7 @@ export default {
 .zaikio-content
   flex-grow: 1
   margin-left: 300px
+  width: calc(100vw - 300px)
 
   .page
     padding: 0
@@ -180,7 +181,8 @@ export default {
 
 .zaikio-content--inner-sidebar
   .page
-    max-width: 980px
+    max-width: "calc(980px + %s)" % $sidebarWidth
+    box-sizing: border-box
     padding-right: "%s" % $sidebarWidth
     margin: 0 auto
 
@@ -194,6 +196,7 @@ export default {
 
   .theme-default-content
     margin: 0
+    max-width: 900px
 
 .landing-page
   .zaikio-content
