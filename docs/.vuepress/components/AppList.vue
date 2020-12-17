@@ -27,7 +27,6 @@ const context = require.context("../apps", true, /\.json$/);
 const cache = {};
 
 function loadApps() {
-  console.log(context.keys());
   return context.keys().reduce((h, key) => {
     return {
       ...h,
@@ -44,7 +43,6 @@ export default {
   },
   data() {
     const allApps = loadApps();
-    console.log(allApps);
     let apps = Object.keys(allApps).map(name => ({
       slug: name,
       ...allApps[name]

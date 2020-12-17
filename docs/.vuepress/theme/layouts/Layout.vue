@@ -169,7 +169,7 @@ export default {
 .zaikio-content
   flex-grow: 1
   margin-left: 300px
-  width: calc(100vw - 300px)
+  width: calc(100vw - 320px)
 
   .page
     padding: 0
