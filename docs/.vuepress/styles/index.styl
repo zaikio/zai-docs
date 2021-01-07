@@ -2,10 +2,17 @@
 @import 'jwt-verifier'
 @import 'browser-mockup'
 
+body {
+  line-height: 1.6;
+}
+
+h1
+  margin-bottom: 24px !important
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 15px;
   margin-top: 15px;
 }
 
@@ -52,7 +59,7 @@
 }
 
 a {
-  color: #40b781;
+  color: #0B7E4D;
 }
 
 .u-flex
@@ -172,6 +179,9 @@ a {
 
 .u-margin-super-huge-bottom
   margin-bottom: 60px
+
+.u-margin-no-top
+  margin-top: 0
 
 .article-list
   display: grid
@@ -351,3 +361,28 @@ a {
 
       &.active
         background-color: transparent
+
+.theme-default-content pre
+  margin: 0.85rem 0 0 !important
+  // background-color: #181818 !important;
+
+.custom-block.tip
+  background: #E8EDFF
+  border-left: 10px solid #B3C4FF
+  border-radius: 6px
+  padding: 5px 20px
+
+.custom-block.tip a
+  color: #003CFF
+
+.theme-default-content code 
+  background-color: rgba(27,31,35,0.06)
+
+.theme-default-content:not(.custom) 
+  padding: 2em 2em 2em 3em
+
+.el-tabs--border-card
+  box-shadow: none !important
+
+.el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active
+  color: #0b7e4d !important
