@@ -1,3 +1,30 @@
+.theme-default-content:not(.custom) {
+  .api-content {
+    position: relative;
+  }
+
+  .api-download {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    display: block;
+    padding: 5px 10px;
+    background-color: #181818;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Ctitle%3Edownload-bottom%3C/title%3E%3Cpath d='M22.667,16.938a1.212,1.212,0,0,0-1.212,1.212v1.855a1.572,1.572,0,0,1-1.571,1.57H4.116a1.572,1.572,0,0,1-1.571-1.57V18.15a1.212,1.212,0,0,0-2.424,0v1.855a4,4,0,0,0,3.995,4H19.884a4,4,0,0,0,4-4V18.15A1.212,1.212,0,0,0,22.667,16.938Z'/%3E%3Cpath d='M12,0a1.939,1.939,0,0,0-1.939,1.939v9.066a.25.25,0,0,1-.25.25H7.152a.97.97,0,0,0-.732,1.606l4.848,5.576a.969.969,0,0,0,1.464,0l4.848-5.576a.97.97,0,0,0-.732-1.606H14.189a.25.25,0,0,1-.25-.25V1.939A1.939,1.939,0,0,0,12,0Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 40px;
+    background-size: 16px;
+  }
+
+  .api-download:hover {
+    text-decoration: none;
+  }
+}
+
 #api-doc-wrapper .swagger-ui {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: #000;
@@ -69,6 +96,11 @@
     margin-bottom: 30px;
   }
 
+  .highlight-code {
+    overflow: auto;
+    width: 100%;
+  }
+
   .opblock {
     box-shadow: none;
     border: 0;
@@ -134,7 +166,6 @@
           background-color: transparent;
           border: 0;
           padding: 0;
-          margin-bottom: 30px;
           order: 2;
 
           .tab-header {
@@ -254,15 +285,15 @@
       font-weight: bold;
     }
 
-    thead tr {
+    > thead > tr {
       display: none;
     }
 
-    th, td {
+    > tbody > tr > th, > thead > tr > th, > tbody > tr > td {
       border: 0;
     }
 
-    tr {
+    > tbody > tr {
       border: 0;
       border-bottom: 1px solid #e8e8e8;
 
@@ -342,9 +373,36 @@
     }
   }
 
-  .btn.execute {
+  .try-out {
+    width: 100%;
+  }
+
+  .btn.execute, .try-out__btn {
     border-color: #181818;
     background-color: #181818;
+    color: #fff;
+    width: 100%;
+    display: block;
+  }
+
+   .try-out__btn {
+     margin-bottom: 10px;
+     margin-top: 30px;
+     transition: none;
+   }
+
+  .try-out__btn.cancel {
+    background-color: transparent;
+    border-color: #c8c9cc;
+    color: #181818;
+  }
+
+  .try-out__btn.cancel:hover {
+    text-decoration: underline;
+  }
+
+  .btn-clear {
+    display: none;
   }
 
   .btn.authorize {
@@ -390,7 +448,7 @@
   }
 
   .opblock.opblock-post .opblock-summary-method {
-    background-color: #ADFFDB;  
+    background-color: #ADFFDB;
   }
 
   .opblock.opblock-delete .opblock-summary-method {
@@ -443,7 +501,7 @@
   .tab li {
     width: 50%;
     font-size: 14px;
-    padding: 5px 10px;
+    padding: 0;
   }
 
   .tab li:first-child{
@@ -458,6 +516,8 @@
   .tab li a {
     font-weight: 500;
     color: #000;
+    display: block;
+    padding: 5px 10px;
   }
 
   .tab li.active a {
@@ -476,4 +536,48 @@
     background: #EEEEEE;
   }
 
+  .highlight-code {
+    display: grid;
+  }
+
+  .model-box {
+    background-color: #fff;
+    border: 1px solid #d2d2d2;
+
+    table.model {
+      display: block;
+    }
+
+    table.model > tbody {
+      display: block;
+      width: 100%;
+    }
+
+    table.model > tbody > tr {
+      display: block;
+      border: 0;
+      width: 100%;
+    }
+
+    table.model > tbody > tr > td {
+      display: block;
+      width: 100%;
+
+      &:first-child {
+        border-bottom: 0;
+      }
+    }
+
+    tr {
+      background-color: transparent;
+    }
+
+    .property-row {
+      margin-bottom: 10px;
+    }
+
+    .renderedMarkdown p {
+      font-size: 14px;
+    }
+  }
 }

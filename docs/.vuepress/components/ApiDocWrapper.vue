@@ -28,6 +28,7 @@
           withCredentials: true,
           docExpansion: 'list',
           deepLinking: true,
+          defaultModelExpandDepth: 2,
           requestInterceptor: (request) => {
             // Otherwise we run into CORS errors
             // https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials

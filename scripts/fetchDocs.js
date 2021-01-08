@@ -30,7 +30,12 @@ pageClass: full-width
 editLink: false
 ---
 
-<ClientOnly><ApiDocWrapper src="api/${folder}/${fileName}"></ApiDocWrapper></ClientOnly>`;
+<div class="api-content">
+<a target="_blank" href="/api/${folder}/${fileName.replace('.yml', '.json')}" class="api-download">Download .json</a>
+
+<ClientOnly><ApiDocWrapper src="api/${folder}/${fileName}"></ApiDocWrapper></ClientOnly>
+
+</div>`;
 }
 
 class AppDocs {
