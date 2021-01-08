@@ -1,4 +1,53 @@
 #api-doc-wrapper .swagger-ui {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: #000;
+
+  .parameters .parameters-col_description input {
+    margin-top: 12px;
+  }
+
+  select, .btn {
+    height: 40px;
+  }
+
+  .opblock {
+    padding-bottom: 20px;
+    margin: 10px 0 20px 0 !important;
+  }
+
+  .opblock .opblock-body {
+    border: 1px solid #e5e5e5;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+  }
+
+  .opblock .opblock-body .responses-wrapper {
+    padding: 0 0 0 20px;
+  }
+
+  table tbody tr td {
+    padding: 20px;
+  }
+
+  .responses-table::before, .parameters::before {
+    padding: 10px 20px;
+    background-color: #EEEEEE;
+  }
+
+  table tbody tr td {
+    padding: 20px 20px;
+  }
+
+  .markdown code, .renderedMarkdown code, .opblock .opblock-summary .opblock-summary-path {
+    background-color: rgba(27,31,35,0.06);
+  }
+
+  select {
+    border: 1px solid #C8C9CC;
+  }
+
   .info {
     margin: 20px 0 20px 0;
 
@@ -64,7 +113,6 @@
 
       border: 1px solid #e5e5e5;
       margin-top: 20px;
-      padding: 0 10px;
       border-radius: 3px;
       margin-bottom: 30px;
 
@@ -293,4 +341,139 @@
       }
     }
   }
+
+  .btn.execute {
+    border-color: #181818;
+    background-color: #181818;
+  }
+
+  .btn.authorize {
+    color: #000;
+    background-color: #40f1a4;
+    border-color: #40f1a4;
+  }
+
+  .auth-wrapper .authorize {
+    margin-right: 0
+  }
+
+  .wrapper {
+    padding: 0 2em 0 3em;
+  }
+
+  .info .title, .info h2 {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .info .title small pre {
+    margin: 0px !important;
+  }
+
+  .opblock-tag {
+    padding: 10px 5px 10px 0px;
+    margin: 0 0 10px;
+  }
+
+  .opblock .opblock-summary-method {
+    border-radius: 2px;
+    color: #000;
+    text-shadow: none;
+  }
+
+  .opblock.opblock-get .opblock-summary-method {
+    background-color: #D5DEFE;
+  }
+
+  .opblock.opblock-patch .opblock-summary-method {
+    background-color: #EDD0FF;
+  }
+
+  .opblock.opblock-post .opblock-summary-method {
+    background-color: #ADFFDB;  
+  }
+
+  .opblock.opblock-delete .opblock-summary-method {
+    background-color: #FFBFBB;
+  }
+
+  .opblock-description-wrapper, .opblock-external-docs-wrapper, .opblock-title_normal {
+    font-size: 16px;
+  }
+
+  .btn.authorize svg {
+    fill: #000;
+  }
+
+  .code, code, .model {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-weight: normal;
+  }
+
+  table tbody tr td:first-of-type {
+  min-width: 40px
+  }
+
+  textarea {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-weight: normal;
+    border: 1px solid #e5e5e5;
+  }
+
+  .markdown p, .markdown pre, .renderedMarkdown p, .renderedMarkdown pre{
+    margin: 0;
+  }
+
+  .info li, .info p, .info table{
+    margin: 0 0 10px 0;
+  }
+
+  .parameter__type {
+    font-size: 14px;
+  }
+
+  .tab {
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,.2);
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  .tab li {
+    width: 50%;
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .tab li:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .tab li.active {
+    background-color: #e8e8e8;
+  }
+
+  .tab li a {
+    font-weight: 500;
+    color: #000;
+  }
+
+  .tab li.active a {
+    font-weight: 700;
+  }
+
+  .tab li:first-of-type:after {
+    right: 0;
+  }
+
+  .model-box {
+    width: 100%;
+  }
+
+  tr:nth-child(2n) {
+    background: #EEEEEE;
+  }
+
 }

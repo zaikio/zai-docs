@@ -6,7 +6,7 @@ sidebar: auto
 
 <div class="float-article">
   <div class="article-list__item article-list__item--box">
-    <a href="https://github.com/crispymtn/zaikio-directory-ruby" target="_blank" class="link link--github u-margin-reg-bottom">
+    <a href="https://github.com/crispymtn/zaikio-directory-ruby" target="_blank" class="link link--github u-margin-reg-bottom" style="margin-top: 0">
       crispymtn/zaikio-directory-ruby
     </a>
     <p class="u-small">

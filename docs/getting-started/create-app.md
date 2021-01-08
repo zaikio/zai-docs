@@ -4,13 +4,16 @@ sidebar: auto
 
 # 1. Setup a Zaikio App
 
-## Setup developer account
+## Setup a developer account
 
-To be able to manage apps you must first create a personal account and an organisation in [Zaikio sandbox](https://hub.sandbox.zaikio.com). Make sure that the kind of your organisation is **Software Developer** and that you have the admin role in that organisation.
+To be able to manage apps you must first create a personal Zaikio account and an organisation in [Zaikio sandbox](https://hub.sandbox.zaikio.com). Afterwards you can access **My Apps** in the sidebar.
 
-Afterwards you can access **My Apps** in the sidebar.
+- Make sure that the kind of your organisation is **Software Developer**
+- You need to have the **Admin** role in that organisation.
 
-## Create App
+## Create a new app
+
+You can now create a new app in the **My apps** section.
 
 <div class="browser-mockup" data-url="https://hub.zaikio.com">
 

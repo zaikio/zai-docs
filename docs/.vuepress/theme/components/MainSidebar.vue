@@ -274,6 +274,9 @@ export default {
   .logo
     max-width: 100%
 
+  a
+    color: #40f1a4
+
   .home-link-logo
     display: block
     margin-bottom: 4rem

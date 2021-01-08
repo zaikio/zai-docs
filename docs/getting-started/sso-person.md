@@ -2,10 +2,10 @@
 sidebar: auto
 ---
 
-<div class="float-article" style="padding-top:30px">
+<div class="float-article" style="padding-top: 24px">
   <div class="article-list__item article-list__item--box">
     <div>Node.js</div>
-    <h3>Redirect Flow & Organisation installation</h3>
+    <h3>Demo app: Redirect Flow & Organisation installation</h3>
     <div class="article-list__item__footer">
       <a href="https://github.com/crispymtn/zai-demo-node" target="_blank" class="link link--github">crispymtn/zai-demo-node</a>
       <a href="https://node-demonstrator.zaikio.com/" target="_blank" class="link link--demo">node-demonstrator.zaikio.com</a>
