@@ -2,11 +2,26 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: #000;
 
+  h3,
+  h4,
+  label,
+  select,
+  input,
+  .btn,
+  .info li,
+  .tab li,
+  .swagger-ui .info p,
+  .swagger-ui .info table,
+  .info .title,
+  .info h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  }
+
   .parameters .parameters-col_description input {
     margin-top: 12px;
   }
 
-  select, .btn {
+  select, .btn, input {
     height: 40px;
   }
 
@@ -29,15 +44,6 @@
 
   table tbody tr td {
     padding: 20px;
-  }
-
-  .responses-table::before, .parameters::before {
-    padding: 10px 20px;
-    background-color: #EEEEEE;
-  }
-
-  table tbody tr td {
-    padding: 20px 20px;
   }
 
   .markdown code, .renderedMarkdown code, .opblock .opblock-summary .opblock-summary-path {
@@ -155,7 +161,7 @@
         grid-row: 1 / span 3;
 
         @media (min-device-width: 1024px) {
-          padding: 15px 0 20px 20px;
+          padding: 0px 0 20px 20px;
         }
 
         .responses-inner {
@@ -250,7 +256,7 @@
       content: 'Responses';
       background-color: #e8e8e8;
       display: block;
-      padding: 10px;
+      padding: 10px 20px;
       font-weight: bold;
     }
 
@@ -275,6 +281,8 @@
       font-size: 0.85em;
       font-weight: bold;
       font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+      line-height: 1.7;
+      padding: 20px 0 20px 20px;
     }
 
     .response-col_description {
@@ -296,7 +304,8 @@
 
   &,
   .opblock-description-wrapper p,
-  .info p {
+  .info p,
+  p {
     line-height: 1.7;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     color: #2c3e50;
@@ -316,10 +325,11 @@
   .opblock-body pre.microlight {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: .85em;
+    padding: 1em !important;
   }
 
   select {
-    border: 1px solid #eaecef;
+    border: 1px solid rgba(0,0,0,0.2);
     box-shadow: none;
     background-color: white;
     outline: none;
@@ -337,7 +347,7 @@
 
     tbody {
       tr td {
-        padding: 10px;
+        padding: 20px;
       }
     }
   }
@@ -361,9 +371,13 @@
     padding: 0 2em 0 3em;
   }
 
+  .info .title{
+    font-size: 2.2rem;
+  }
+
   .info .title, .info h2 {
     color: #000;
-    font-weight: bold;
+    font-weight: 600 !important;
   }
 
   .info .title small pre {
@@ -443,7 +457,7 @@
   .tab li {
     width: 50%;
     font-size: 14px;
-    padding: 5px 10px;
+    padding: 0.3em 1em
   }
 
   .tab li:first-child{
@@ -474,6 +488,44 @@
 
   tr:nth-child(2n) {
     background: #EEEEEE;
+  }
+
+  .dialog-ux .modal-ux-content {
+    padding: 30px 40px 0 40px;
+  }
+
+  .auth-container {
+    padding: 0;
+    margin: 0 0 20px 0;
+  }
+
+  .auth-container .wrapper {
+    padding: 0;
+  }
+
+  .dialog-ux .modal-ux-header {
+    padding: 15px 40px;
+  }
+
+  .dialog-ux .modal-ux-header h3 {
+    padding: 0;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .auth-btn-wrapper {
+    justify-content: left;
+    padding: 15px 0 20px;
+  }
+
+  .dialog-ux .modal-ux-header .close-modal {
+    padding: 0;
+  }
+
+  h4 {
+    margin: 0 0 15px !important;
   }
 
 }
