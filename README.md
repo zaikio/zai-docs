@@ -6,6 +6,13 @@ Developer Hub based on [Vuepress](https://vuepress.vuejs.org/) and [swagger-ui](
 
 ## Getting started
 
+This app requires Node 14
+
+```
+$ brew install node@14
+$ brew link node@14
+```
+
 ```
 $ npm install
 $ npm run serve
