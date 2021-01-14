@@ -144,7 +144,7 @@
                   children: []
                 },
                 {
-                  path: '/guide/api-rate-limits',
+                  path: '/guide/api-rate-limits/',
                   title: 'API Rate Limits',
                   type: 'group',
                   children: []
