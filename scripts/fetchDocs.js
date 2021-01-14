@@ -144,9 +144,9 @@ class AppDocs {
             .then(schema => {
               saveFile(
                 `${this.publicFolder}/${fileName}`,
-                yaml.safeDump(schema)
+                yaml.dump(schema)
               );
-              saveFile(`${this.folder}/${fileName}`, yaml.safeDump(schema));
+              saveFile(`${this.folder}/${fileName}`, yaml.dump(schema));
               saveFile(
                 `${this.publicFolder}/${fileName.replace(".yml", ".json")}`,
                 JSON.stringify(schema, null, 2)
