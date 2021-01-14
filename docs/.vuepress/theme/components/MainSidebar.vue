@@ -144,6 +144,12 @@
                   children: []
                 },
                 {
+                  path: '/guide/api-rate-limits',
+                  title: 'API Rate Limits',
+                  type: 'group',
+                  children: []
+                },
+                {
                   path: '/guide/loom/',
                   title: 'Event Handling with Loom',
                   type: 'group',
