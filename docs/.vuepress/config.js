@@ -23,6 +23,7 @@ module.exports = {
     ]
   },
   plugins: [
+    "vuepress-plugin-mermaidjs",
     "vuepress-plugin-element-tabs",
     [
       "feed",

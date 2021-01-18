@@ -40,8 +40,8 @@ modify or add a new reference have a look at `docs/api`.
 
 ### Navigation Links
 
-If you want to change the navigation links, please modify `docs/.vuepress/config.js` in `themeConfig.nav`. In addition to that you can also
-setup a sidebar for you guide by either adding it to `docs/.vuepress/config.js` or via `sidebar: 'auto'` (see [Vuepress frontmatter](https://vuepress.vuejs.org/guide/frontmatter.html#predefined-variables)).
+If you want to change the navigation links, please modify `docs/.vuepress/theme/components/MainSidebar.vue`. In addition to that you can also
+setup a sidebar for you guide by either adding `sidebar: 'auto'` (see [Vuepress frontmatter](https://vuepress.vuejs.org/guide/frontmatter.html#predefined-variables)).
 
 ### Changelog and scheduled changes
 
@@ -50,6 +50,20 @@ Each changelog can have a list of `components` (usually the APIs they refer to) 
 We automatically resolve changelogs from the future into the scheduled changes.
 
 It is recommended to add a changelog item if you want to promote a feature or if you want to introduce breaking changes.
+
+### Diagrams with Mermaid.js
+
+For diagrams you can use [mermaid.js](https://mermaid-js.github.io/mermaid/#/):
+
+    ```mermaid
+    sequenceDiagram
+    Alice->John: Hello John, how are you?
+    loop every minute
+      John-->Alice: Great!
+    end
+    ```
+
+To work effectively, it is recommended to use the [live editor](https://mermaid-js.github.io/mermaid-live-editor).
 
 ### Advanced
 
