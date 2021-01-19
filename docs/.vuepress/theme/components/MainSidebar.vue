@@ -179,6 +179,12 @@
                   children: []
                 },
                 {
+                  path: '/guide/test-accounts/',
+                  title: 'Test Accounts',
+                  type: 'group',
+                  children: []
+                },
+                {
                   path: '/guide/launchpad/',
                   title: 'Launchpad',
                   type: 'group',
