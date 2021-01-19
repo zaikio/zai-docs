@@ -30,6 +30,26 @@ curl --request POST \
      --data '{"id":"62abcc92-e17e-4db0-b78e-13369251474b","name":"accounting.invoice_paid","subject":"Org/2b271d51-e447-4a16-810f-5abdc596700a","timestamp":"2019-11-26T10:58:09.664Z","version":"1.0","payload":{"invoice_number":"b1a2eaa9-11ba-4cab-8580-40f091e37742"},"link":"https://account.example.tld/api/v1/payments/1234","received_at":"2019-11-26T10:58:09.664Z"}'
 ```
 
+### Webhook URL
+
+One webhook URL can be stored per app. All events to which the app is subscribed are posted to this webhook URL. We recommend to use only a secure URL with TLS.
+
+In some cases it can make sense to use a dynamic webhook URL per subject. In this case it is allowed to use the following webhook URL:
+
+```
+https://www.example.com/webhook/:subject
+```
+
+which will result in:
+
+```
+https://www.example.com/webhook/Org:c453ca95-5850-5d9a-b93e-050334c951af
+```
+
+Where `c453ca95-5850-5d9a-b93e-050334c951af` is the UUID of the organisation that is the subject.
+
+The webhook URL can be changed in the app configuration as well as when editing the app in the [Zaikio Hub](https://hub.sandbox.zaikio.com).
+
 ## Best Practices
 
 To allow event delivery in a high frequency webhooks must accept events fast and their response time must be under 1 second. This means that it is not feasable to accept events and process them synchronously in the request. Instead it is recommended to just store incoming events into an internal queue and **process the events asynchonously** in a background process.
