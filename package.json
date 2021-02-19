@@ -33,7 +33,7 @@
     "reselect": "^4.0.0",
     "swagger-ui": "^3.40.0",
     "vue-server-renderer": "^2.6.12",
-    "vuepress": "^1.8.0",
+    "vuepress": "^1.8.2",
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-feed": "^0.1.9",
     "vuepress-plugin-mermaidjs": "^1.8.1"
