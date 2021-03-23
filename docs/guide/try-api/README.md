@@ -12,7 +12,7 @@ To easily test the API, you can generate Private Access Tokens. These have the s
 
 Access Tokens are issued either to a person or to an organisation. Depending on your use case, one or the other may make sense. In our [API reference](/api/directory) we define all Scopes and their Bearer Type. In this example we use a person token.
 
-Log into the [zaikio sandbox](https://hub.sandbox.zaikio.com), choose an organisation and select **Private Access Tokens** in the navigation. Then click on **Generate new Access Token**.
+Log into the [zaikio sandbox](https://hub.sandbox.zaikio.com), choose an organisation, click on the `...` menu and select **Manage Private Access Tokens**. Then click on **Generate new Access Token**.
 
 <div class="grid">
 <div><div class="browser-mockup" data-url="organizations/printery/private_oauth_access_tokens">

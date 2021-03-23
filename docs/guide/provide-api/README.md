@@ -53,7 +53,7 @@ We recommend always naming Scopes after the resource or resource top level class
 
 To offer OAuth Scopes, they must be created in Zaikio. Other apps can later select them as desired OAuth Scopes.
 
-Go to `My Apps` to your App and click on `Provided OAuth Scopes`. Click on `Add new OAuth Scope` and enter the data of your scope.
+Go to `Developer` to your App and click on `Provided OAuth Scopes`. Click on `Add new OAuth Scope` and enter the data of your scope.
 
 In addition to the technical data, which have already been explained, a title and a description are also requested. The description is optional and should be used if the title otherwise becomes too long and complicated. This meta data can also be changed later.
 
@@ -102,7 +102,7 @@ The different checks are already part of our [Ruby Gem Zaikio JWTAuth](https://g
 
 Similar to the OAuth Scopes, you must also create the events you provide in Zaikio. Other apps can then subscribe to your event.
 
-Go to `My Apps` to your App and click on `Provided Events`. Click on `Add new Event` and enter the data of your event.
+Go to `Developer` to your App and click on `Provided Events`. Click on `Add new Event` and enter the data of your event.
 
 You must also specify a bearer child (`Person` or `Organization`) and a technical name. In addition, a title, a description and an example payload. The name should usually contain a subject and be followed by a verb in the past tense, for example `product_created` or `connection_established`.
 
