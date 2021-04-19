@@ -54,6 +54,11 @@ module.exports = {
       "script",
       {},
       fs.readFileSync(path.join(__dirname, "./fathom-snippet.js"), "utf8")
+    ],
+    [
+      "script",
+      {},
+      fs.readFileSync(path.join(__dirname, "./matomo-snippet.js"), "utf8")
     ]
   ],
   configureWebpack: (config, isServer) => {
