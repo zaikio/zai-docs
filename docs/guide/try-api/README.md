@@ -10,7 +10,7 @@ If you want a quick start to the Zaikio API, you can follow this guide.
 
 To easily test the API, you can generate Private Access Tokens. These have the same structure as access tokens generated via Client Credentials Flow or Redirect Flow.
 
-Access Tokens are issued either to a person or to an organisation. Depending on your use case, one or the other may make sense. In our [API reference](/api/directory) we define all Scopes and their Bearer Type. In this example we use a person token.
+Access Tokens are issued either to a person or to an organisation. Depending on your use case, one or the other may make sense. In our [API reference](/api/directory/directory.html) we define all Scopes and their Bearer Type. In this example we use a person token.
 
 Log into the [zaikio sandbox](https://hub.sandbox.zaikio.com), choose an organisation, click on the `...` menu and select **Manage Private Access Tokens**. Then click on **Generate new Access Token**.
 
