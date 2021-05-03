@@ -77,27 +77,15 @@ Once permissions have been successfully granted and users have logged in to Zaik
 
 To use Zaikio's OAuth interface (Open Authorization) you need to add your client credentials to your app. This way Zaikio can securely identify your app.
 
-Navigate in [Zaikio Sandbox](https://hub.sandbox.zaikio.com) to your app, and click on **SSO & OAuth**.
+Navigate in [Zaikio Sandbox](https://hub.sandbox.zaikio.com) to your app, and click on **OAuth & Permissions**.
 
-You should see a list of OAuth credentials. At the beginning we already create an ID-Secret Pair for you. By default, the credentials are set to non confidential, but we recommend that you always make the authorization confidential. The only exceptions are single page applications that have no backend or clients in the IoT context. You can change this by clicking on **Edit credentials** and then checking the box next to **Confidential**.
+You should see your OAuth credentials. At the beginning we already create an ID-Secret Pair for you. By default, the credentials are confidential, we recommend that you always make the authorization confidential. The only exceptions are single page applications that have no backend or clients in the IoT context.
 
-Copy the ID and the secret by clicking on **Show credentials** before. It is important that you store these credentials in a safe place where they cannot be easily read and they should not be stored in the source code of your app.
+Copy the ID and the secret. It is important that you store these credentials in a safe place where they cannot be easily read and they should not be stored in the source code of your app.
 
 <div class="browser-mockup" data-url="https://hub.sandbox.zaikio.com/organizations/zaikio/apps/demo_nodejs/oauth_credentials">
 
 ![List Credentials](./credentials1.png)
-
-</div>
-
-<div class="browser-mockup" data-url="https://hub.sandbox.zaikio.com/organizations/zaikio/apps/demo_nodejs/oauth_credentials">
-
-![Edit Credentials](./credentials2.png)
-
-</div>
-
-<div class="browser-mockup" data-url="https://hub.sandbox.zaikio.com/organizations/zaikio/apps/demo_nodejs/oauth_credentials">
-
-![Show Credentials](./credentials3.png)
 
 </div>
 

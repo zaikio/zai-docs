@@ -68,13 +68,7 @@ In this example we add the scope `directory.organization.r`.
 
 <div class="browser-mockup" data-url="https://hub.sandbox.zaikio.com/organizations/zaikio/apps/demo_nodejs/oauth_credentials">
 
-![Add desired OAuth Scope](./desired1.png)
-
-</div>
-
-<div class="browser-mockup" data-url="https://hub.sandbox.zaikio.com/organizations/zaikio/apps/demo_nodejs/oauth_credentials">
-
-![Create desired OAuth Scope](./desired2.png)
+![Add desired OAuth Scope](./desired_scopes.gif)
 
 </div>
 
