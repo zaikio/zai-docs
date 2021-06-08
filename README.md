@@ -73,4 +73,4 @@ Please have a look to the [Vuepress Documentation](https://vuepress.vuejs.org/) 
 
 ## Deployment
 
-The deployment is automatically triggered in heroku with every push to `master`.
+The deployment is automatically triggered in heroku with every push to `main`.
