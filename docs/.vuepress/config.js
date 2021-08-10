@@ -17,6 +17,10 @@ module.exports = {
     logo: "/zai_developer_hub_white.svg",
     nav: [
       {
+        text: "Status",
+        link: "https://status.zaikio.com"
+      },
+      {
         text: "Zaikio Hub",
         link: "https://hub.zaikio.com/"
       }
