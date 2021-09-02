@@ -87,6 +87,13 @@ class AppDocs {
 
     saveFile(`${folder}/README.md`, text);
 
+    await asyncForEach(guides.assets || [], async path => {
+      const buffer = await fetch(this.getFullUrl(path)).then(res => res.buffer());
+      const assetPath = path.replace("/docs/guides", "")
+
+      saveFile(`${folder}${assetPath}`, buffer)
+    });
+
     let items = {};
 
     await asyncForEach(Object.keys(guides.items || {}), async itemName => {
