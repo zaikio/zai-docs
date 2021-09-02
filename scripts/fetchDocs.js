@@ -228,6 +228,7 @@ const AVAILABLE_APPS = {
   mission_control: "https://mc.zaikio.com",
   procurement_suppliers: "https://procurement.zaikio.com/suppliers",
   procurement_consumers: "https://procurement.zaikio.com/consumers",
+  procurement_connect: "https://procurement-connect.zaikio.com",
   warehouse: "https://warehouse.keyline.app"
 };
 
