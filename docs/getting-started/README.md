@@ -11,4 +11,4 @@ In the following guide we show you the first steps to integrate Zaikio into your
 1. [Setup a Zaikio App](./create-app.html)
 2. [Single sign-on with Zaikio account](./sso-person.html)
 3. [Fetch data about person with the Zaikio Hub API](./use-api.html)
-4. [Install app for organisations](./organization-install.html)
+4. [Install app for organisations](./organisation-install.html)
