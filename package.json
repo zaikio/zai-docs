@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Static Site for zaikio documentation, including API, Guides and UI Components.",
   "private": true,
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "serve": "node ./scripts/fetchDocs.js && vuepress dev docs",
     "build": "node ./scripts/fetchDocs.js && vuepress build docs"
