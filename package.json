@@ -33,7 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.5",
     "minimist": ">=1.2.2",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "reselect": "^4.0.0",
     "swagger-ui": "^3.51.2",
     "vue-server-renderer": "2.6.12",
