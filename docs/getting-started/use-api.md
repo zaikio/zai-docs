@@ -37,6 +37,7 @@ curl --request GET \
 ```
 
 :::: tabs
+
 ::: tab Node.js
 
 Using [axios](https://github.com/axios/axios)
@@ -53,6 +54,7 @@ app.get("/", async (req, res) => {
 });
 ```
 :::
+
 ::::
 
 

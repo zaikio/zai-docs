@@ -20,6 +20,7 @@ Send a `POST` request to `https://hub.zaikio.com/oauth/delegate` with the genera
 The response will include a new access token:
 
 :::: tabs
+
 ::: tab application/json
 
 ```json
@@ -38,6 +39,7 @@ The response will include a new access token:
 ```
 
 :::
+
 ::: tab text/xml
 
 ```xml
@@ -57,6 +59,7 @@ The response will include a new access token:
 ```
 
 :::
+
 ::: tab text/plain
 
 ```
@@ -64,6 +67,7 @@ access_token=749ceefd1f7909a1773501e0bc57d5b2&token_type=bearer
 ```
 
 :::
+
 ::::
 
 ## Authentication

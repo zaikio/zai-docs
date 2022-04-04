@@ -64,6 +64,7 @@ The final OAuth step exchanges the grant `code` that you received with the redir
 Depending on the HTTP `Accept` header send with your request, the response will either be plain text, JSON or XML and is described below:
 
 :::: tabs
+
 ::: tab application/json
 
 ```json
@@ -82,6 +83,7 @@ Depending on the HTTP `Accept` header send with your request, the response will 
 ```
 
 :::
+
 ::: tab text/xml
 
 ```xml
@@ -101,6 +103,7 @@ Depending on the HTTP `Accept` header send with your request, the response will 
 ```
 
 :::
+
 ::: tab text/plain
 
 ```
@@ -108,6 +111,7 @@ access_token=749ceefd1f7909a1773501e0bc57d5b2&token_type=bearer
 ```
 
 :::
+
 ::::
 
 ## Retrieve user information via the Zaikio Hub API
