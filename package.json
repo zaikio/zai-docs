@@ -9,7 +9,7 @@
   },
   "scripts": {
     "serve": "node ./scripts/fetchDocs.js && vuepress dev docs",
-    "build": "node ./scripts/fetchDocs.js && vuepress build docs"
+    "build": "node ./scripts/fetchDocs.js && NODE_OPTIONS=--openssl-legacy-provider vuepress build docs"
   },
   "repository": {
     "type": "git",
