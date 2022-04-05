@@ -23,6 +23,7 @@ Each programming language usually provides public libraries that can be used to 
 3. Decode the payload and verify validity of the JWT with a JWT library
 
 :::: tabs
+
 ::: tab JavaScript
 
 ```js
@@ -47,6 +48,7 @@ async function validateJWT(jwt) {
 ```
 
 :::
+
 ::: tab Ruby
 
 ```rb
@@ -69,4 +71,5 @@ end
 ```
 
 :::
+
 ::::

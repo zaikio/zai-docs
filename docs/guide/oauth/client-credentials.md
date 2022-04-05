@@ -43,6 +43,7 @@ scope: Per/29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7>Org/b1475f65-236c-58b8-96e1-e177
 If such a token was successfully requested, the following JWT payload and response is returned:
 
 :::: tabs
+
 ::: tab JWT-payload
 
 ```json
@@ -88,6 +89,7 @@ If such a token was successfully requested, the following JWT payload and respon
 ```
 
 :::
+
 ::::
 
 The role attribute is represented as integer to save space, as many servers limit the header size. Since we offer a very granular role model, this is very helpful.

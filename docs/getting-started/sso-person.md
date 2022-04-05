@@ -192,8 +192,8 @@ https://hub.sandbox.zaikio.com/oauth/authorize?client_id={ZAIKIO_CLIENT_ID}&redi
 Users are then redirected to Zaikio. After the authorisation is successful and the users are redirected back to your app, the `code` parameter is sent by Zaikio to generate an access token.
 
 :::: tabs
-::: tab Node.js
 
+::: tab Node.js
 Using [simple-oauth2](https://github.com/lelylan/simple-oauth2)
 
 ```js
@@ -214,7 +214,6 @@ app.get("/oauth/zaikio/callback", async (req, res) => {
 :::
 
 ::: tab Ruby
-
 Using [oauth2](https://github.com/oauth-xx/oauth2)
 
 ```rb
@@ -226,6 +225,7 @@ session[:zaikio_access_token] = JSON.generate(access_token)
 redirect_to root_path
 ```
 :::
+
 ::::
 
 The generated request to Zaikio's OAuth API will be:

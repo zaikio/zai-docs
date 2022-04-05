@@ -100,6 +100,7 @@ app.get("/install", async (req, res) => {
 In order to establish the connection so that the app is installed for the organisation it is necessary to create an access token for the organisation.
 
 :::: tabs
+
 ::: tab Node.js
 ```js
 app.get("/oauth/zaikio/callback", async (req, res) => {
@@ -124,6 +125,7 @@ app.get("/oauth/zaikio/callback", async (req, res) => {
 });
 ```
 :::
+
 ::::
 
 
