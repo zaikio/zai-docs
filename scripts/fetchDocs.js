@@ -1,8 +1,8 @@
-const fetch = require("node-fetch");
-const fs = require("fs");
-const path = require("path");
-const $RefParser = require("json-schema-ref-parser");
-const yaml = require("js-yaml");
+const fetch = require('node-fetch');
+const fs = require('fs');
+const path = require('path');
+const $RefParser = require('json-schema-ref-parser');
+const yaml = require('js-yaml');
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -11,15 +11,15 @@ async function asyncForEach(array, callback) {
 }
 
 function saveFile(path, content) {
-  fs.writeFileSync(path, content, err => (err ? console.log(err) : null));
+  fs.writeFileSync(path, content, (err) => (err ? console.log(err) : null));
 }
 
 function parameterize(str) {
   return str
     .trim()
     .toLowerCase()
-    .replace(/[^a-zA-Z0-9 -]/, "")
-    .replace(/\s/g, "-");
+    .replace(/[^a-zA-Z0-9 -]/, '')
+    .replace(/\s/g, '-');
 }
 
 function swaggerFile(title, folder, fileName) {
@@ -31,7 +31,10 @@ editLink: false
 ---
 
 <div class="api-content">
-<a target="_blank" href="/api/${folder}/${fileName.replace('.yml', '.json')}" class="api-download">Download .json</a>
+<a target="_blank" href="/api/${folder}/${fileName.replace(
+    '.yml',
+    '.json'
+  )}" class="api-download">Download .json</a>
 
 <ClientOnly><ApiDocWrapper src="api/${folder}/${fileName}"></ApiDocWrapper></ClientOnly>
 
@@ -61,7 +64,7 @@ class AppDocs {
   }
 
   getFullUrl(url) {
-    if (url.startsWith("https:")) {
+    if (url.startsWith('https:')) {
       return url;
     } else {
       return `${this.url}${url}`;
@@ -71,7 +74,7 @@ class AppDocs {
   async getManifest() {
     this.manifest =
       this.manifest ||
-      (await fetch(`${this.url}/docs/manifest.json`).then(res => res.json()));
+      (await fetch(`${this.url}/docs/manifest.json`).then((res) => res.json()));
 
     return this.manifest;
   }
@@ -81,29 +84,31 @@ class AppDocs {
       fs.mkdirSync(folder);
     }
 
-    const text = await fetch(this.getFullUrl(guides.url)).then(res =>
+    const text = await fetch(this.getFullUrl(guides.url)).then((res) =>
       res.text()
     );
 
     saveFile(`${folder}/README.md`, text);
 
-    await asyncForEach(guides.assets || [], async path => {
-      const buffer = await fetch(this.getFullUrl(path)).then(res => res.buffer());
-      const assetPath = path.replace("/docs/guides", "")
+    await asyncForEach(guides.assets || [], async (path) => {
+      const buffer = await fetch(this.getFullUrl(path)).then((res) =>
+        res.buffer()
+      );
+      const assetPath = path.replace('/docs/guides', '');
 
-      saveFile(`${folder}${assetPath}`, buffer)
+      saveFile(`${folder}${assetPath}`, buffer);
     });
 
     let items = {};
 
-    await asyncForEach(Object.keys(guides.items || {}), async itemName => {
+    await asyncForEach(Object.keys(guides.items || {}), async (itemName) => {
       items[itemName] = {
         path: `${relativeFolder}/${parameterize(itemName)}`,
         items: await this.createGuideItems(
           `${folder}/${parameterize(itemName)}`,
           `${relativeFolder}/${parameterize(itemName)}`,
           guides.items[itemName]
-        )
+        ),
       };
     });
 
@@ -123,7 +128,7 @@ class AppDocs {
         `${this.folder}/guides`,
         `${this.relativeFolder}/guides`,
         manifest.guides
-      ))
+      )),
     };
   }
 
@@ -138,38 +143,39 @@ class AppDocs {
 
     await asyncForEach(
       Object.keys(manifest.references),
-      async referenceName => {
-        const content = await fetch(
-          this.getFullUrl(manifest.references[referenceName])
-        ).then(res => res.text());
-        const fileName = manifest.references[referenceName].split("/").pop();
+      async (referenceName) => {
+        const url =
+          manifest.references[referenceName].url ||
+          manifest.references[referenceName];
+        const resolveMethod =
+          manifest.references[referenceName].resolveMethod || 'dereference';
 
-        if (manifest.references[referenceName].includes(".yml")) {
+        const content = await fetch(this.getFullUrl(url)).then((res) =>
+          res.text()
+        );
+        const fileName = url.split('/').pop();
+
+        if (url.includes('.yml')) {
           const parser = new $RefParser();
-          await parser
-            .dereference(this.getFullUrl(manifest.references[referenceName]))
-            .then(schema => {
-              saveFile(
-                `${this.publicFolder}/${fileName}`,
-                yaml.dump(schema)
-              );
-              saveFile(`${this.folder}/${fileName}`, yaml.dump(schema));
-              saveFile(
-                `${this.publicFolder}/${fileName.replace(".yml", ".json")}`,
-                JSON.stringify(schema, null, 2)
-              );
-              saveFile(
-                `${this.folder}/${fileName.replace(".yml", ".md")}`,
-                swaggerFile(referenceName, this.name, fileName)
-              );
-              references[referenceName] = `${
-                this.relativeFolder
-              }/${fileName.replace(".yml", "")}`;
-            });
+          await parser[resolveMethod](this.getFullUrl(url)).then((schema) => {
+            saveFile(`${this.publicFolder}/${fileName}`, yaml.dump(schema));
+            saveFile(`${this.folder}/${fileName}`, yaml.dump(schema));
+            saveFile(
+              `${this.publicFolder}/${fileName.replace('.yml', '.json')}`,
+              JSON.stringify(schema, null, 2)
+            );
+            saveFile(
+              `${this.folder}/${fileName.replace('.yml', '.md')}`,
+              swaggerFile(referenceName, this.name, fileName)
+            );
+            references[referenceName] = `${
+              this.relativeFolder
+            }/${fileName.replace('.yml', '')}`;
+          });
         } else {
           saveFile(`${this.folder}/${fileName}`, content);
           references[referenceName] = `${this.relativeFolder}/${fileName
-            .split(".")
+            .split('.')
             .shift()}`;
         }
       }
@@ -191,8 +197,8 @@ class AppDocs {
     let logo = null;
 
     if (manifest.logo) {
-      const logoBuffer = await fetch(this.getFullUrl(manifest.logo)).then(res =>
-        res.buffer()
+      const logoBuffer = await fetch(this.getFullUrl(manifest.logo)).then(
+        (res) => res.buffer()
       );
 
       saveFile(`${this.publicFolder}/logo.png`, logoBuffer);
@@ -214,7 +220,7 @@ class AppDocs {
             : Object.values(references)[0],
           logo,
           guides,
-          references
+          references,
         },
         null,
         2
@@ -224,14 +230,14 @@ class AppDocs {
 }
 
 const AVAILABLE_APPS = {
-  directory: "https://hub.zaikio.com",
-  mission_control: "https://mc.zaikio.com",
-  procurement_suppliers: "https://procurement.zaikio.com/suppliers",
-  procurement_consumers: "https://procurement.zaikio.com/consumers",
-  procurement_connect: "https://procurement-connect.zaikio.com",
-  warehouse: "https://warehouse.keyline.app"
+  directory: 'https://hub.zaikio.com',
+  mission_control: 'https://mc.zaikio.com',
+  procurement_suppliers: 'https://procurement.zaikio.com/suppliers',
+  procurement_consumers: 'https://procurement.zaikio.com/consumers',
+  procurement_connect: 'https://procurement-connect.zaikio.com',
+  warehouse: 'https://warehouse.keyline.app',
 };
 
-asyncForEach(Object.keys(AVAILABLE_APPS), async app => {
+asyncForEach(Object.keys(AVAILABLE_APPS), async (app) => {
   await new AppDocs(app, AVAILABLE_APPS[app]).create();
 });
