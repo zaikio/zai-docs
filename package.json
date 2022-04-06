@@ -8,7 +8,7 @@
     "npm": "8.x"
   },
   "scripts": {
-    "serve": "node ./scripts/fetchDocs.js && vuepress dev docs",
+    "serve": "node ./scripts/fetchDocs.js && NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs",
     "build": "node ./scripts/fetchDocs.js && NODE_OPTIONS=--openssl-legacy-provider vuepress build docs"
   },
   "repository": {
