@@ -34,16 +34,31 @@ import jwkToPem from 'jwk-to-pem';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
+function verifyJWT(token, pems) {
+  const pem = pems.shift();
+
+  try {
+    return jwt.verify(token, pem);
+  } catch (e) {
+    if (pems.length === 0) {
+      throw e;
+    } else {
+      return verifyJWT(token, pems);
+    }
+  }
+}
+
 const SANDBOX_SERVER = 'https://hub.sandbox.zaikio.com/api/v1';
-let jwk;
+
+let pems;
 
 async function validateJWT(jwt) {
   if (!jwk) { // you should cache the jwk
     const response = await axios.get(SANDBOX_SERVER + '/jwt_public_keys');
-    jwk = response.data.keys[0];
+    pems = response.data.keys.map((jwk) => jwkToPem(jwk));
   }
 
-  return jwt.verify(this.jwt, jwkToPem(jwk)); // throws error if JWT is invalid
+  return verifyJWT(this.jwt, pems); // throws error if JWT is invalid
 }
 ```
 
