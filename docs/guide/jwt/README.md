@@ -6,7 +6,7 @@ sidebar: auto
 
 # Exchanging JSON Web Tokens
 
-To exchange [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) with each other, the recipient must check the validity of the token. Since we issue the token, only the validity must be checked using the public keys (which is provided as [JWKs](https://tools.ietf.org/html/rfc7517)). You can use the following interactive validity checker to decode the payload and verify the signature.
+To exchange [JSON Web Tokens](https://tools.ietf.org/html/rfc7519) with each other, the recipient must check the validity of the token. Since we issue the token, only the validity must be checked using the public keys (which are provided as [JWKs](https://tools.ietf.org/html/rfc7517)). You can use the following interactive validity checker to decode the payload and verify the signature.
 
 As an API provider, you **MUST** validate incoming tokens and verify that the subject is authorized to perform certain operations by checking the specified scopes.
 
