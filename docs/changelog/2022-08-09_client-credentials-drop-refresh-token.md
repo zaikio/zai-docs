@@ -10,7 +10,7 @@ change_types:
     - Update
 description: >
   If you are using the `grant_type: client_credentials` to fetch access token and you are currently using the `refresh_token` from
-  that response to fetch further access tokens, this change might be breaking for you.
+  that response to fetch further access tokens, this is a breaking change.
 
 
   In order to improve regular security measures we want to follow OAuth RFC recommendations. This includes not responding with a `refresh_token` in the Client Credentials Grant flow (see [https://www.rfc-editor.org/rfc/rfc6749#section-4.4.3](https://www.rfc-editor.org/rfc/rfc6749#section-4.4.3)).
