@@ -26,5 +26,5 @@ description: >
 
   ### What's next?
 
-  - On **Tuesday August 8th, 2022 around 10:00 AM CEST** we will drop the `refresh_token` from the `client_credentials` responses.
+  - On **Monday August 8th, 2022 around 10:00 AM CEST** we will drop the `refresh_token` from the `client_credentials` responses.
 ---
