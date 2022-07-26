@@ -126,6 +126,11 @@
                       children: []
                     },
                     {
+                      path: '/guide/oauth/security',
+                      title: 'Security',
+                      children: []
+                    },
+                    {
                       path: '/guide/oauth/delegate-access',
                       title: 'Delegate Access',
                       children: []
