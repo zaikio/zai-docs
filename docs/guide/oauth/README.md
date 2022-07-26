@@ -16,6 +16,7 @@ Currently the following OAuth flows are supported:
 - [The Redirect Flow](./redirect-flow.html) - Default for most Apps
 - [The Device Flow](./device-flow.html) - For IoT or Mobile Devices
 - [Client Credentials Flow](./client-credentials.html) - Machine to Machine communication
-- [Delegating Access to Subsystems](./delegate-access.html)
 - [Access Token Refresh](./access-token-refresh.html)
+- [Security](./security.html)
+- [Delegating Access to Subsystems](./delegate-access.html)
 - [Scopes](./scopes.html)
