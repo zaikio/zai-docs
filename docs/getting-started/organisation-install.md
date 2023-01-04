@@ -4,7 +4,7 @@ sidebar: auto
 
 # 4. Install app for organisations
 
-So far we have looked at how individual users can authorise themselves with your app. But usually it is desired to do most of the integrations in the behalf of an organisation instead of a person. If the admin of an organisation installs an app, it will be visible to the employees via the launchpad and every single employee can then sign in. Using the data that is already known about the user via [GET `api/v1/person`](/api/directory/directory.html#/Person/getPerson), it is possible to identify to which organisations the user belongs and which roles the member has.
+So far we have looked at how individual users can authorise themselves with your app. But usually it is desired to do most of the integrations in the behalf of an organisation instead of a person. If the admin of an organisation installs an app, it will become visible to the employees in Zaikio. Using the data that is already known about the user via [GET `api/v1/person`](/api/directory/directory.html#/Person/getPerson), it is possible to identify to which organisations the user belongs and which roles the member has.
 
 There are two ways for your users to install your app We recommend that you use both of the following options.
 
@@ -163,4 +163,3 @@ If you have already successfully connected to Zaikio and would like to give othe
 - [Make your first request to the Zaikio Hub API](/guide/try-api/)
 - [Connect with other Zaikio apps and use their API](#coming-soon)
 - [Receiving Zaikio events with webhooks](/guide/loom/receiving-events.html)
-- [Launchpad guide: add a general navigation component to your app](/guide/launchpad/)
