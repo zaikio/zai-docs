@@ -34,10 +34,4 @@ pageClass: landing-page
     <p>Learn how to increase your app's connectivity and offer an API by using Zaikio's JWT.</p>
     <div class="article-list__item__footer"><RouterLink to="/guide/provide-api/" class="link">Explore Provide API Guide →</RouterLink></div>
   </div>
-  <div class="article-list__item article-list__item--content-wrapped">
-    <RouterLink to="/guide/launchpad/"><img src="../preview_launchpad.png" /></RouterLink>
-    <h3>Launchpad</h3>
-    <p>Learn how to integrate to your Web-app so that users can switch between apps and organisations.</p>
-    <div class="article-list__item__footer"><RouterLink to="/guide/launchpad/" class="link">Explore Launchpad integration →</RouterLink></div>
-  </div>
 </div>

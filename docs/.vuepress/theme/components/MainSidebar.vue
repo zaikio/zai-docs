@@ -190,12 +190,6 @@
                   children: []
                 },
                 {
-                  path: '/guide/launchpad/',
-                  title: 'Launchpad',
-                  type: 'group',
-                  children: []
-                },
-                {
                   path: '/guide/migrate-existing-customers/',
                   title: 'Migrate an existing Customer Database',
                   type: 'group',

@@ -32,7 +32,6 @@ In order to do so, four steps are necessary:
 2. Users approve access in the Zaikio Hub and are redirected back to your App
 3. Your App exchanges the grant token received through the redirect into an access token
 4. Your app uses the Zaikio Hub API to query user information
-5. Integrate the [Launchpad](/guide/launchpad/) on your website
 
 ## Requesting a user's identity
 

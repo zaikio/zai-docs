@@ -62,7 +62,6 @@ The integration with the Zaikio platform can be done in different ways. Dependin
 
 <div style="display:flex">
   <div style="width:50%;margin-right:25px;"><br>
-    ✔ Can be accessed through the Zaikio launchpad<br><br>
     ✔ Can consume APIs and events of other published apps
   </div>
 
