@@ -40,7 +40,7 @@ If the app is not yet installed for an organisation, you can provide users with 
 <div>
 <div class="browser-mockup" data-url="hub.zaikio.com/grant">
 
-![Zakio Grant](./org3.png)
+![Zaikio Grant](./org3.png)
 
 </div>
 
