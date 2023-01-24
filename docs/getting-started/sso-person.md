@@ -51,7 +51,7 @@ If users are not yet registered with Zaikio, they have the option of creating a 
 <div>
 <div class="browser-mockup" data-url="hub.zaikio.com/grant">
 
-![Zakio Grant](./sso3.png)
+![Zaikio Grant](./sso3.png)
 
 </div>
 
