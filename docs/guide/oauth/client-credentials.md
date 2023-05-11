@@ -37,7 +37,7 @@ In addition, the Client Credentials Flow provides the option of issuing a token 
 It is important that both the person and the organization have already been connected to the app and that the organization has already requested the required permissions in the form of scopes. Requested scopes must then receive the person and the organization in this format:
 
 ```
-scope: Per/29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7>Org/b1475f65-236c-58b8-96e1-e1778b43beb7.directory.machines.rw
+scope: Per/29b276b7-c0fa-4514-a5b1-c0fb4ee40fa7>Org/b1475f65-236c-58b8-96e1-e1778b43beb7.zaikio.machines.rw
 ```
 
 If such a token was successfully requested, the following JWT payload and response is returned:
@@ -56,7 +56,7 @@ If such a token was successfully requested, the following JWT payload and respon
   "exp": 1576225731,
   "jku": "https://https://hub.zaikio.com/api/v1/jwt_public_keys",
   "scope": [
-    "directory.machines.rw"
+    "zaikio.machines.rw"
   ],
   "roles": 3
 }
@@ -70,7 +70,7 @@ If such a token was successfully requested, the following JWT payload and respon
 {
   "access_token": "749ceefd1f7909a1773501e0bc57d5b2",
   "token_type": "bearer",
-  "scope": "directory.machines.rw",
+  "scope": "zaikio.machines.rw",
   "refresh_token": "TYi5nzw1VEUTDpimEFAqnDbL",
   "expires_in": 599,
   "audiences": [
