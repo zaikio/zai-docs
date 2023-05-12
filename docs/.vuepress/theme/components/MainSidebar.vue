@@ -121,6 +121,11 @@
                       children: []
                     },
                     {
+                      path: '/guide/oauth/on-behalf-tokens',
+                      title: 'On-Behalf Tokens',
+                      children: []
+                    },
+                    {
                       path: '/guide/oauth/access-token-refresh',
                       title: 'Access token refresh',
                       children: []
