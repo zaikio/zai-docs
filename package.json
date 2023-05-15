@@ -4,7 +4,7 @@
   "description": "Static Site for zaikio documentation, including API, Guides and UI Components.",
   "private": true,
   "engines": {
-    "node": "17.x",
+    "node": "18.x",
     "npm": "8.x"
   },
   "scripts": {
