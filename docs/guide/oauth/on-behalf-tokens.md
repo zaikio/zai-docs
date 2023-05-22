@@ -1,5 +1,19 @@
 # On Behalf Tokens
 
+<div class="float-article">
+  <div class="article-list__item article-list__item--box">
+    <div>Javascript / Webpack</div>
+    <h3>Redirect Flow SPA</h3>
+    <p class="u-small">
+      This demo SPA makes use of the on-behalf token mechanism through the redirect flow.
+    </p>
+    <div class="article-list__item__footer">
+      <a href="https://github.com/crispymtn/zai-demo-app-javascript" target="_blank" class="link link--github">crispymtn/zai-demo-app-javascript</a>
+      <a href="https://redirect-flow-demonstrator.zaikio.com/" target="_blank" class="link link--demo">redirect-flow-demonstrator.zaikio.com</a>
+    </div>
+  </div>
+</div>
+
 You may have use cases where you want to perform actions within the realm of an organization but still keep the 
 possibility to identify the person who initiated these actions, and this can be done through `on-behalf` tokens.
 
