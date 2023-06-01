@@ -64,7 +64,7 @@ The will be redirected to your website and their organisation dashboard (using a
 
 It is only possible to request scopes that have been deposited under Desired Scopes. For a complete list of all Hub Scopes please use our [API Specification](/api/directory/directory.html). Of course you can also use other scopes from other apps.
 
-In this example we add the scope `directory.organization.r`.
+In this example we add the scope `zaikio.organization.r`.
 
 <div class="browser-mockup" data-url="https://hub.sandbox.zaikio.com/organizations/zaikio/apps/demo_nodejs/oauth_credentials">
 
@@ -86,7 +86,7 @@ app.get("/install", async (req, res) => {
   res.redirect(
     OAUTH_CLIENT.authorizeURL({
       redirect_uri: process.env.HUB_OAUTH_REDIRECT_URL, // https://myapp.com/oauth/zaikio/callback
-      scope: `Org/${organizationId}.directory.organization.r`,
+      scope: `Org/${organizationId}.zaikio.organization.r`,
     })
   );
 });

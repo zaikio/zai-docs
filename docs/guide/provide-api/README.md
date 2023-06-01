@@ -81,7 +81,7 @@ In the payload of the JWT you find the scope attribute, which returns an array o
 This array could look like this and consist of multiple apps:
 
 ```
-["my_app.catalog.rw", "my_app.sites.r", "directory.organization.r"]
+["my_app.catalog.rw", "my_app.sites.r", "zaikio.organization.r"]
 ```
 
 If the scope expected in your endpoint is not available, you should return a Forbidden 403 and a meaningful error message.
@@ -92,7 +92,7 @@ You should already have successfully validated the JWT and checked the scopes. E
 
 Therefore a list of revoked Access Token IDs (JTIs) should be stored, for example in a database like Redis. You only need to keep Access Tokens in this list that have not expired.
 
-To let you know immediately when an access token has been revoked, we provide the `directory.revoked_access_token` event. The `access_token_id` is returned in the payload of this event. More information about this Loom Event, you can get in the [Hub Events Reference](/api/directory/events.html#directory-revoked-access-token). If you want to know how to receive Loom Events via a Webhook, read our [Loom Receive Event Guide](/guide/loom/receiving-events.html).
+To let you know immediately when an access token has been revoked, we provide the `zaikio.revoked_access_token` event. The `access_token_id` is returned in the payload of this event. More information about this Loom Event, you can get in the [Hub Events Reference](/api/directory/events.html#directory-revoked-access-token). If you want to know how to receive Loom Events via a Webhook, read our [Loom Receive Event Guide](/guide/loom/receiving-events.html).
 
 If you restart your app or your memory has been cleared, there is also the possibility to retrieve all revoked Access Tokens that have not yet expired via the Zaikio API. To retrieve this list make a `GET /api/v1/revoked_access_tokens` request. This endpoint is public. For more details see our [Zaikio Hub API Reference](/api/directory/#/Blacklisted%20Access%20Tokens/get_blacklisted_access_tokens).
 

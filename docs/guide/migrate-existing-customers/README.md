@@ -25,7 +25,7 @@ This token needs to be attached as the `state` parameter when using the [Zaikio 
 The first request that is made would look similar to this:
 
 ```
-GET https://hub.zaikio.com/oauth/authorize?client_id={YOUR_CLIEND_ID}&scope=directory.person.r&redirect_uri={YOUR_REDIRECT_URL}&state={SECURE_TOKEN_FOR_CURRENT_PERSON}
+GET https://hub.zaikio.com/oauth/authorize?client_id={YOUR_CLIEND_ID}&scope=zaikio.person.r&redirect_uri={YOUR_REDIRECT_URL}&state={SECURE_TOKEN_FOR_CURRENT_PERSON}
 ```
 
 If the person is now redirected back to the `YOUR_REDIRECT_URL`, they have created a Zaikio account or logged in with an existing one. It is also possible to prefill the person's data in this request, if he/she registers newly. [Read our detailed API Reference](/api/directory/oauth.html#/OAuth/get_authorize).
@@ -43,7 +43,7 @@ This procedure also allows the user to use an account with, for example, another
 
 Claiming of organizations works in the same way as described in step 2.
 
-Here you only have to consider who should do the claiming, usually the owner of the organization should do it. In the above request the scope must be replaced by `Org.directory.organization.r`.
+Here you only have to consider who should do the claiming, usually the owner of the organization should do it. In the above request the scope must be replaced by `Org.zaikio.organization.r`.
 
 We recommend that only persons who have already migrated can claim organizations. This ensures that at least the owner has the correct access.
 

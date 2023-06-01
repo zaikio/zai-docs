@@ -87,7 +87,7 @@ The `authorization_pending` and `slow_down` error codes define particularly uniq
   "access_token": "749ceefd1f7909a1773501e0bc57d5b2",
   "refresh_token": "be4ae927cf49466293049c993ad911b2",
   "token_type": "bearer",
-  "scope": "directory.person.read",
+  "scope": "zaikio.person.read",
   "audiences": ["directory"],
   "expires_in": "2019-12-03T08:57:35.958Z",
   "bearer": {
@@ -99,7 +99,7 @@ The `authorization_pending` and `slow_down` error codes define particularly uniq
 
 ## Your device starts making API calls, such as querying the Zaikio Hub API for user information
 
-In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Zaikio Hub V1 REST API at `GET https://hub.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. In order to gain access to the following information, you must have asked for authorisation for the `directory.person.read` scope.
+In order to retrieve information about the current user (like email address, name and organisation memberships) you need to query the Zaikio Hub V1 REST API at `GET https://hub.zaikio.com/api/v1/person`. Please note that contrary to the token exchange response, the API only responds with JSON. In order to gain access to the following information, you must have asked for authorisation for the `zaikio.person.read` scope.
 
 To authenticate against the API the `Authorization` header must be set to
 

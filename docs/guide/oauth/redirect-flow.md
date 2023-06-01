@@ -71,7 +71,7 @@ Depending on the HTTP `Accept` header send with your request, the response will 
   "access_token": "749ceefd1f7909a1773501e0bc57d5b2",
   "refresh_token": "be4ae927cf49466293049c993ad911b2",
   "token_type": "bearer",
-  "scope": "directory.person.read",
+  "scope": "zaikio.person.read",
   "audiences": ["directory"],
   "expires_in": "2019-12-03T08:57:35.958Z",
   "bearer": {
@@ -91,7 +91,7 @@ Depending on the HTTP `Accept` header send with your request, the response will 
    <access_token>749ceefd1f7909a1773501e0bc57d5b2</access_token>
    <refresh_token>be4ae927cf49466293049c993ad911b2</refresh_token>
    <token_type>bearer</token_type>
-   <scope>directory.person.read</scope>
+   <scope>zaikio.person.read</scope>
    <audiences>directory</audiences>
    <expires_in>2019-12-03T08:57:35.958Z</expires_in>
    <bearer>

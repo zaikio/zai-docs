@@ -161,7 +161,7 @@ Using [simple-oauth2](https://github.com/lelylan/simple-oauth2)
 res.redirect(
   OAUTH_CLIENT.authorizeURL({
     redirect_uri: process.env.HUB_OAUTH_REDIRECT_URL, // https://myapp.com/oauth/zaikio/callback
-    scope: "directory.person.r",
+    scope: "zaikio.person.r",
   })
 );
 ```
@@ -174,7 +174,7 @@ Using [oauth2](https://github.com/oauth-xx/oauth2)
 ```rb
 redirect_to oauth_client.auth_code.authorize_url(
   redirect_uri: ENV["HUB_OAUTH_REDIRECT_URL"], # https://myapp.com/oauth/zaikio/callback
-  scope: "directory.person.r"
+  scope: "zaikio.person.r"
 )
 ```
 :::
@@ -183,7 +183,7 @@ redirect_to oauth_client.auth_code.authorize_url(
 The generated URL will look like this:
 
 ```
-https://hub.sandbox.zaikio.com/oauth/authorize?client_id={ZAIKIO_CLIENT_ID}&redirect_uri=https://myapp.com/oauth/zaikio/callback&scope=directory.person.r
+https://hub.sandbox.zaikio.com/oauth/authorize?client_id={ZAIKIO_CLIENT_ID}&redirect_uri=https://myapp.com/oauth/zaikio/callback&scope=zaikio.person.r
 ```
 
 
@@ -245,7 +245,7 @@ When performed the response will look like:
   "access_token": "749ceefd1f7909a1773501e0bc57d5b2",
   "refresh_token": "be4ae927cf49466293049c993ad911b2",
   "token_type": "bearer",
-  "scope": "directory.person.r",
+  "scope": "zaikio.person.r",
   "audiences": ["myapp"],
   "expires_in": "2019-12-03T08:57:35.958Z",
   "bearer": {

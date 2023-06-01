@@ -18,7 +18,7 @@ sidebar: auto
   </div>
 </div>
 
-With the Zaikio access token you obtained in the previous step, we can now get more information about the users, as we have passed the scope `directory.person.r` and the permission was granted.
+With the Zaikio access token you obtained in the previous step, we can now get more information about the users, as we have passed the scope `zaikio.person.r` and the permission was granted.
 
 <div class="u-clearfix"></div>
 
