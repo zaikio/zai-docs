@@ -90,6 +90,52 @@
               ]
             },
             {
+              path: '/integration/',
+              title: 'Integration Guide',
+              type: 'group',
+              children: [
+                {
+                  path: '/integration/exploring-the-api',
+                  title: 'Exploring the API',
+                  children: []
+                },
+                {
+                  path: '/integration/api-components',
+                  title: 'Components of the API',
+                  children: []
+                },
+                {
+                  path: '/integration/internal-projects',
+                  title: 'Internal Projects',
+                  children: []
+                },
+                {
+                  path: '/integration/native-apps',
+                  title: 'Native Applications',
+                  children: []
+                },
+                {
+                  path: '/integration/single-tenant-apps',
+                  title: 'Single tenant applications',
+                  children: []
+                },                {
+                  path: '/integration/multi-tenant-apps',
+                  title: 'Multi-tenant applications',
+                  children: []
+                },
+                {
+                  path: '/integration/devices',
+                  title: 'Device integrations',
+                  children: []
+                },
+                {
+                  path: '/integration/open-source-and-sdks',
+                  title: 'Available SDKs and Packages',
+                  children: []
+                }
+              ]
+            },
+            {
               path: '/changelog/',
               title: 'Changelog',
               type: 'group',

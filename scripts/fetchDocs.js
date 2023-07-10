@@ -235,10 +235,10 @@ const AVAILABLE_APPS = {
   vault: 'https://vault.zaikio.com',
   procurement_suppliers: 'https://procurement.zaikio.com/suppliers_v1',
   procurement_consumers: 'https://procurement.zaikio.com/consumers',
-  procurement_connect: 'https://procurement-connect.zaikio.com',
   warehouse: 'https://warehouse.keyline.app',
 };
 
 asyncForEach(Object.keys(AVAILABLE_APPS), async (app) => {
+  console.log(`Processing ${app}`);
   await new AppDocs(app, AVAILABLE_APPS[app]).create();
 });

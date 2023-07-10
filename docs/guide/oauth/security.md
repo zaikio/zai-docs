@@ -12,9 +12,9 @@ You can also find an official list of [detailed OAuth 2.0 Security Best Practice
 
 Please make sure that you implemented all listed best practices.
 
-We distinguish between two types of clients in OAuth: confidential and unconfidential.
+We distinguish between two types of clients in OAuth: confidential and public.
 
-Unconfidential clients are all applications that do not have a dedicated backend. This includes native apps such as mobile apps, desktop apps, and on-premise apps, as well as all frontend web clients. If you are unsure whether your app is confidential or unconfidential, please contact us. This distinction is very important and has security implications.
+public clients are all applications that do not have a dedicated backend. This includes native apps such as mobile apps, desktop apps, and on-premise apps, as well as all frontend web clients. If you are unsure whether your app is confidential or public, please contact us. This distinction is very important and has security implications.
 
 ### General
 
@@ -25,7 +25,7 @@ Unconfidential clients are all applications that do not have a dedicated backend
 - **Allow user to revoke access tokens in your app**
   Especially when creating long-living **Refresh tokens**, it is important that you give the user the possibility an easy option to revoke an access token. A best practice is to revoke the access token on **logout**.
 
-### Frontend web clients & native clients (unconfidential)
+### Frontend web clients & native clients (public)
 
 - **Implement [PKCE](
 https://docs.zaikio.com/guide/oauth/redirect-flow.html#pkce) (redirect flow)**
