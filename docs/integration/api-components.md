@@ -22,7 +22,7 @@ Once the basics have been covered, it's worth looking at the kinds of things you
 
 ## Topics
 
-| Concept | Description | Scopes | Links |
+| Concept | Description | Scopes | Link |
 | --- | --- | --- | --- |
 | Estimation | Providing ideas for how expensive a Job would be to produce and how to produce it | `mission_control.estimates.rw` | [details](/api/mission_control/guides/api-topics/estimation) |
 | Orders | Metadata about the transaction that one or more jobs might belong to. | `mission_control.orders.rw` | [details](/api/mission_control/guides/api-topics/business) |
