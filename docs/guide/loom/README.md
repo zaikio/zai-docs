@@ -13,12 +13,13 @@ Read more about:
 
   - [Posting events](./posting-events.html)
   - [Receiving events](./receiving-events.html)
+  - [Using websockets](./websockets.html)
 
 ## Design Goals
 
 Loom follows an **at least once** approach. Once an event was received Loom will try hard to deliver this event to each subscriber at least once. To increase reliability senders might want to implement a queue that can buffer events in case of connection issues. Subscribers must be able to handle duplicate messages and implement idempotency.
 
-An **order** of message **is not guaranteed** when pushing to webhooks. Subscribers should not rely on a specific order and need to handle situations in which events arrive out of the band.
+The **order** of messages **is not guaranteed** when pushing to webhooks. Subscribers should not rely on a specific order and need to handle situations in which events arrive out of the band.
 
 The system is **scoped by applications**. It transfers messages between systems, not between tenants on those systems nor between specific `Organizations` or `Persons`.
 

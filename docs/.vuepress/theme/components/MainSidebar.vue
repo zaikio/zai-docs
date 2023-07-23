@@ -173,6 +173,11 @@
                       path: '/guide/loom/posting-events',
                       title: 'Posting events',
                       children: []
+                    },
+                    {
+                      path: '/guide/loom/websockets',
+                      title: 'Using Websockets',
+                      children: []
                     }
                   ]
                 },
