@@ -1,8 +1,8 @@
-const fetch = require('node-fetch');
-const fs = require('fs');
-const path = require('path');
-const $RefParser = require('json-schema-ref-parser');
-const yaml = require('js-yaml');
+const fetch = require("node-fetch");
+const fs = require("fs");
+const path = require("path");
+const $RefParser = require("json-schema-ref-parser");
+const yaml = require("js-yaml");
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -18,8 +18,8 @@ function parameterize(str) {
   return str
     .trim()
     .toLowerCase()
-    .replace(/[^a-zA-Z0-9 -]/, '')
-    .replace(/\s/g, '-');
+    .replace(/[^a-zA-Z0-9 -]/, "")
+    .replace(/\s/g, "-");
 }
 
 function swaggerFile(title, folder, fileName) {
@@ -32,8 +32,8 @@ editLink: false
 
 <div class="api-content">
 <a target="_blank" href="/api/${folder}/${fileName.replace(
-    '.yml',
-    '.json'
+    ".yml",
+    ".json"
   )}" class="api-download">Download .json</a>
 
 <ClientOnly><ApiDocWrapper src="api/${folder}/${fileName}"></ApiDocWrapper></ClientOnly>
@@ -64,7 +64,7 @@ class AppDocs {
   }
 
   getFullUrl(url) {
-    if (url.startsWith('https:')) {
+    if (url.startsWith("https:")) {
       return url;
     } else {
       return `${this.url}${url}`;
@@ -94,7 +94,7 @@ class AppDocs {
       const buffer = await fetch(this.getFullUrl(path)).then((res) =>
         res.buffer()
       );
-      const assetPath = path.replace('/docs/guides', '');
+      const assetPath = path.replace("/docs/guides", "");
 
       saveFile(`${folder}${assetPath}`, buffer);
     });
@@ -148,34 +148,34 @@ class AppDocs {
           manifest.references[referenceName].url ||
           manifest.references[referenceName];
         const resolveMethod =
-          manifest.references[referenceName].resolveMethod || 'dereference';
+          manifest.references[referenceName].resolveMethod || "dereference";
 
         const content = await fetch(this.getFullUrl(url)).then((res) =>
           res.text()
         );
-        const fileName = url.split('/').pop();
+        const fileName = url.split("/").pop();
 
-        if (url.includes('.yml')) {
+        if (url.includes(".yml")) {
           const parser = new $RefParser();
           await parser[resolveMethod](this.getFullUrl(url)).then((schema) => {
             saveFile(`${this.publicFolder}/${fileName}`, yaml.dump(schema));
             saveFile(`${this.folder}/${fileName}`, yaml.dump(schema));
             saveFile(
-              `${this.publicFolder}/${fileName.replace('.yml', '.json')}`,
+              `${this.publicFolder}/${fileName.replace(".yml", ".json")}`,
               JSON.stringify(schema, null, 2)
             );
             saveFile(
-              `${this.folder}/${fileName.replace('.yml', '.md')}`,
+              `${this.folder}/${fileName.replace(".yml", ".md")}`,
               swaggerFile(referenceName, this.name, fileName)
             );
             references[referenceName] = `${
               this.relativeFolder
-            }/${fileName.replace('.yml', '')}`;
+            }/${fileName.replace(".yml", "")}`;
           });
         } else {
           saveFile(`${this.folder}/${fileName}`, content);
           references[referenceName] = `${this.relativeFolder}/${fileName
-            .split('.')
+            .split(".")
             .shift()}`;
         }
       }
@@ -230,12 +230,12 @@ class AppDocs {
 }
 
 const AVAILABLE_APPS = {
-  directory: 'https://hub.zaikio.com',
-  mission_control: 'https://mc.zaikio.com',
-  vault: 'https://vault.zaikio.com',
-  procurement_suppliers: 'https://procurement.zaikio.com/suppliers_v1',
-  procurement_consumers: 'https://procurement.zaikio.com/consumers',
-  warehouse: 'https://warehouse.keyline.app',
+  directory: "https://hub.zaikio.com",
+  mission_control: "https://mc.zaikio.com",
+  vault: "https://vault.zaikio.com",
+  procurement_suppliers: "https://procurement.zaikio.com/suppliers_v1",
+  procurement_consumers: "https://procurement.zaikio.com/consumers",
+  warehouse: "https://warehouse.keyline.app",
 };
 
 asyncForEach(Object.keys(AVAILABLE_APPS), async (app) => {
