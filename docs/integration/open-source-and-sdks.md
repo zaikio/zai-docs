@@ -1,2 +1,0 @@
-# Available building blocks
-

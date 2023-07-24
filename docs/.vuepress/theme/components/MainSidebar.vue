@@ -100,37 +100,28 @@
                   children: []
                 },
                 {
-                  path: '/integration/api-components',
-                  title: 'Components of the API',
+                  path: '/integration/private-apps',
+                  title: 'Private Apps',
                   children: []
                 },
                 {
-                  path: '/integration/internal-projects',
-                  title: 'Internal Projects',
+                  path: '/integration/public-apps',
+                  title: 'Public Apps',
                   children: []
                 },
                 {
-                  path: '/integration/native-apps',
-                  title: 'Native Applications',
+                  path: '/integration/events-webhooks',
+                  title: 'Receiving events with Webhooks',
                   children: []
                 },
                 {
-                  path: '/integration/single-tenant-apps',
-                  title: 'Single tenant applications',
-                  children: []
-                },                {
-                  path: '/integration/multi-tenant-apps',
-                  title: 'Multi-tenant applications',
+                  path: '/integration/events-websockets',
+                  title: 'Receiving events with Websockets',
                   children: []
                 },
                 {
-                  path: '/integration/devices',
-                  title: 'Device integrations',
-                  children: []
-                },
-                {
-                  path: '/integration/open-source-and-sdks',
-                  title: 'Available SDKs and Packages',
+                  path: '/integration/example-payloads',
+                  title: 'Sample payloads for testing',
                   children: []
                 }
               ]
