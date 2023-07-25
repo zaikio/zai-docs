@@ -62,8 +62,9 @@ To return the details on your Organization
 }
 ```
 
-From here, the best place to go is [docs.zaikio.com](https://docs.zaikio.com) to explore the topics you are interested in.
-Using our [OpenAPI Documentation](https://spec.openapis.org/oas/v3.0.3) you can configure clients such as [PostMan](https://www.postman.com/),
-use [cURL](https://curl.se/), or a fully-fledged programming language to get started.
+From here, the best place to go is [the data platform documentation](https://docs.zaikio.com/api/data_platform/guides)
+to explore the topics you are interested in. Using our [OpenAPI Documentation](https://spec.openapis.org/oas/v3.0.3)
+you can configure clients such as [PostMan](https://www.postman.com/), use [cURL](https://curl.se/), or a
+fully-fledged programming language to get started.
 
-To discover which parts of our API might help you solve different problems, you might enjoy browsing our [API Components guide](/integration/api-components)
+<!-- To discover which parts of our API might help you solve different problems, you might enjoy browsing our [API Components guide](/integration/api-components) -->
