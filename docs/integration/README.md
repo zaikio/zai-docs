@@ -134,7 +134,7 @@ a _Personal Access Token_ to [explore our API available here](./exploring-the-ap
 requests in no time.
 
 You can find detailed conceptual information about our core platform [here](/guide/) or information about how the data platform
-models Jobs [here in the documentation](/api/platform/guides/). The individual Apps that make up our platform are all linked on the
+models Jobs [here in the documentation](/api/data_platform/guides/). The individual Apps that make up our platform are all linked on the
 sidebar on the left, and it's worth noting that everything we do runs on top of the platform in the same way that your own Apps
 will do - we are confident in it _because we use it ourselves_.
 
