@@ -23,9 +23,9 @@ to the live platform ready for use. In sandbox, we short-circuit all billing so 
 All integrations start with an App. The App is the core of authentication functionality and provide event handling. Regardless of
 whether it's a small internal project or a full-blown integration of a mammoth cloud platform, the App forms the heart of it.
 
-We offer two main kinds of App - `private` or `public`. A `private` App, as the name suggests, is intended for usage in an internal
+We offer two main kinds of apps - `private` or `public`. A `private` App, as the name suggests, is intended for usage in an internal
 project, or possibly as a test project where a small number of testers are manually invited to participate. Private Apps are never
-able to be listed on our [App Store](https://store.zaikio.com), nor can support end-user signup but are otherwise fully functional.
+able to be listed on our [App Store](https://store.zaikio.com), nor can they support end-user signup. Otherwise they are fully functional.
 
 Public Apps are designed for the majority of use-cases, especially where integrating an existing product such as an MIS or suite of
 machines, or when building green field offerings for many customers.
@@ -33,7 +33,7 @@ machines, or when building green field offerings for many customers.
 ### OAuth - asking permission, building trust with data
 
 All data in the Zaikio platform lives within an Organisation's secure Workspace. This is protected using a comprehensive, fine-grained
-permissions model, and consumed through industry-standard OAuth 2.0 control flows. When you have created your application, you then
+permissions model, and consumed through industry-standard OAuth 2.0 authentication flows. When you have created your application, you then
 use OAuth's standards-based flows to ask for access to an Organisation's data. Our platform handles these requests for you with
 minimal work on your side, as long as you use off-the-shelf tooling that is available in almost every known programming language, and
 even No-Code platforms.
@@ -142,7 +142,7 @@ will do - we are confident in it _because we use it ourselves_.
 
 Help. It's a small word but it makes all the difference. We know that sometimes you just need to check on something, and we pride
 ourselves on being available and responsive. The best place to get help is to join our
-[Zaikio Community slack channel](https://join.slack.com/t/zaikio-community/shared_invite/zt-1zubd0xar-bxO0MjznmwOkCfVANN2j1g) where
+[Zaikio Community slack space](https://join.slack.com/t/zaikio-community/shared_invite/zt-1zubd0xar-bxO0MjznmwOkCfVANN2j1g) where
 fellow members of our community and our own team hang out ready to assist. We'd really recommend asking questions in our new, public
 channel dedicated to Zaikio platform support _#zaikio-data-platform_. We fully know that sometimes a question feels a bit obvious,
 or maybe touches on some more sensitive ideas - that's fine, just send a message on the channel and one of our team will engage with
