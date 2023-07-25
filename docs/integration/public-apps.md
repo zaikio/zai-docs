@@ -108,7 +108,6 @@ Apps can authenticate against your API and build on top of your functionality. A
 subscribed to many events from the Zaikio platform, but also wanted external App vendors to be able to create audit entries.
 
 The "Provided OAuth scopes" menu option allows you to set these up.
-<!-- and we have a [case study](./case-studies/auditface.html) that discusses the concepts in more depth. -->
 ![providing an oauth scope - adding](./provide-oauth-scope-adding.png)
 It's important to add sensible names and descriptions to add those integrating with your App.
 ![providing an oauth scope - success](./provide-oauth-scope-success.png)

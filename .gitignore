@@ -11,3 +11,4 @@ docs/.vuepress/public/api/**/*.json
 docs/.vuepress/apps/*.json
 .nova/
 .tool-versions
+tmp/

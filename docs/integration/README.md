@@ -138,14 +138,6 @@ models Jobs [here in the documentation](/api/platform/guides/). The individual A
 sidebar on the left, and it's worth noting that everything we do runs on top of the platform in the same way that your own Apps
 will do - we are confident in it _because we use it ourselves_.
 
-<!-- ## Advanced features
-
-### Add-ons build ecosystems
-
-Many companies in the industry build a number of products - groups of preflight tools, different types of post-production machines etc.
-We offer the concept of an _add-on_ that allows you to build complex topographies of complimentary applications in a similar manner.
-A good use case would be that of ACME Inc. [Read the case-study](./case-studies/acme-inc-ecosystem.html). -->
-
 ## Getting Help
 
 Help. It's a small word but it makes all the difference. We know that sometimes you just need to check on something, and we pride

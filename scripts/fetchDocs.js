@@ -231,7 +231,8 @@ class AppDocs {
 
 const AVAILABLE_APPS = {
   directory: "https://hub.zaikio.com",
-  mission_control: "https://mc.zaikio.com",
+  data_platform: "https://data.zaikio.com/zaikio",
+  mission_control: "https://mc.zaikio.com/mission_control",
   vault: "https://vault.zaikio.com",
   procurement_suppliers: "https://procurement.zaikio.com/suppliers_v1",
   procurement_consumers: "https://procurement.zaikio.com/consumers",
