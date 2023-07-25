@@ -1,6 +1,6 @@
 ---
 title: "[IMPORTANT] Mission Control and Data Platform split"
-date: 2023-06-26 08:00:00
+date: 2023-07-25 18:00:00
 type: post
 changelog: true
 components:
