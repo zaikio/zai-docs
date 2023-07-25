@@ -120,9 +120,9 @@ of the project you are working on, and follow the links to relevant documentatio
 | --- | --- | --- | --- | --- |
 | Internal Project - no user interface | [Private](./private-apps.html) | confidential | [Client Credentials](/guide/oauth/client-credentials.html) | [webhooks](./events-webhooks.html) or [websockets](./events-websockets.html) |
 | Internal Project - with user interface | [Private](./private-apps.html) | confidential | [Redirect Flow](/guide/oauth/redirect-flow.html) | [webhooks](./events-webhooks.html) or [websockets](./events-websockets.html) |
-| Native Application - Windows/Mac/iOS/Android | [Public](./public-apps.html) | public | [Redirect Flow with PKCE](http://localhost:8080/guide/oauth/redirect-flow.html#pkce) | [websockets](./events-websockets.html) |
-| On-Premise server-based App | [Public](./public-apps.html) | public | [Redirect Flow with PKCE](http://localhost:8080/guide/oauth/redirect-flow.html#pkce) | [websockets](./events-websockets.html) |
-| One-install-per-client hosted App | [Public](./public-apps.html) | public | [Redirect Flow with PKCE](http://localhost:8080/guide/oauth/redirect-flow.html#pkce) | [webhooks](./events-webhooks.html) or [websockets](./events-websockets.html) |
+| Native Application - Windows/Mac/iOS/Android | [Public](./public-apps.html) | public | [Redirect Flow with PKCE](/guide/oauth/redirect-flow.html#pkce) | [websockets](./events-websockets.html) |
+| On-Premise server-based App | [Public](./public-apps.html) | public | [Redirect Flow with PKCE](/guide/oauth/redirect-flow.html#pkce) | [websockets](./events-websockets.html) |
+| One-install-per-client hosted App | [Public](./public-apps.html) | public | [Redirect Flow with PKCE](/guide/oauth/redirect-flow.html#pkce) | [webhooks](./events-webhooks.html) or [websockets](./events-websockets.html) |
 | Multi-tenant App | [Public](./public-apps.html) | confidential | [Redirect Flow](/guide/oauth/redirect-flow.html) | [webhooks](./events-websockets.html) |
 | Device | [Public](./public-apps.html) | public | [Device Flow](/guide/oauth/device-flow.html) | [websockets](./events-websockets.html) |
 
