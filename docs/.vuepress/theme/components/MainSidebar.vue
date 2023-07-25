@@ -90,6 +90,43 @@
               ]
             },
             {
+              path: '/integration/',
+              title: 'Integration Guide',
+              type: 'group',
+              children: [
+                {
+                  path: '/integration/exploring-the-api',
+                  title: 'Exploring the API',
+                  children: []
+                },
+                {
+                  path: '/integration/private-apps',
+                  title: 'Private Apps',
+                  children: []
+                },
+                {
+                  path: '/integration/public-apps',
+                  title: 'Public Apps',
+                  children: []
+                },
+                {
+                  path: '/integration/events-webhooks',
+                  title: 'Receiving events with Webhooks',
+                  children: []
+                },
+                {
+                  path: '/integration/events-websockets',
+                  title: 'Receiving events with Websockets',
+                  children: []
+                },
+                {
+                  path: '/integration/example-payloads',
+                  title: 'Sample payloads for testing',
+                  children: []
+                }
+              ]
+            },
+            {
               path: '/changelog/',
               title: 'Changelog',
               type: 'group',

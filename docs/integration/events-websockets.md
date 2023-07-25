@@ -1,18 +1,18 @@
-# Websocket Delivery
+# Receiving Events with Websockets
 
 [[toc]]
 
 ## Introduction
 
-Our websocket delivery mechanism is designed to solve three problematic use-cases
-where webhook delivery is impractical or impossible.
+Our Websocket delivery mechanism is designed to solve three problematic use-cases
+where Webhook delivery is impractical or impossible.
 
-1. The receiving system has no web-server element and thus cannot receive webhooks
+1. The receiving system has no web-server element and thus cannot receive Webhooks
 2. The receiving system exists behind a firewall and configuring access is impractical
 3. The receiving system operates across many machines with no single central place
-  to receive webhooks
+  to receive Webhooks
 
-In this situation, we recommend you to implement our websocket event delivery API.
+In this situation, we recommend you to implement our Websocket event delivery API.
 This prevents the need for inbound requests to penetrate a firewall, and allows apps
 to still receive live event notifications to act upon.
 
@@ -22,13 +22,13 @@ has a full-featured Websocket client available - some examples are listed on the
 
 ## Flow
 
-![flow for websockets](../../integration/websocket-flow.png)
+![flow for websockets](./websocket-flow.png)
 
 ## Connecting
 
 Firstly, you will need to setup an application on the Zaikio platform. All of our event
 deliveries are scoped to an App. You can find help in doing this in
-[our documentation](https://docs.zaikio.com/getting-started/create-app.html)
+[our documentation](/integration/)
 
 This will give you access to our HTTP based endpoints for event retrieval, such as this websocket endpoint.
 
@@ -70,7 +70,8 @@ Once you have received this, you can send a subscription request.
 ```
 
 The list of events you wish to subscribe to must already have been defined in your app's event subscriptions. These
-can be configured through [the Hub](https://hub.sandbox.zaikio.com).
+can be configured through [the Hub](https://hub.sandbox.zaikio.com) and instructions are
+[available here](/integration/public-apps.html#events-subscribing-to-changes).
 
 ![example event subscriptions](./event-subscriptions.png)
 
