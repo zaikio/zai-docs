@@ -120,8 +120,18 @@
                   children: []
                 },
                 {
-                  path: '/integration/example-payloads',
-                  title: 'Sample payloads for testing',
+                  path: '/integration/data-model-guide/jobs',
+                  title: 'Data Model - Jobs',
+                  children: []
+                },
+                {
+                  path: '/integration/data-model-guide/files',
+                  title: 'Data Model - Files',
+                  children: []
+                },
+                {
+                  path: '/integration/data-model-guide/production-strategies',
+                  title: 'Data Model - Production Strategies',
                   children: []
                 }
               ]
