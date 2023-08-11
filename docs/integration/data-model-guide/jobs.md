@@ -18,16 +18,18 @@ outcome_event:
 - `zaikio.job_added`
 ```
 
-### Documentation format
-
-To make life simple for end users, we're providing these examples as JS code samples. This allows
-things such as identifiers to be dynamically generated.
-
-We are using `log` as a helper function here, which is implemented as follows:
+::: tip Documentation format
+To make commenting on the payload simple, we're providing these examples as JS code samples. This allows
+things such as identifiers to be dynamically generated as well as comments being allowed. We are using `log`
+as a helper function here, which is implemented as follows.
 
 ```js
 const log = (data) => console.log(JSON.stringify(data, undefined, 2));
 ```
+
+At simplest you can copy the above into a file with your chosen payload and then just run the file using:
+`node my-file.js`
+:::
 
 ## Minimal Payload
 
