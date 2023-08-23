@@ -8,3 +8,5 @@ any are clearly not of interest for your desired use cases.
     the whole of the platform, and most people should begin here.
 2. [Files](/integration/data-model-guide/files.html) covers how to create, access and
     interact with files on the platform.
+3. [Orders](/integration/data-model-guide/orders.html) covers how to create orders.
+4. [Production Strategies](/integration/data-model-guide/production-strategies.html) covers how to set up Production Strategies for impositioning.

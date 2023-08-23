@@ -120,18 +120,8 @@
                   children: []
                 },
                 {
-                  path: '/integration/data-model-guide/jobs',
-                  title: 'Data Model - Jobs',
-                  children: []
-                },
-                {
-                  path: '/integration/data-model-guide/files',
-                  title: 'Data Model - Files',
-                  children: []
-                },
-                {
-                  path: '/integration/data-model-guide/production-strategies',
-                  title: 'Data Model - Production Strategies',
+                  path: '/integration/data-model-guide/',
+                  title: 'Data Model Guide',
                   children: []
                 }
               ]

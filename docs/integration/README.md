@@ -133,10 +133,13 @@ little impatient and just want to explore, you _could_ short-circuit some of thi
 a _Personal Access Token_ to [explore our API available here](./exploring-the-api.html) and that will get you setup and sending
 requests in no time.
 
-You can find detailed conceptual information about our core platform [here](/guide/) or information about how the data platform
-models Jobs [here in the documentation](/api/data_platform/guides/). The individual Apps that make up our platform are all linked on the
-sidebar on the left, and it's worth noting that everything we do runs on top of the platform in the same way that your own Apps
-will do - we are confident in it _because we use it ourselves_.
+Introductory Guides are [available here](/integration/data-model-guide/) or
+you can find detailed conceptual information about our core platform [here](/guide/). Conceptual information - for example about how the data platform
+models Jobs [here in the documentation](/api/data_platform/guides/) can be found
+in the individual API package guides Apps that make up our platform. These are all
+linked on the sidebar on the left, and it's worth noting that everything we do
+runs on top of the platform in the same way that your own Apps will do - we are
+confident in it _because we use it ourselves_.
 
 ## Getting Help
 
