@@ -16,6 +16,10 @@
 
 The preferred and easiest way to receive events is via webhook. An Application must configure a Webhook URL to be able to subscribe to events in the Zaikio Hub.
 
+<div style="clear:both;"></div>
+
+## Webhooks
+
 Loom will distribute incoming events to the subscriber by `HTTP POST` of a JSON document to the provided Webhook URL. To increase security these `POST` **requests are signed** by Loom with a shared secret that is only known to Loom and the receiving application. This lets the receiver to verify that the message was forwarded by Loom and that it wasn't altered.
 
 Loom **retries delivery multiple times** for several hours when webhooks don't respond in time with an HTTP status code in the 2xx range. _In time_ means within 1 second, after that the request will time out.
@@ -30,31 +34,37 @@ curl --request POST \
      --data '{"id":"62abcc92-e17e-4db0-b78e-13369251474b","name":"accounting.invoice_paid","subject":"Org/2b271d51-e447-4a16-810f-5abdc596700a","timestamp":"2019-11-26T10:58:09.664Z","version":"1.0","payload":{"invoice_number":"b1a2eaa9-11ba-4cab-8580-40f091e37742"},"link":"https://account.example.tld/api/v1/payments/1234","received_at":"2019-11-26T10:58:09.664Z"}'
 ```
 
-### Webhook URL
+### Adding Webhook URLs
 
-One webhook URL can be stored per app. All events to which the app is subscribed are posted to this webhook URL. We recommend to use only a secure URL with TLS.
+You can either specify on webhook URL per app or use our **new** webhooks API. The new API allows you to add multiple webhook URLs per app and filter the delieveries by subject (Organization & Person). This is useful if you want to receive events for a specific subject in a different system than for another subject.
 
-In some cases it can make sense to use a dynamic webhook URL per subject. In this case it is allowed to use the following webhook URL:
+#### Setup single Webhook URL
 
+Navigate to [Zaikio](https://hub.sandbox.zaikio.com) choose your organization and go to `Developer > Apps`. Click on the app you want to configure and go to `Event Subscriptions`. There you can add a single webhook URL and read the `shared_secret` you will need to verify each incoming event.
+
+Make sure that you subscribe to all events you want to listen to.
+
+#### Creating multiple Webhook URLs
+
+Currently the new webhooks feature is API only.
+
+You will first need to generate a [Private Access Token](/guide/try-api/#step-1-generate-private-access-token) for your vendor organization. You will need to require the `zaikio.webhooks.rw` scope.
+
+Then you can create a webhook for your app via `POST`:
+
+```bash
+curl --request POST \
+     --url https://loom.sandbox.zaikio.com/webhooks \
+     --header 'Content-Type: application/json'
+     --header 'Authorization: Bearer <Vendor Private Access Token>'
+     --data '{"app_id":"<technical_app_name>","description":"staging","subscribers":["Org/2b271d51-e447-4a16-810f-5abdc596700a"],"url":"https://api.app.example.tld/webhooks/abc"}'
 ```
-https://www.example.com/webhook/:subject
-```
 
-which will result in:
+The response will include a shared secret that you will need to [verify each incoming event](#verify-the-signature). You can find more details about the API in our [API specification](/api/directory/loom.html#/Webhooks/post_webhooks).
 
-```
-https://www.example.com/webhook/Org:c453ca95-5850-5d9a-b93e-050334c951af
-```
+You can also instead of setting each subscriber add a `["*"]` to subscribe to all subjects that the app is connected to.
 
-Where `c453ca95-5850-5d9a-b93e-050334c951af` is the UUID of the organisation that is the subject.
-
-The webhook URL can be changed in the app configuration as well as when editing the app in the [Zaikio Hub](https://hub.sandbox.zaikio.com).
-
-## Best Practices
-
-To allow event delivery in a high frequency webhooks must accept events fast and their response time must be under 1 second. This means that it is not feasable to accept events and process them synchronously in the request. Instead it is recommended to just store incoming events into an internal queue and **process the events asynchonously** in a background process.
-
-Keep in mind that the **order of messages is not guaranteed**. The subscriber must be able to handle messages that are delivered out of band or multiple times. It is recommended to check if a record has already newer changes before applying updates from an event or to implement idempotency. A simple approach might be to always pull a full copy of the latest state of an object when there was an event and not relying on partial updates.
+### Verify the signature
 
 The receiver must **verify the signature** to increase security. Loom generates a `SHA256 HMAC` signature using the `shared_secret` of the subscriber application and the request body. Find the shared secret in the Zaikio Hub and the signature in a custom `X-Loom-Signature` request header.
 
@@ -70,6 +80,13 @@ ActiveSupport::SecurityUtils.secure_compare(
   signature
 )
 ```
+
+### Best Practices
+
+To allow event delivery in a high frequency webhooks must accept events fast and their response time must be under 1 second. This means that it is not feasable to accept events and process them synchronously in the request. Instead it is recommended to just store incoming events into an internal queue and **process the events asynchonously** in a background process.
+
+Keep in mind that the **order of messages is not guaranteed**. The subscriber must be able to handle messages that are delivered out of band or multiple times. It is recommended to check if a record has already newer changes before applying updates from an event or to implement idempotency. A simple approach might be to always pull a full copy of the latest state of an object when there was an event and not relying on partial updates.
+
 
 ## Pulling events
 
